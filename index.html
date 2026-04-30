@@ -24,10 +24,10 @@ html,body{width:100%;height:100%;overflow:hidden;background:radial-gradient(circ
 body.ready #stage,body.ready #nav,body.ready #hint{opacity:1}
 #canvas{position:absolute;width:13200px;height:11800px;transform-origin:0 0;will-change:transform;transition:transform 1.15s cubic-bezier(.76,0,.24,1)}
 #canvas::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(232,238,248,.012) 1px,transparent 1px),linear-gradient(90deg,rgba(232,238,248,.012) 1px,transparent 1px);background-size:120px 120px}
-.orbit{position:absolute;left:5660px;top:4860px;transform:translate(-50%,-50%);border-radius:50%;border:1px solid rgba(143,183,255,.12);pointer-events:none;opacity:.48}
+.orbit{position:absolute;left:6200px;top:5000px;transform:translate(-50%,-50%);border-radius:50%;border:1px solid rgba(143,183,255,.12);pointer-events:none;opacity:.48}
 .orbit.o1{width:3200px;height:3200px;animation:orbitPulse 7s ease-in-out infinite}
 .orbit.o2{width:4300px;height:4300px;animation:orbitPulse 9s ease-in-out infinite reverse}
-.logo{position:absolute;left:5660px;top:4860px;transform:translate(-50%,-50%);width:3100px;text-align:center;opacity:.88;pointer-events:none;z-index:2}
+.logo{position:absolute;left:6200px;top:5000px;transform:translate(-50%,-50%);width:3100px;text-align:center;opacity:.88;pointer-events:none;z-index:2}
 .logo-icon{width:700px;height:700px;margin:0 auto 58px;border-radius:50%;border:2px solid rgba(143,183,255,.34);display:grid;place-items:center;background:radial-gradient(circle,rgba(79,140,255,.16),rgba(8,17,31,.12) 58%,transparent 70%);box-shadow:0 0 120px rgba(79,140,255,.16)}
 .logo-icon svg{width:530px;height:530px;overflow:visible}
 .logo-mark{font-family:"DM Mono",monospace;font-size:44px;letter-spacing:.34em;text-transform:uppercase;color:var(--blue2);margin-bottom:24px}
@@ -96,7 +96,7 @@ body.ready #stage,body.ready #nav,body.ready #hint{opacity:1}
 #hint{position:fixed;top:18px;right:22px;z-index:20}
 body.overview .logo{opacity:.96}
 body.overview .orbit{opacity:.7}
-body.overview .node{box-shadow:none}
+body.overview .node{box-shadow:none;opacity:.68}
 
 .node.active .kicker,.node.active .hdl,.node.active .sub,.node.active .card,.node.active .step,.node.active .table,.node.active .image-frame,.node.active .tag,.node.active .lvlm-output{animation:riseIn .58s ease both}
 .node.active .card:nth-child(2),.node.active .step:nth-child(3),.node.active .image-frame:nth-child(2){animation-delay:.08s}
@@ -125,21 +125,21 @@ body.overview .node{box-shadow:none}
   *,*::before,*::after{animation:none!important;transition:none!important}
 }
 
-#n1{left:2920px;top:240px}
-#n2{left:5100px;top:460px}
-#n3{left:7040px;top:1900px}
-#n4{left:5100px;top:3500px}
-#n5{left:2920px;top:5100px}
-#n6{left:740px;top:3500px}
-#n7{left:740px;top:1900px}
-#n8{left:740px;top:460px}
-#n9{left:740px;top:6700px}
-#n10{left:2920px;top:6700px}
-#n11{left:5100px;top:6700px}
-#n12{left:7040px;top:6700px}
-#n13{left:8980px;top:5100px}
-#n14{left:8980px;top:3500px}
-#n15{left:8980px;top:1900px}
+#n1{left:5320px;top:430px}
+#n2{left:7272px;top:782px}
+#n3{left:8887px;top:1770px}
+#n4{left:9885px;top:3229px}
+#n5{left:10094px;top:4903px}
+#n6{left:9477px;top:6505px}
+#n7{left:8142px;top:7757px}
+#n8{left:6318px;top:8442px}
+#n9{left:4322px;top:8442px}
+#n10{left:2498px;top:7757px}
+#n11{left:1163px;top:6505px}
+#n12{left:546px;top:4903px}
+#n13{left:755px;top:3229px}
+#n14{left:1753px;top:1770px}
+#n15{left:3368px;top:782px}
 #n6 .si,#n7 .si,#n8 .si{padding:42px 54px}
 #n6 .kicker,#n7 .kicker,#n8 .kicker{font-size:21px;margin-bottom:14px}
 #n6 .grid2,#n7 .grid2,#n8 .grid2{gap:30px!important}
@@ -497,9 +497,9 @@ const canvas=document.getElementById("canvas");
 const NW=1760, NH=1040, TOTAL=15, SAFE_TOP=24, SAFE_BOTTOM=128;
 const IDS=[null,"n1","n2","n3","n4","n5","n6","n7","n8","n9","n10","n11","n12","n13","n14","n15"];
 const CENTERS=[
-  {cx:5450,cy:4520},{cx:3800,cy:760},{cx:5980,cy:980},{cx:7920,cy:2420},{cx:5980,cy:4020},{cx:3800,cy:5620},
-  {cx:1620,cy:4020},{cx:1620,cy:2420},{cx:1620,cy:980},{cx:1620,cy:7220},{cx:3800,cy:7220},{cx:5980,cy:7220},
-  {cx:7920,cy:7220},{cx:9860,cy:5620},{cx:9860,cy:4020},{cx:9860,cy:2420}
+  {cx:6200,cy:5000},{cx:6200,cy:950},{cx:8152,cy:1302},{cx:9767,cy:2290},{cx:10765,cy:3749},{cx:10974,cy:5423},
+  {cx:10357,cy:7025},{cx:9022,cy:8277},{cx:7198,cy:8962},{cx:5202,cy:8962},{cx:3378,cy:8277},{cx:2043,cy:7025},
+  {cx:1426,cy:5423},{cx:1635,cy:3749},{cx:2633,cy:2290},{cx:4248,cy:1302}
 ];
 let VIEWS=[], cur=0;
 
@@ -508,7 +508,7 @@ function rebuildViews(){
   viewportH=window.innerHeight;
   const safeH=Math.max(360,viewportH-SAFE_TOP-SAFE_BOTTOM);
   const slideScale=Math.min(viewportW*.975/NW,safeH*.975/NH);
-  const overviewScale=Math.min(viewportW*.88/10800,safeH*.84/7800);
+  const overviewScale=Math.min(viewportW*.9/12200,safeH*.84/9600);
   VIEWS=CENTERS.map((v,i)=>({...v,z:i===0?overviewScale:slideScale}));
 }
 function go(idx,animate=true){
