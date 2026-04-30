@@ -24,15 +24,15 @@ html,body{width:100%;height:100%;overflow:hidden;background:radial-gradient(circ
 body.ready #stage,body.ready #nav,body.ready #hint{opacity:1}
 #canvas{position:absolute;width:13200px;height:11800px;transform-origin:0 0;will-change:transform;transition:transform 1.15s cubic-bezier(.76,0,.24,1)}
 #canvas::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(232,238,248,.012) 1px,transparent 1px),linear-gradient(90deg,rgba(232,238,248,.012) 1px,transparent 1px);background-size:120px 120px}
-.orbit{position:absolute;left:6270px;top:5400px;transform:translate(-50%,-50%);border-radius:50%;border:1px solid rgba(143,183,255,.12);pointer-events:none;opacity:.48}
-.orbit.o1{width:4600px;height:4600px}
-.orbit.o2{width:6000px;height:6000px}
-.logo{position:absolute;left:6270px;top:5400px;transform:translate(-50%,-50%);width:5000px;text-align:center;opacity:.9;pointer-events:none;z-index:2}
-.logo-icon{width:980px;height:980px;margin:0 auto 76px;border-radius:50%;border:2px solid rgba(143,183,255,.34);display:grid;place-items:center;background:radial-gradient(circle,rgba(79,140,255,.16),rgba(8,17,31,.12) 58%,transparent 70%);box-shadow:0 0 140px rgba(79,140,255,.18)}
-.logo-icon svg{width:760px;height:760px;overflow:visible}
-.logo-mark{font-family:"DM Mono",monospace;font-size:58px;letter-spacing:.34em;text-transform:uppercase;color:var(--blue2);margin-bottom:34px}
-.logo-word{font-size:480px;letter-spacing:-.06em;line-height:.8;color:rgba(232,238,248,.98);text-shadow:0 0 80px rgba(79,140,255,.18)}
-.logo-sub{font-family:"Instrument Serif",serif;font-style:italic;font-size:112px;color:rgba(232,238,248,.76);margin-top:44px}
+.orbit{position:absolute;left:5660px;top:4860px;transform:translate(-50%,-50%);border-radius:50%;border:1px solid rgba(143,183,255,.12);pointer-events:none;opacity:.48}
+.orbit.o1{width:3200px;height:3200px;animation:orbitPulse 7s ease-in-out infinite}
+.orbit.o2{width:4300px;height:4300px;animation:orbitPulse 9s ease-in-out infinite reverse}
+.logo{position:absolute;left:5660px;top:4860px;transform:translate(-50%,-50%);width:3100px;text-align:center;opacity:.88;pointer-events:none;z-index:2}
+.logo-icon{width:700px;height:700px;margin:0 auto 58px;border-radius:50%;border:2px solid rgba(143,183,255,.34);display:grid;place-items:center;background:radial-gradient(circle,rgba(79,140,255,.16),rgba(8,17,31,.12) 58%,transparent 70%);box-shadow:0 0 120px rgba(79,140,255,.16)}
+.logo-icon svg{width:530px;height:530px;overflow:visible}
+.logo-mark{font-family:"DM Mono",monospace;font-size:44px;letter-spacing:.34em;text-transform:uppercase;color:var(--blue2);margin-bottom:24px}
+.logo-word{font-size:310px;letter-spacing:-.06em;line-height:.8;color:rgba(232,238,248,.97);text-shadow:0 0 70px rgba(79,140,255,.16)}
+.logo-sub{font-family:"Instrument Serif",serif;font-style:italic;font-size:78px;color:rgba(232,238,248,.74);margin-top:34px}
 .node{position:absolute;width:1760px;height:1040px;overflow:hidden;background:rgba(8,17,31,.97);border:1px solid rgba(232,238,248,.08);box-shadow:0 30px 120px rgba(0,0,0,.18);contain:layout paint}
 .node.active{border-color:rgba(79,140,255,.5);box-shadow:0 0 140px rgba(79,140,255,.09)}
 .si{height:100%;display:flex;flex-direction:column;justify-content:center;padding:64px 78px;position:relative}
@@ -98,6 +98,13 @@ body.overview .logo{opacity:.96}
 body.overview .orbit{opacity:.7}
 body.overview .node{box-shadow:none}
 
+.node.active .kicker,.node.active .hdl,.node.active .sub,.node.active .card,.node.active .step,.node.active .table,.node.active .image-frame,.node.active .tag,.node.active .lvlm-output{animation:riseIn .58s ease both}
+.node.active .card:nth-child(2),.node.active .step:nth-child(3),.node.active .image-frame:nth-child(2){animation-delay:.08s}
+.node.active .card:nth-child(3),.node.active .step:nth-child(4){animation-delay:.14s}
+.node.active .card:nth-child(4),.node.active .step:nth-child(5){animation-delay:.2s}
+.node.active .stat{animation:softPop .62s ease both}
+.node.active .bar{animation:growBar .8s ease both;transform-origin:bottom}
+#n5.active .phase-label,#n5.active .ucsi-badge{animation:fadeIn .5s ease both}
 #n1.active .grid4>div{animation:statDrift 3.2s ease-in-out infinite}
 #n1.active .grid4>div:nth-child(2){animation-delay:.25s}
 #n1.active .grid4>div:nth-child(3){animation-delay:.5s}
@@ -105,8 +112,12 @@ body.overview .node{box-shadow:none}
 #n2.active .stat{animation:softPop .62s ease both,numberGlow 2.4s ease-in-out .7s infinite}
 #n4.active .step.hot::after{content:"";position:absolute;left:-35%;top:0;width:30%;height:100%;background:linear-gradient(90deg,transparent,rgba(143,183,255,.22),transparent);animation:flowPass 2.6s ease-in-out infinite}
 #n7.active .bar::after{animation:barGlint 2.2s ease-in-out infinite}
+@keyframes riseIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
 @keyframes softPop{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:scale(1)}}
+@keyframes growBar{from{transform:scaleY(.08);opacity:.35}to{transform:scaleY(1);opacity:1}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
 @keyframes barGlint{0%{transform:translateX(-100%);opacity:0}35%{opacity:1}100%{transform:translateX(100%);opacity:0}}
+@keyframes orbitPulse{0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.34}50%{transform:translate(-50%,-50%) scale(1.025);opacity:.68}}
 @keyframes statDrift{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 @keyframes numberGlow{0%,100%{text-shadow:0 0 0 rgba(79,140,255,0)}50%{text-shadow:0 0 36px rgba(79,140,255,.35)}}
 @keyframes flowPass{0%{transform:translateX(0);opacity:0}25%{opacity:1}100%{transform:translateX(460%);opacity:0}}
@@ -114,21 +125,21 @@ body.overview .node{box-shadow:none}
   *,*::before,*::after{animation:none!important;transition:none!important}
 }
 
-#n1{left:800px;top:500px}
-#n2{left:3100px;top:260px}
-#n3{left:7620px;top:260px}
-#n4{left:9980px;top:500px}
-#n5{left:10020px;top:6000px}
-#n6{left:7620px;top:8000px}
-#n7{left:3100px;top:8000px}
-#n8{left:800px;top:6000px}
-#n9{left:800px;top:2500px}
-#n10{left:800px;top:3900px}
-#n11{left:800px;top:7700px}
-#n12{left:9980px;top:2500px}
-#n13{left:9980px;top:3900px}
-#n14{left:9980px;top:7500px}
-#n15{left:5350px;top:9500px}
+#n1{left:2920px;top:240px}
+#n2{left:5100px;top:460px}
+#n3{left:7040px;top:1900px}
+#n4{left:5100px;top:3500px}
+#n5{left:2920px;top:5100px}
+#n6{left:740px;top:3500px}
+#n7{left:740px;top:1900px}
+#n8{left:740px;top:460px}
+#n9{left:740px;top:6700px}
+#n10{left:2920px;top:6700px}
+#n11{left:5100px;top:6700px}
+#n12{left:7040px;top:6700px}
+#n13{left:8980px;top:5100px}
+#n14{left:8980px;top:3500px}
+#n15{left:8980px;top:1900px}
 #n6 .si,#n7 .si,#n8 .si{padding:42px 54px}
 #n6 .kicker,#n7 .kicker,#n8 .kicker{font-size:21px;margin-bottom:14px}
 #n6 .grid2,#n7 .grid2,#n8 .grid2{gap:30px!important}
@@ -486,9 +497,9 @@ const canvas=document.getElementById("canvas");
 const NW=1760, NH=1040, TOTAL=15, SAFE_TOP=24, SAFE_BOTTOM=128;
 const IDS=[null,"n1","n2","n3","n4","n5","n6","n7","n8","n9","n10","n11","n12","n13","n14","n15"];
 const CENTERS=[
-  {cx:6270,cy:5400},{cx:1680,cy:1020},{cx:3980,cy:780},{cx:8500,cy:780},{cx:10860,cy:1020},{cx:10900,cy:6520},
-  {cx:8500,cy:8520},{cx:3980,cy:8520},{cx:1680,cy:6520},{cx:1680,cy:3020},{cx:1680,cy:4420},{cx:1680,cy:8220},
-  {cx:10860,cy:3020},{cx:10860,cy:4420},{cx:10860,cy:8020},{cx:6230,cy:10020}
+  {cx:5450,cy:4520},{cx:3800,cy:760},{cx:5980,cy:980},{cx:7920,cy:2420},{cx:5980,cy:4020},{cx:3800,cy:5620},
+  {cx:1620,cy:4020},{cx:1620,cy:2420},{cx:1620,cy:980},{cx:1620,cy:7220},{cx:3800,cy:7220},{cx:5980,cy:7220},
+  {cx:7920,cy:7220},{cx:9860,cy:5620},{cx:9860,cy:4020},{cx:9860,cy:2420}
 ];
 let VIEWS=[], cur=0;
 
@@ -497,7 +508,7 @@ function rebuildViews(){
   viewportH=window.innerHeight;
   const safeH=Math.max(360,viewportH-SAFE_TOP-SAFE_BOTTOM);
   const slideScale=Math.min(viewportW*.975/NW,safeH*.975/NH);
-  const overviewScale=Math.min(viewportW*.9/12200,safeH*.84/10500);
+  const overviewScale=Math.min(viewportW*.88/10800,safeH*.84/7800);
   VIEWS=CENTERS.map((v,i)=>({...v,z:i===0?overviewScale:slideScale}));
 }
 function go(idx,animate=true){
