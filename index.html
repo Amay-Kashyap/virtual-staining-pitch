@@ -25,14 +25,14 @@ body.ready #stage,body.ready #nav,body.ready #hint{opacity:1}
 #canvas{position:absolute;width:13200px;height:11800px;transform-origin:0 0;will-change:transform;transition:transform 1.15s cubic-bezier(.76,0,.24,1)}
 #canvas::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(232,238,248,.012) 1px,transparent 1px),linear-gradient(90deg,rgba(232,238,248,.012) 1px,transparent 1px);background-size:120px 120px}
 .orbit{position:absolute;left:6200px;top:5000px;transform:translate(-50%,-50%);border-radius:50%;border:1px solid rgba(143,183,255,.12);pointer-events:none;opacity:.48}
-.orbit.o1{width:3200px;height:3200px;animation:orbitPulse 7s ease-in-out infinite}
-.orbit.o2{width:4300px;height:4300px;animation:orbitPulse 9s ease-in-out infinite reverse}
-.logo{position:absolute;left:6200px;top:5000px;transform:translate(-50%,-50%);width:3100px;text-align:center;opacity:.88;pointer-events:none;z-index:2}
-.logo-icon{width:700px;height:700px;margin:0 auto 58px;border-radius:50%;border:2px solid rgba(143,183,255,.34);display:grid;place-items:center;background:radial-gradient(circle,rgba(79,140,255,.16),rgba(8,17,31,.12) 58%,transparent 70%);box-shadow:0 0 120px rgba(79,140,255,.16)}
-.logo-icon svg{width:530px;height:530px;overflow:visible}
-.logo-mark{font-family:"DM Mono",monospace;font-size:44px;letter-spacing:.34em;text-transform:uppercase;color:var(--blue2);margin-bottom:24px}
-.logo-word{font-size:310px;letter-spacing:-.06em;line-height:.8;color:rgba(232,238,248,.97);text-shadow:0 0 70px rgba(79,140,255,.16)}
-.logo-sub{font-family:"Instrument Serif",serif;font-style:italic;font-size:78px;color:rgba(232,238,248,.74);margin-top:34px}
+.orbit.o1{width:3900px;height:3900px;animation:orbitPulse 7s ease-in-out infinite}
+.orbit.o2{width:5200px;height:5200px;animation:orbitPulse 9s ease-in-out infinite reverse}
+.logo{position:absolute;left:6200px;top:5000px;transform:translate(-50%,-50%);width:4200px;text-align:center;opacity:.9;pointer-events:none;z-index:2}
+.logo-icon{width:900px;height:900px;margin:0 auto 72px;border-radius:50%;border:2px solid rgba(143,183,255,.36);display:grid;place-items:center;background:radial-gradient(circle,rgba(79,140,255,.17),rgba(8,17,31,.12) 58%,transparent 70%);box-shadow:0 0 150px rgba(79,140,255,.18)}
+.logo-icon svg{width:680px;height:680px;overflow:visible}
+.logo-mark{font-family:"DM Mono",monospace;font-size:54px;letter-spacing:.34em;text-transform:uppercase;color:var(--blue2);margin-bottom:32px}
+.logo-word{font-size:420px;letter-spacing:-.06em;line-height:.8;color:rgba(232,238,248,.98);text-shadow:0 0 84px rgba(79,140,255,.18)}
+.logo-sub{font-family:"Instrument Serif",serif;font-style:italic;font-size:98px;color:rgba(232,238,248,.76);margin-top:42px}
 .node{position:absolute;width:1760px;height:1040px;overflow:hidden;background:rgba(8,17,31,.97);border:1px solid rgba(232,238,248,.08);box-shadow:0 30px 120px rgba(0,0,0,.18);contain:layout paint}
 .node.active{border-color:rgba(79,140,255,.5);box-shadow:0 0 140px rgba(79,140,255,.09)}
 .si{height:100%;display:flex;flex-direction:column;justify-content:center;padding:64px 78px;position:relative}
@@ -508,7 +508,7 @@ function rebuildViews(){
   viewportH=window.innerHeight;
   const safeH=Math.max(360,viewportH-SAFE_TOP-SAFE_BOTTOM);
   const slideScale=Math.min(viewportW*.975/NW,safeH*.975/NH);
-  const overviewScale=Math.min(viewportW*.9/12200,safeH*.84/9600);
+  const overviewScale=Math.min(viewportW*.98/11600,safeH*.92/9400);
   VIEWS=CENTERS.map((v,i)=>({...v,z:i===0?overviewScale:slideScale}));
 }
 function go(idx,animate=true){
