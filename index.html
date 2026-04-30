@@ -24,12 +24,21 @@ html,body{width:100%;height:100%;overflow:hidden;background:radial-gradient(circ
 body.ready #stage,body.ready #nav,body.ready #hint{opacity:1}
 #canvas{position:absolute;width:13200px;height:11800px;transform-origin:0 0;will-change:transform;transition:transform 1.15s cubic-bezier(.76,0,.24,1)}
 #canvas::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(232,238,248,.012) 1px,transparent 1px),linear-gradient(90deg,rgba(232,238,248,.012) 1px,transparent 1px);background-size:120px 120px}
-.logo{position:absolute;left:5660px;top:4860px;transform:translate(-50%,-50%);width:2100px;text-align:center;opacity:.18;pointer-events:none}
+.orbit{position:absolute;left:5660px;top:4860px;transform:translate(-50%,-50%);border-radius:50%;border:1px solid rgba(143,183,255,.12);pointer-events:none;opacity:.48}
+.orbit.o1{width:2500px;height:2500px;animation:orbitPulse 7s ease-in-out infinite}
+.orbit.o2{width:3300px;height:3300px;animation:orbitPulse 9s ease-in-out infinite reverse}
+.logo{position:absolute;left:5660px;top:4860px;transform:translate(-50%,-50%);width:2300px;text-align:center;opacity:.82;pointer-events:none;z-index:2}
+.logo-icon{width:520px;height:520px;margin:0 auto 44px;border-radius:50%;border:2px solid rgba(143,183,255,.32);display:grid;place-items:center;background:radial-gradient(circle,rgba(79,140,255,.14),rgba(8,17,31,.12) 58%,transparent 70%);box-shadow:0 0 90px rgba(79,140,255,.12)}
+.logo-icon svg{width:390px;height:390px;overflow:visible}
 .logo-mark{font-family:"DM Mono",monospace;font-size:34px;letter-spacing:.34em;text-transform:uppercase;color:var(--blue2);margin-bottom:18px}
-.logo-word{font-size:180px;letter-spacing:-.06em;line-height:.8;color:rgba(232,238,248,.92)}
-.logo-sub{font-family:"Instrument Serif",serif;font-style:italic;font-size:48px;color:rgba(232,238,248,.62);margin-top:20px}
+.logo-word{font-size:212px;letter-spacing:-.06em;line-height:.8;color:rgba(232,238,248,.96);text-shadow:0 0 50px rgba(79,140,255,.12)}
+.logo-sub{font-family:"Instrument Serif",serif;font-style:italic;font-size:58px;color:rgba(232,238,248,.72);margin-top:24px}
 .node{position:absolute;width:1760px;height:1040px;overflow:hidden;background:rgba(8,17,31,.97);border:1px solid rgba(232,238,248,.08);box-shadow:0 30px 120px rgba(0,0,0,.18);contain:layout paint}
+.node::before{content:"";position:absolute;left:-24%;top:0;width:18%;height:100%;pointer-events:none;background:linear-gradient(90deg,transparent,rgba(79,140,255,.1),transparent);opacity:0}
+.node::after{content:"";position:absolute;left:0;right:0;top:0;height:2px;pointer-events:none;background:linear-gradient(90deg,transparent,rgba(143,183,255,.95),transparent);opacity:0}
 .node.active{border-color:rgba(79,140,255,.5);box-shadow:0 0 140px rgba(79,140,255,.09)}
+.node.active::before{opacity:1;animation:sweepPanel 4.8s ease-in-out infinite}
+.node.active::after{opacity:.72;animation:scanLine 3.8s linear infinite}
 .si{height:100%;display:flex;flex-direction:column;justify-content:center;padding:64px 78px;position:relative}
 .kicker{font-family:"DM Mono",monospace;font-size:18px;letter-spacing:.14em;text-transform:uppercase;color:var(--steel);margin-bottom:18px}
 .hdl{font-family:"Instrument Serif",serif;font-weight:400;letter-spacing:-.025em;line-height:.93;color:var(--paper)}
@@ -71,7 +80,8 @@ body.ready #stage,body.ready #nav,body.ready #hint{opacity:1}
 .step-name{font-size:27px;line-height:1.05}
 .step-copy{font-family:"Instrument Serif",serif;font-style:italic;font-size:22px;line-height:1.34;color:var(--muted)}
 .step-tag{font-family:"DM Mono",monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue2);text-align:right}
-.bar{height:28px;background:linear-gradient(90deg,rgba(79,140,255,.75),rgba(143,183,255,.45));border:1px solid rgba(143,183,255,.45)}
+.bar{height:28px;background:linear-gradient(90deg,rgba(79,140,255,.75),rgba(143,183,255,.45));border:1px solid rgba(143,183,255,.45);overflow:hidden}
+.bar::after{content:"";display:block;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.22),transparent);animation:barGlint 2.2s ease-in-out infinite}
 .mini{font-family:"DM Mono",monospace;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);line-height:1.35}
 .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .profile{display:flex;gap:18px;min-height:238px;padding:20px;background:rgba(232,238,248,.028);border:1px solid var(--line);border-radius:6px}
@@ -88,7 +98,8 @@ body.ready #stage,body.ready #nav,body.ready #hint{opacity:1}
 #ctr,#hint{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint)}
 #ctr{min-width:56px;text-align:center}
 #hint{position:fixed;top:18px;right:22px;z-index:20}
-body.overview .logo{opacity:.38}
+body.overview .logo{opacity:.96}
+body.overview .orbit{opacity:.7}
 body.overview .node{box-shadow:none}
 
 .node.active .kicker,.node.active .hdl,.node.active .sub,.node.active .card,.node.active .step,.node.active .table,.node.active .image-frame,.node.active .tag,.node.active .lvlm-output{animation:riseIn .58s ease both}
@@ -104,6 +115,10 @@ body.overview .node{box-shadow:none}
 @keyframes growBar{from{transform:scaleY(.08);opacity:.35}to{transform:scaleY(1);opacity:1}}
 @keyframes slowZoom{from{transform:scale(1.035)}to{transform:scale(1)}}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes sweepPanel{0%,18%{transform:translateX(0);opacity:0}35%{opacity:1}68%{opacity:.45}100%{transform:translateX(700%);opacity:0}}
+@keyframes scanLine{from{transform:translateY(0)}to{transform:translateY(1040px)}}
+@keyframes barGlint{0%{transform:translateX(-100%);opacity:0}35%{opacity:1}100%{transform:translateX(100%);opacity:0}}
+@keyframes orbitPulse{0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.34}50%{transform:translate(-50%,-50%) scale(1.025);opacity:.68}}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
 }
@@ -123,11 +138,48 @@ body.overview .node{box-shadow:none}
 #n13{left:8980px;top:5100px}
 #n14{left:8980px;top:3500px}
 #n15{left:8980px;top:1900px}
+#n6 .si,#n7 .si,#n8 .si{padding:42px 54px}
+#n6 .kicker,#n7 .kicker,#n8 .kicker{font-size:21px;margin-bottom:14px}
+#n6 .grid2,#n7 .grid2,#n8 .grid2{gap:30px!important}
+#n6 .stat{font-size:245px!important}
+#n6 .sub{font-size:32px!important;line-height:1.48}
+#n6 .card h3,#n7 .card h3,#n8 .card h3{font-size:35px}
+#n6 .card p,#n7 .card p,#n8 .card p{font-size:29px;line-height:1.48}
+#n6 .metric-row{padding:17px 18px;gap:16px}
+#n6 .metric-h{font-size:16px}
+#n6 .metric-c{font-size:28px;line-height:1.33}
+#n7 .stat{font-size:220px!important}
+#n7 .hdl{font-size:66px!important}
+#n7 .metric-row{padding:18px 18px;gap:16px}
+#n7 .metric-h{font-size:16px}
+#n7 .metric-c{font-size:29px;line-height:1.32}
+#n7 .mini{font-size:16px}
+#n8 .hdl{font-size:94px!important}
+#n8 .sub{font-size:34px!important;line-height:1.46}
+#n8 .tag{font-size:15px;padding:9px 12px}
+#n8 .stat{font-size:132px!important}
 </style>
 </head>
 <body>
 <div id="stage"><div id="canvas">
-  <div class="logo"><div class="logo-mark">AI Surgical Pathology</div><div class="logo-word">SwiftDx</div><div class="logo-sub">virtual staining + margin intelligence</div></div>
+  <div class="orbit o1"></div>
+  <div class="orbit o2"></div>
+  <div class="logo">
+    <div class="logo-icon">
+      <svg viewBox="0 0 420 420" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="210" cy="210" r="155" stroke="rgba(143,183,255,.48)" stroke-width="3"/>
+        <circle cx="210" cy="210" r="92" stroke="rgba(79,140,255,.78)" stroke-width="4"/>
+        <path d="M118 210h184" stroke="rgba(232,238,248,.84)" stroke-width="8" stroke-linecap="round"/>
+        <path d="M210 118v184" stroke="rgba(232,238,248,.84)" stroke-width="8" stroke-linecap="round"/>
+        <path d="M132 274c38-50 76-50 114 0s76 50 114 0" stroke="rgba(79,140,255,.92)" stroke-width="9" stroke-linecap="round"/>
+        <path d="M132 146c38 50 76 50 114 0s76-50 114 0" stroke="rgba(143,183,255,.72)" stroke-width="9" stroke-linecap="round"/>
+        <circle cx="210" cy="210" r="24" fill="rgba(79,140,255,.95)"/>
+      </svg>
+    </div>
+    <div class="logo-mark">AI Surgical Pathology</div>
+    <div class="logo-word">SwiftDx</div>
+    <div class="logo-sub">virtual staining + margin intelligence</div>
+  </div>
 
   <section class="node" id="n1">
     <div class="si">
@@ -319,16 +371,17 @@ body.overview .node{box-shadow:none}
   </section>
 
   <section class="node" id="n9">
-    <div class="hook">Q&A 1 | Technical depth</div>
-    <div class="si">
-      <div class="kicker">Architecture detail</div>
-      <h2 class="hdl" style="font-size:76px;margin-bottom:24px">Two models.<br><em>One clinical report.</em></h2>
-      <div class="grid3">
-        <div class="card"><h3>Virtual staining</h3><p>Pix2Pix/U-Net style image translation, about 31.4M parameters, generating stain-like output around 180 ms per 512px patch.</p></div>
-        <div class="card"><h3>LVLM margin model</h3><p>MONAI ResUnit with a vision-language head, about 86M parameters, focused on tumour-healthy boundary reasoning.</p></div>
-        <div class="card"><h3>Output</h3><p>Clear / close / involved label, confidence, evidence patches, heatmap overlay, and structured JSON for clinical workflow integration.</p></div>
+    <div class="hook">Slide 9 | Team</div>
+    <div class="si" style="padding:52px 58px">
+      <div class="kicker">Team</div>
+      <div class="team-grid">
+        <div class="profile"><img src="Amay.jpg" alt="Amay Kashyap"><div><div class="profile-role">Healthcare AI</div><div class="profile-name">Amay Kashyap</div><p>Clinical workflow, product story, and healthcare AI strategy.</p></div></div>
+        <div class="profile"><img src="Mukund MV.jpg" alt="Mukund"><div><div class="profile-role">AI Engineering</div><div class="profile-name">Mukund MV</div><p>Model development, deployment, and impact-driven engineering.</p></div></div>
+        <div class="profile"><img src="Dr. Yin.jpeg" alt="Dr. Yin"><div><div class="profile-role">Epidemiology AI</div><div class="profile-name">Dr. Yin</div><p>Clinical study design, validation, and AI integration.</p></div></div>
+        <div class="profile"><img src="Dr. Duane.jpg" alt="Dr. Duane"><div><div class="profile-role">Clinical Adoption</div><div class="profile-name">Dr. Duane</div><p>Telemedicine founder with clinical adoption and workflow expertise.</p></div></div>
+        <div class="profile"><img src="Isabel.jpeg" alt="Isabel"><div><div class="profile-role">Legal Regulatory</div><div class="profile-name">Isabel</div><p>MDA/FDA strategy, SaMD compliance, and IP support.</p></div></div>
+        <div class="profile"><img src="Yun Yin.png" alt="Yun Yin"><div><div class="profile-role">Biology</div><div class="profile-name">Yun Yin</div><p>Theranostics, precision medicine, and clinical biology.</p></div></div>
       </div>
-      <div class="card" style="margin-top:20px"><p>Illustrative console output: close margin likely at epithelial fold, confidence 0.91, supported by gland distortion, dense nuclei, and irregular interface across six patches.</p></div>
     </div>
   </section>
 
@@ -397,17 +450,16 @@ body.overview .node{box-shadow:none}
   </section>
 
   <section class="node" id="n14">
-    <div class="hook">Q&A 6 | Team</div>
-    <div class="si" style="padding:52px 58px">
-      <div class="kicker">Team</div>
-      <div class="team-grid">
-        <div class="profile"><img src="Amay.jpg" alt="Amay Kashyap"><div><div class="profile-role">Healthcare AI</div><div class="profile-name">Amay Kashyap</div><p>Clinical workflow, product story, and healthcare AI strategy.</p></div></div>
-        <div class="profile"><img src="Mukund MV.jpg" alt="Mukund"><div><div class="profile-role">AI Engineering</div><div class="profile-name">Mukund MV</div><p>Model development, deployment, and impact-driven engineering.</p></div></div>
-        <div class="profile"><img src="Dr. Yin.jpeg" alt="Dr. Yin"><div><div class="profile-role">Epidemiology AI</div><div class="profile-name">Dr. Yin</div><p>Clinical study design, validation, and AI integration.</p></div></div>
-        <div class="profile"><img src="Dr. Duane.jpg" alt="Dr. Duane"><div><div class="profile-role">Clinical Adoption</div><div class="profile-name">Dr. Duane</div><p>Telemedicine founder with clinical adoption and workflow expertise.</p></div></div>
-        <div class="profile"><img src="Isabel.jpeg" alt="Isabel"><div><div class="profile-role">Legal Regulatory</div><div class="profile-name">Isabel</div><p>MDA/FDA strategy, SaMD compliance, and IP support.</p></div></div>
-        <div class="profile"><img src="Yun Yin.png" alt="Yun Yin"><div><div class="profile-role">Biology</div><div class="profile-name">Yun Yin</div><p>Theranostics, precision medicine, and clinical biology.</p></div></div>
+    <div class="hook">Q&A 6 | Technical depth</div>
+    <div class="si">
+      <div class="kicker">Architecture detail</div>
+      <h2 class="hdl" style="font-size:76px;margin-bottom:24px">Two models.<br><em>One clinical report.</em></h2>
+      <div class="grid3">
+        <div class="card"><h3>Virtual staining</h3><p>Pix2Pix/U-Net style image translation, about 31.4M parameters, generating stain-like output around 180 ms per 512px patch.</p></div>
+        <div class="card"><h3>LVLM margin model</h3><p>MONAI ResUnit with a vision-language head, about 86M parameters, focused on tumour-healthy boundary reasoning.</p></div>
+        <div class="card"><h3>Output</h3><p>Clear / close / involved label, confidence, evidence patches, heatmap overlay, and structured JSON for clinical workflow integration.</p></div>
       </div>
+      <div class="card" style="margin-top:20px"><p>Illustrative console output: close margin likely at epithelial fold, confidence 0.91, supported by gland distortion, dense nuclei, and irregular interface across six patches.</p></div>
     </div>
   </section>
 
