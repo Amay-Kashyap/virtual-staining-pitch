@@ -10,8 +10,8 @@
   --ink:#08111f;
   --panel:#0c1626;
   --paper:#e8eef8;
-  --muted:rgba(232,238,248,.68);
-  --faint:rgba(232,238,248,.44);
+  --muted:rgba(232,238,248,.78);
+  --faint:rgba(232,238,248,.56);
   --line:rgba(232,238,248,.1);
   --blue:#4f8cff;
   --blue2:#8fb7ff;
@@ -31,31 +31,40 @@ body.ready #stage,body.ready #nav,body.ready #hint{opacity:1}
 .node{position:absolute;width:1760px;height:1040px;overflow:hidden;background:rgba(8,17,31,.97);border:1px solid rgba(232,238,248,.08);box-shadow:0 30px 120px rgba(0,0,0,.18);contain:layout paint}
 .node.active{border-color:rgba(79,140,255,.5);box-shadow:0 0 140px rgba(79,140,255,.09)}
 .si{height:100%;display:flex;flex-direction:column;justify-content:center;padding:64px 78px;position:relative}
-.kicker{font-family:"DM Mono",monospace;font-size:17px;letter-spacing:.2em;text-transform:uppercase;color:var(--steel);margin-bottom:18px}
+.kicker{font-family:"DM Mono",monospace;font-size:18px;letter-spacing:.14em;text-transform:uppercase;color:var(--steel);margin-bottom:18px}
 .hdl{font-family:"Instrument Serif",serif;font-weight:400;letter-spacing:-.025em;line-height:.93;color:var(--paper)}
 .hdl em{font-style:italic;color:var(--blue)}
-.sub{font-family:"Instrument Serif",serif;font-style:italic;font-size:28px;line-height:1.45;color:var(--muted)}
-.mono{font-family:"DM Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+.sub{font-family:"Instrument Serif",serif;font-style:italic;font-size:30px;line-height:1.5;color:var(--muted)}
+.mono{font-family:"DM Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
 .hook{position:absolute;top:20px;right:24px;font-family:"DM Mono",monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(143,183,255,.78);background:rgba(79,140,255,.08);border:1px solid rgba(79,140,255,.18);padding:6px 10px}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 .card{background:rgba(232,238,248,.028);border:1px solid var(--line);padding:22px;border-radius:6px}
 .card h3{font-size:30px;line-height:1.05;margin-bottom:10px}
-.card p{font-family:"Instrument Serif",serif;font-style:italic;font-size:24px;line-height:1.42;color:var(--muted)}
+.card p{font-family:"Instrument Serif",serif;font-style:italic;font-size:25px;line-height:1.48;color:var(--muted)}
 .stat{font-family:"Instrument Serif",serif;font-size:96px;line-height:.85;letter-spacing:-.04em;color:var(--paper)}
 .stat span{font-size:.42em;color:var(--blue)}
-.tag{display:inline-flex;align-items:center;justify-content:center;font-family:"DM Mono",monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue2);border:1px solid rgba(79,140,255,.28);background:rgba(79,140,255,.07);padding:6px 10px;border-radius:4px}
+.tag{display:inline-flex;align-items:center;justify-content:center;font-family:"DM Mono",monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--blue2);border:1px solid rgba(79,140,255,.28);background:rgba(79,140,255,.07);padding:6px 10px;border-radius:4px}
 .pillrow{display:flex;gap:12px;flex-wrap:wrap}
 .metric-row{display:grid;grid-template-columns:1.1fr .9fr 1.5fr;gap:14px;align-items:center;padding:13px 14px;border-top:1px solid var(--line)}
 .metric-row:first-child{border-top:none;background:rgba(232,238,248,.035)}
 .metric-h{font-family:"DM Mono",monospace;font-size:13px;letter-spacing:.13em;text-transform:uppercase;color:var(--steel)}
-.metric-c{font-family:"Instrument Serif",serif;font-style:italic;font-size:22px;line-height:1.28;color:var(--muted)}
+.metric-c{font-family:"Instrument Serif",serif;font-style:italic;font-size:23px;line-height:1.34;color:var(--muted)}
 .metric-c strong{font-style:normal;color:var(--paper)}
 .table{border:1px solid var(--line);background:rgba(232,238,248,.025);border-radius:6px;overflow:hidden}
 .image-frame{position:relative;overflow:hidden;border:1px solid rgba(232,238,248,.12);background:#0b1320;border-radius:6px}
 .image-frame img{width:100%;height:100%;object-fit:cover;display:block}
 .cap{position:absolute;left:12px;bottom:12px;font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(232,238,248,.9);background:rgba(6,16,29,.75);border:1px solid rgba(232,238,248,.08);padding:6px 8px;border-radius:4px}
+.phase-label{display:inline-flex;align-items:center;gap:10px;font-family:"DM Mono",monospace;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--paper);background:rgba(79,140,255,.12);border:1px solid rgba(79,140,255,.28);padding:8px 11px;border-radius:4px;margin-bottom:10px}
+.phase-label::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--blue);box-shadow:0 0 16px rgba(79,140,255,.8)}
+.ucsi-badge{position:absolute;top:18px;left:18px;z-index:2;font-family:"DM Mono",monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--paper);background:rgba(6,16,29,.78);border:1px solid rgba(143,183,255,.32);padding:8px 11px;border-radius:4px}
+.lvlm-output{background:rgba(6,16,29,.92);border:1px solid rgba(79,140,255,.28);border-radius:6px;padding:16px 18px;font-family:"DM Mono",monospace;min-height:208px}
+.lvlm-head{display:flex;align-items:center;gap:7px;margin-bottom:12px}
+.lvlm-head span{width:8px;height:8px;border-radius:50%;display:block}
+.lvlm-head span:nth-child(1){background:#7ea5ff}.lvlm-head span:nth-child(2){background:#93a4bf}.lvlm-head span:nth-child(3){background:#4f8cff}
+.lvlm-line{font-size:14px;line-height:1.58;letter-spacing:0;color:rgba(232,238,248,.82);text-transform:none}
+.lvlm-line strong{color:var(--paper)}
 .step{display:grid;grid-template-columns:42px 290px 1fr 120px;gap:16px;align-items:center;padding:15px 18px;margin-bottom:10px;border:1px solid var(--line);background:rgba(232,238,248,.025);border-radius:6px}
 .step.hot{border-color:rgba(79,140,255,.32);background:rgba(79,140,255,.07)}
 .step-n{font-family:"DM Mono",monospace;color:var(--faint);letter-spacing:.16em}
@@ -81,6 +90,23 @@ body.ready #stage,body.ready #nav,body.ready #hint{opacity:1}
 #hint{position:fixed;top:18px;right:22px;z-index:20}
 body.overview .logo{opacity:.38}
 body.overview .node{box-shadow:none}
+
+.node.active .kicker,.node.active .hdl,.node.active .sub,.node.active .card,.node.active .step,.node.active .table,.node.active .image-frame,.node.active .tag,.node.active .lvlm-output{animation:riseIn .58s ease both}
+.node.active .card:nth-child(2),.node.active .step:nth-child(3),.node.active .image-frame:nth-child(2){animation-delay:.08s}
+.node.active .card:nth-child(3),.node.active .step:nth-child(4){animation-delay:.14s}
+.node.active .card:nth-child(4),.node.active .step:nth-child(5){animation-delay:.2s}
+.node.active .stat{animation:softPop .62s ease both}
+.node.active .bar{animation:growBar .8s ease both;transform-origin:bottom}
+#n5.active .image-frame img{animation:slowZoom 5s ease both}
+#n5.active .phase-label,#n5.active .ucsi-badge{animation:fadeIn .5s ease both}
+@keyframes riseIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes softPop{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:scale(1)}}
+@keyframes growBar{from{transform:scaleY(.08);opacity:.35}to{transform:scaleY(1);opacity:1}}
+@keyframes slowZoom{from{transform:scale(1.035)}to{transform:scale(1)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
 
 #n1{left:2920px;top:240px}
 #n2{left:5100px;top:460px}
@@ -166,15 +192,43 @@ body.overview .node{box-shadow:none}
 
   <section class="node" id="n5">
     <div class="hook">Slide 5 | Images</div>
-    <div class="si" style="padding:52px">
-      <div class="kicker">Image evidence</div>
-      <h2 class="hdl" style="font-size:68px;margin-bottom:20px">Pre-stain to virtual stain.<br><em>Boundary in focus.</em></h2>
-      <div style="display:grid;grid-template-columns:1.05fr 1.05fr .9fr;gap:18px;height:650px">
-        <div class="image-frame"><img src="fig2.jpg" alt="Bright-field and fluorescent staining channels"><div class="cap">input | bright-field / pre-stain</div></div>
-        <div class="image-frame"><img src="fig4.jpg" alt="Bright-field input, fluorescent target, virtual stain output"><div class="cap">reference + model output</div></div>
-        <div style="display:grid;grid-template-rows:1fr 1fr;gap:18px">
-          <div class="image-frame"><img src="boundary-he.jpg" alt="Annotated H and E boundary image"><div class="cap">tumour boundary</div></div>
-          <div class="image-frame"><img src="boundary-grid.jpg" alt="Histology patch grid"><div class="cap">multi-patch cues</div></div>
+    <div class="si" style="padding:46px 52px">
+      <div class="kicker">Image evidence | captured at UCSI Hospital</div>
+      <h2 class="hdl" style="font-size:60px;margin-bottom:16px">Two-phase readout.<br><em>Stain first, margin second.</em></h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr .92fr;gap:16px;height:690px">
+        <div>
+          <div class="phase-label">Phase 1 | virtual staining input</div>
+          <div class="image-frame" style="height:626px">
+            <div class="ucsi-badge">captured at UCSI Hospital</div>
+            <img src="fig2.jpg" alt="Bright-field and fluorescent staining channels">
+            <div class="cap">pre-stain image | bright-field / fluorescent channels</div>
+          </div>
+        </div>
+        <div>
+          <div class="phase-label">Phase 1 | post-stain output</div>
+          <div class="image-frame" style="height:626px;border-color:rgba(79,140,255,.34)">
+            <img src="fig4.jpg" alt="Bright-field input, fluorescent target, virtual stain output">
+            <div class="cap">virtual stain output | reference + model result</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-rows:auto 1fr 1fr auto;gap:12px">
+          <div class="phase-label">Phase 2 | LVLM margin call</div>
+          <div class="image-frame">
+            <img src="boundary-he.jpg" alt="Annotated H and E boundary image">
+            <div class="cap">tumour / healthy boundary</div>
+          </div>
+          <div class="image-frame">
+            <img src="boundary-grid.jpg" alt="Histology patch grid">
+            <div class="cap">patch evidence for boundary reasoning</div>
+          </div>
+          <div class="lvlm-output">
+            <div class="lvlm-head"><span></span><span></span><span></span><div class="mini" style="letter-spacing:.08em;color:var(--steel)">LVLM console output</div></div>
+            <div class="lvlm-line">&gt; load margin_lvlm --arch monai-resunit-vl --params <strong>86M</strong></div>
+            <div class="lvlm-line">&gt; analyse boundary patches: <strong>6</strong></div>
+            <div class="lvlm-line">result: <strong>close margin likely</strong></div>
+            <div class="lvlm-line">confidence: <strong>0.91</strong> | label: <strong>close / review</strong></div>
+            <div class="lvlm-line">evidence: dense nuclei + irregular epithelial interface</div>
+          </div>
         </div>
       </div>
     </div>
