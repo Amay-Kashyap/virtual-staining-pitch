@@ -904,6 +904,66 @@ body.overview .node {
 }
 
 .star { color: var(--accent); letter-spacing: 2px; }
+
+/* Team Slide */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.team-card {
+  background: rgba(232, 238, 248, 0.028);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 14px;
+  min-height: 330px;
+  display: grid;
+  grid-template-columns: 132px 1fr;
+  gap: 16px;
+  align-items: center;
+}
+
+.team-photo {
+  width: 132px;
+  height: 172px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(143, 183, 255, 0.2);
+  background: rgba(232, 238, 248, 0.04);
+}
+
+.team-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.team-name {
+  font-size: 36px;
+  line-height: 1.02;
+  margin-bottom: 10px;
+  color: var(--paper);
+}
+
+.team-role {
+  font-family: "DM Mono", monospace;
+  font-size: 16px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--blue2);
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.team-copy {
+  font-family: "Instrument Serif", serif;
+  font-style: italic;
+  font-size: 24px;
+  line-height: 1.28;
+  color: var(--muted);
+}
 </style>
 </head>
 <body>
@@ -1387,39 +1447,57 @@ body.overview .node {
     <!-- SLIDE 11: Team -->
     <section class="node" id="n11">
       <div class="hook">Slide 11 | Team</div>
-      <div class="si" style="padding:52px 58px">
+      <div class="si" style="padding:46px 58px">
         <div class="kicker">World-class founders</div>
-        <h2 class="hdl" style="font-size:72px;margin-bottom:32px">Built for clinical impact.</h2>
-        <div class="grid3">
-          <div class="card" style="padding:24px">
-            <h3>Amay Kashyap</h3>
-            <div style="font-family:'DM Mono',monospace;font-size:13px;color:var(--blue2);text-transform:uppercase;margin:12px 0">Healthcare AI</div>
-            <p>Clinical workflow strategy and healthcare AI product development.</p>
+        <h2 class="hdl" style="font-size:66px;margin-bottom:22px">Built for clinical impact.</h2>
+        <div class="team-grid">
+          <div class="team-card">
+            <div class="team-photo"><img src="Amay.jpg" alt="Amay Kashyap"></div>
+            <div>
+              <h3 class="team-name">Amay Kashyap</h3>
+              <div class="team-role">Healthcare AI</div>
+              <div class="team-copy">Clinical workflow strategy and healthcare AI product development.</div>
+            </div>
           </div>
-          <div class="card" style="padding:24px">
-            <h3>Mukund MV</h3>
-            <div style="font-family:'DM Mono',monospace;font-size:13px;color:var(--blue2);text-transform:uppercase;margin:12px 0">AI Engineering</div>
-            <p>Model development, deployment architecture, and impact-driven engineering.</p>
+          <div class="team-card">
+            <div class="team-photo"><img src="Mukund MV.jpg" alt="Mukund MV"></div>
+            <div>
+              <h3 class="team-name">Mukund MV</h3>
+              <div class="team-role">AI Engineering</div>
+              <div class="team-copy">Model development, deployment architecture, and impact-driven engineering.</div>
+            </div>
           </div>
-          <div class="card" style="padding:24px">
-            <h3>Dr. Yin</h3>
-            <div style="font-family:'DM Mono',monospace;font-size:13px;color:var(--blue2);text-transform:uppercase;margin:12px 0">Epidemiology & AI</div>
-            <p>Clinical study design, validation protocols, and research integration.</p>
+          <div class="team-card">
+            <div class="team-photo"><img src="Dr. Yin.jpeg" alt="Dr. Yin"></div>
+            <div>
+              <h3 class="team-name">Dr. Yin</h3>
+              <div class="team-role">Epidemiology & AI</div>
+              <div class="team-copy">Clinical study design, validation protocols, and research integration.</div>
+            </div>
           </div>
-          <div class="card" style="padding:24px">
-            <h3>Dr. Duane</h3>
-            <div style="font-family:'DM Mono',monospace;font-size:13px;color:var(--blue2);text-transform:uppercase;margin:12px 0">Clinical Adoption</div>
-            <p>Telemedicine founder with deep clinical workflow and adoption expertise.</p>
+          <div class="team-card">
+            <div class="team-photo"><img src="Dr. Duane.jpg" alt="Dr. Duane"></div>
+            <div>
+              <h3 class="team-name">Dr. Duane</h3>
+              <div class="team-role">Clinical Adoption</div>
+              <div class="team-copy">Telemedicine founder with deep clinical workflow and adoption expertise.</div>
+            </div>
           </div>
-          <div class="card" style="padding:24px">
-            <h3>Isabel</h3>
-            <div style="font-family:'DM Mono',monospace;font-size:13px;color:var(--blue2);text-transform:uppercase;margin:12px 0">Legal & Regulatory</div>
-            <p>MDA/FDA SaMD strategy, compliance, and IP protection.</p>
+          <div class="team-card">
+            <div class="team-photo"><img src="Isabel.jpeg" alt="Isabel"></div>
+            <div>
+              <h3 class="team-name">Isabel</h3>
+              <div class="team-role">Legal & Regulatory</div>
+              <div class="team-copy">MDA/FDA SaMD strategy, compliance, and IP protection.</div>
+            </div>
           </div>
-          <div class="card" style="padding:24px">
-            <h3>Yun Yin</h3>
-            <div style="font-family:'DM Mono',monospace;font-size:13px;color:var(--blue2);text-transform:uppercase;margin:12px 0">Biology</div>
-            <p>Theranostics, precision medicine, and clinical biology expertise.</p>
+          <div class="team-card">
+            <div class="team-photo"><img src="Yun Yin.png" alt="Yun Yin"></div>
+            <div>
+              <h3 class="team-name">Yun Yin</h3>
+              <div class="team-role">Biology</div>
+              <div class="team-copy">Theranostics, precision medicine, and clinical biology expertise.</div>
+            </div>
           </div>
         </div>
       </div>
