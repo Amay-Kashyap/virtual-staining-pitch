@@ -409,16 +409,20 @@ body.ready #stage, body.ready #nav, body.ready #hint {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 22px;
+  align-items: stretch;
 }
 
 .loi-card {
   background: linear-gradient(135deg, rgba(177, 18, 38, 0.12), rgba(177, 18, 38, 0.04));
   border: 2px solid rgba(177, 18, 38, 0.28);
   border-radius: 12px;
-  padding: 32px 28px;
+  padding: 28px 24px;
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  min-height: 385px;
+  display: flex;
+  flex-direction: column;
 }
 
 .loi-card::before {
@@ -467,6 +471,60 @@ body.ready #stage, body.ready #nav, body.ready #hint {
 
 .loi-benefit:last-child {
   margin-bottom: 0;
+}
+
+.logo-stack {
+  display: grid;
+  gap: 12px;
+  margin: 18px 0 20px;
+}
+
+.partner-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 12px;
+  border: 1px solid rgba(232, 238, 248, 0.12);
+  background: rgba(232, 238, 248, 0.035);
+  border-radius: 8px;
+}
+
+.partner-logo img {
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+  flex: 0 0 auto;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.92);
+  padding: 6px;
+}
+
+.partner-name {
+  font-family: "Syne", sans-serif;
+  font-size: 17px;
+  line-height: 1.14;
+  color: var(--paper);
+}
+
+.partner-country {
+  font-family: "DM Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--steel);
+  margin-top: 5px;
+}
+
+.loi-count {
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid rgba(232, 238, 248, 0.09);
+  font-family: "DM Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(232, 238, 248, 0.58);
+  line-height: 1.45;
 }
 
 .loi-icon {
@@ -1007,44 +1065,81 @@ body.overview .node {
     <section class="node" id="n7">
       <div class="hook">Slide 7 | Strategic Partnerships</div>
       <div class="si" style="padding:42px 48px">
-        <div class="kicker">Global collaborations in motion</div>
-        <h2 class="hdl" style="font-size:68px;margin-bottom:28px">5 hospitals.<br>2 continents.<br><em>1 mission.</em></h2>
+        <div class="kicker">Global collaborations in motion | India, Malaysia, Caribbean + Commonwealth</div>
+        <h2 class="hdl" style="font-size:64px;margin-bottom:28px">3 named hospitals.<br>4 ecosystem partners.<br><em>Commonwealth reach.</em></h2>
         <div class="loi-grid">
           <div class="loi-card">
-            <div class="loi-icon">🏥</div>
-            <div class="loi-title">National Cancer Society Malaysia</div>
-            <div class="loi-subtitle">Healthcare Innovation</div>
-            <div class="loi-benefit">Cancer awareness, screening initiatives, and AI-assisted diagnostics across Southeast Asia.</div>
+            <div class="loi-title">Network & Public-Health Access</div>
+            <div class="loi-subtitle">Commonwealth + Malaysia</div>
+            <div class="logo-stack">
+              <div class="partner-logo">
+                <img src="https://www.google.com/s2/favicons?domain=cma.org.in&sz=128" alt="Commonwealth Medical Association logo">
+                <div>
+                  <div class="partner-name">Commonwealth Medical Association</div>
+                  <div class="partner-country">Major partnership | Commonwealth network</div>
+                </div>
+              </div>
+              <div class="partner-logo">
+                <img src="https://www.google.com/s2/favicons?domain=cancer.org.my&sz=128" alt="National Cancer Society Malaysia logo">
+                <div>
+                  <div class="partner-name">National Cancer Society Malaysia</div>
+                  <div class="partner-country">Malaysia | cancer outreach</div>
+                </div>
+              </div>
+            </div>
+            <div class="loi-benefit">Clinical access, screening channels, and public-health credibility for responsible rollout.</div>
+            <div class="loi-count">2 ecosystem partners</div>
           </div>
           <div class="loi-card">
-            <div class="loi-icon">🏥</div>
-            <div class="loi-title">HCG Cancer Centre, Bengaluru</div>
-            <div class="loi-subtitle">Clinical Validation</div>
-            <div class="loi-benefit">Research collaboration, prospective validation datasets, and clinical integration pathways.</div>
+            <div class="loi-title">Hospital Pilots & Datasets</div>
+            <div class="loi-subtitle">India + Malaysia | 3 hospitals</div>
+            <div class="logo-stack">
+              <div class="partner-logo">
+                <img src="https://www.google.com/s2/favicons?domain=hcgoncology.com&sz=128" alt="HCG Cancer Centre logo">
+                <div>
+                  <div class="partner-name">HCG Cancer Centre, Bengaluru</div>
+                  <div class="partner-country">India | clinical validation</div>
+                </div>
+              </div>
+              <div class="partner-logo">
+                <img src="https://www.google.com/s2/favicons?domain=sah-hospitals.com&sz=128" alt="Sundaram Arulraj Hospitals logo">
+                <div>
+                  <div class="partner-name">Sundaram Arulraj Hospitals</div>
+                  <div class="partner-country">India | data + pilot programs</div>
+                </div>
+              </div>
+              <div class="partner-logo">
+                <img src="https://www.google.com/s2/favicons?domain=umra.com.my&sz=128" alt="Hospital Umra logo">
+                <div>
+                  <div class="partner-name">Hospital Umra, Malaysia</div>
+                  <div class="partner-country">Malaysia | regional expansion</div>
+                </div>
+              </div>
+            </div>
+            <div class="loi-benefit">Prospective datasets, IRB pathways, margin-review pilots, and clinical workflow feedback.</div>
+            <div class="loi-count">3 named hospital partners</div>
           </div>
           <div class="loi-card">
-            <div class="loi-icon">🏥</div>
-            <div class="loi-title">Spartan Health Sciences University</div>
-            <div class="loi-subtitle">Academic Research</div>
-            <div class="loi-benefit">Medical education, clinical trials, student engagement, and institutional partnerships.</div>
-          </div>
-          <div class="loi-card">
-            <div class="loi-icon">🏥</div>
-            <div class="loi-title">Sundaram Arulraj Hospitals</div>
-            <div class="loi-subtitle">Data & Pilot Programs</div>
-            <div class="loi-benefit">Multi-specialty case collection, IRB support, and intraoperative pilot deployment.</div>
-          </div>
-          <div class="loi-card">
-            <div class="loi-icon">🏥</div>
-            <div class="loi-title">Hospital Umra, Malaysia</div>
-            <div class="loi-subtitle">Regional Expansion</div>
-            <div class="loi-benefit">Southeast Asian market entry, clinical workflows, and cross-border collaboration models.</div>
-          </div>
-          <div class="loi-card">
-            <div class="loi-icon">📱</div>
-            <div class="loi-title">TeleCure</div>
-            <div class="loi-subtitle">Digital Integration</div>
-            <div class="loi-benefit">Telemedicine infrastructure, remote pathology workflows, and healthcare accessibility scaling.</div>
+            <div class="loi-title">Research & Digital Workflow</div>
+            <div class="loi-subtitle">Caribbean + cloud care</div>
+            <div class="logo-stack">
+              <div class="partner-logo">
+                <img src="https://www.google.com/s2/favicons?domain=spartanmed.org&sz=128" alt="Spartan Health Sciences University logo">
+                <div>
+                  <div class="partner-name">Spartan Health Sciences University</div>
+                  <div class="partner-country">St. Lucia | academic research</div>
+                </div>
+              </div>
+              <div class="partner-logo">
+                <img src="https://www.google.com/s2/favicons?domain=telecuregh.com&sz=128" alt="TeleCure logo">
+                <div>
+                  <div class="partner-name">TeleCure</div>
+                  <div class="partner-country">Digital health | remote workflows</div>
+                </div>
+              </div>
+            </div>
+            <div class="loi-benefit">Medical education, remote pathology workflow testing, and scalable digital integration.</div>
+            <div class="loi-count">2 research and infrastructure partners</div>
           </div>
         </div>
       </div>
