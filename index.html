@@ -481,34 +481,36 @@ body.ready #stage, body.ready #nav, body.ready #hint {
 
 .partner-logo {
   display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  padding: 17px 18px;
+  align-items: center;
+  gap: 18px;
+  padding: 20px;
   border: 2px solid rgba(232, 238, 248, 0.13);
   background: rgba(232, 238, 248, 0.045);
   border-radius: 8px;
+  min-height: 104px;
 }
 
-.partner-logo::before {
-  content: "";
-  width: 8px;
-  min-height: 56px;
+.partner-logo img {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
   flex: 0 0 auto;
-  border-radius: 999px;
-  background: linear-gradient(180deg, var(--blue2), var(--accent));
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.92);
+  padding: 8px;
 }
 
 .partner-name {
   font-family: "Syne", sans-serif;
-  font-size: 24px;
+  font-size: 30px;
   font-weight: 700;
-  line-height: 1.08;
+  line-height: 1.02;
   color: var(--paper);
 }
 
 .partner-country {
   font-family: "DM Mono", monospace;
-  font-size: 13px;
+  font-size: 14px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--steel);
@@ -916,17 +918,17 @@ body.overview .node {
   background: rgba(232, 238, 248, 0.028);
   border: 1px solid var(--line);
   border-radius: 8px;
-  padding: 14px;
+  padding: 18px;
   min-height: 330px;
   display: grid;
-  grid-template-columns: 132px 1fr;
-  gap: 16px;
+  grid-template-columns: 146px 1fr;
+  gap: 20px;
   align-items: center;
 }
 
 .team-photo {
-  width: 132px;
-  height: 172px;
+  width: 146px;
+  height: 190px;
   border-radius: 8px;
   overflow: hidden;
   border: 1px solid rgba(143, 183, 255, 0.2);
@@ -941,28 +943,20 @@ body.overview .node {
 }
 
 .team-name {
-  font-size: 36px;
+  font-size: 48px;
   line-height: 1.02;
-  margin-bottom: 10px;
+  margin-bottom: 14px;
   color: var(--paper);
 }
 
 .team-role {
   font-family: "DM Mono", monospace;
-  font-size: 16px;
+  font-size: 18px;
   letter-spacing: 0.09em;
   text-transform: uppercase;
   color: var(--blue2);
-  margin-bottom: 12px;
+  margin-bottom: 0;
   line-height: 1.3;
-}
-
-.team-copy {
-  font-family: "Instrument Serif", serif;
-  font-style: italic;
-  font-size: 24px;
-  line-height: 1.28;
-  color: var(--muted);
 }
 </style>
 </head>
@@ -992,12 +986,12 @@ body.overview .node {
   <section class="node" id="n1">
     <div class="si">
       <div class="kicker">AI-powered surgical pathology | Seed 2026</div>
-      <h1 class="hdl" style="font-size:148px;max-width:10ch">Clear margins.<br><em>Before closing.</em></h1>
-      <p class="sub" style="max-width:30ch;margin-top:28px">SwiftDx turns surgical tissue images into virtual stains and margin calls in minutes, keeping the pathologist as the final decision-maker.</p>
+      <h1 class="hdl" style="font-size:132px;max-width:11ch">Reduce margin resection costs.<br><em>95% in 5 minutes.</em></h1>
+      <p class="sub" style="max-width:32ch;margin-top:28px">SwiftDx turns surgical tissue images into virtual stains and margin calls in minutes, keeping the pathologist as the final decision-maker.</p>
       <div class="grid4" style="margin-top:34px">
-        <div><div class="stat">37<span>%</span></div><div class="mini">positive ovarian margin rate</div></div>
+        <div><div class="stat">95<span>%</span></div><div class="mini">margin resection cost reduction</div></div>
         <div><div class="stat">84<span>%</span></div><div class="mini">MVP F1 score</div></div>
-        <div><div class="stat">&lt;5<span>min</span></div><div class="mini">target turnaround</div></div>
+        <div><div class="stat">5<span>min</span></div><div class="mini">target turnaround</div></div>
         <div><div class="stat">96<span>%</span></div><div class="mini">gross margin model</div></div>
       </div>
     </div>
@@ -1221,66 +1215,67 @@ body.overview .node {
             <div class="loi-subtitle">Commonwealth + Malaysia</div>
             <div class="logo-stack">
               <div class="partner-logo">
+                <img src="https://www.google.com/s2/favicons?domain=cma.org.in&sz=128" alt="Commonwealth Medical Association logo">
                 <div>
                   <div class="partner-name">Commonwealth Medical Association</div>
                   <div class="partner-country">Major partnership | 54 member nations</div>
                 </div>
               </div>
               <div class="partner-logo">
+                <img src="https://www.google.com/s2/favicons?domain=cancer.org.my&sz=128" alt="National Cancer Society Malaysia logo">
                 <div>
                   <div class="partner-name">National Cancer Society Malaysia</div>
                   <div class="partner-country">Malaysia | cancer outreach</div>
                 </div>
               </div>
             </div>
-            <div class="loi-benefit">Clinical access, screening channels, and public-health credibility for responsible rollout.</div>
-            <div class="loi-count">2 ecosystem partners | CMA adds 54-nation healthcare reach</div>
           </div>
           <div class="loi-card">
             <div class="loi-title">Hospital Pilots & Datasets</div>
             <div class="loi-subtitle">India + Malaysia | 3 hospitals</div>
             <div class="logo-stack">
               <div class="partner-logo">
+                <img src="https://www.google.com/s2/favicons?domain=hcgoncology.com&sz=128" alt="HCG Cancer Centre logo">
                 <div>
                   <div class="partner-name">HCG Cancer Centre, Bengaluru</div>
                   <div class="partner-country">India | clinical validation</div>
                 </div>
               </div>
               <div class="partner-logo">
+                <img src="https://www.google.com/s2/favicons?domain=sah-hospitals.com&sz=128" alt="Sundaram Arulraj Hospitals logo">
                 <div>
                   <div class="partner-name">Sundaram Arulraj Hospitals</div>
                   <div class="partner-country">India | data + pilot programs</div>
                 </div>
               </div>
               <div class="partner-logo">
+                <img src="https://www.google.com/s2/favicons?domain=umra.com.my&sz=128" alt="Hospital Umra logo">
                 <div>
                   <div class="partner-name">Hospital Umra, Malaysia</div>
                   <div class="partner-country">Malaysia | regional expansion</div>
                 </div>
               </div>
             </div>
-            <div class="loi-benefit">Prospective datasets, IRB pathways, margin-review pilots, and clinical workflow feedback.</div>
-            <div class="loi-count">3 named hospital partners</div>
           </div>
           <div class="loi-card">
             <div class="loi-title">Research & Digital Workflow</div>
             <div class="loi-subtitle">Caribbean + cloud care</div>
             <div class="logo-stack">
               <div class="partner-logo">
+                <img src="https://www.google.com/s2/favicons?domain=spartanmed.org&sz=128" alt="Spartan Health Sciences University logo">
                 <div>
                   <div class="partner-name">Spartan Health Sciences University</div>
                   <div class="partner-country">St. Lucia | academic research</div>
                 </div>
               </div>
               <div class="partner-logo">
+                <img src="https://www.google.com/s2/favicons?domain=telecuregh.com&sz=128" alt="TeleCure logo">
                 <div>
                   <div class="partner-name">TeleCure</div>
                   <div class="partner-country">Digital health | remote workflows</div>
                 </div>
               </div>
             </div>
-            <div class="loi-benefit">Medical education, remote pathology workflow testing, and scalable digital integration.</div>
-            <div class="loi-count">2 research and infrastructure partners</div>
           </div>
         </div>
       </div>
@@ -1294,7 +1289,7 @@ body.overview .node {
         <div class="grid2" style="gap:44px">
           <div>
             <div class="stat" style="font-size:200px">$5.75<span>B</span></div>
-            <h2 class="hdl" style="font-size:62px;margin-top:12px">Digital pathology by 2034.</h2>
+            <h2 class="hdl" style="font-size:58px;margin-top:12px">Digital pathology market shoots up 300% in the next decade.</h2>
             <div class="card" style="margin-top:26px">
               <p>TAM: $1.3B (2025) → $5.75B (2034). SAM: AI-assisted margin assessment $110M-$1.16B.</p>
             </div>
@@ -1456,7 +1451,6 @@ body.overview .node {
             <div>
               <h3 class="team-name">Amay Kashyap</h3>
               <div class="team-role">Healthcare AI</div>
-              <div class="team-copy">Clinical workflow strategy and healthcare AI product development.</div>
             </div>
           </div>
           <div class="team-card">
@@ -1464,7 +1458,6 @@ body.overview .node {
             <div>
               <h3 class="team-name">Mukund MV</h3>
               <div class="team-role">AI Engineering</div>
-              <div class="team-copy">Model development, deployment architecture, and impact-driven engineering.</div>
             </div>
           </div>
           <div class="team-card">
@@ -1472,7 +1465,6 @@ body.overview .node {
             <div>
               <h3 class="team-name">Dr. Yin</h3>
               <div class="team-role">Epidemiology & AI</div>
-              <div class="team-copy">Clinical study design, validation protocols, and research integration.</div>
             </div>
           </div>
           <div class="team-card">
@@ -1480,7 +1472,6 @@ body.overview .node {
             <div>
               <h3 class="team-name">Dr. Duane</h3>
               <div class="team-role">Clinical Adoption</div>
-              <div class="team-copy">Telemedicine founder with deep clinical workflow and adoption expertise.</div>
             </div>
           </div>
           <div class="team-card">
@@ -1488,7 +1479,6 @@ body.overview .node {
             <div>
               <h3 class="team-name">Isabel</h3>
               <div class="team-role">Legal & Regulatory</div>
-              <div class="team-copy">MDA/FDA SaMD strategy, compliance, and IP protection.</div>
             </div>
           </div>
           <div class="team-card">
@@ -1496,7 +1486,6 @@ body.overview .node {
             <div>
               <h3 class="team-name">Yun Yin</h3>
               <div class="team-role">Biology</div>
-              <div class="team-copy">Theranostics, precision medicine, and clinical biology expertise.</div>
             </div>
           </div>
         </div>
