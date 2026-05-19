@@ -584,6 +584,329 @@ body.ready #stage, body.ready #nav, body.ready #hint {
   color: var(--steel);
 }
 
+/* Early Narrative Slides */
+.early-layout {
+  display: grid;
+  grid-template-columns: 1.02fr 0.98fr;
+  gap: 54px;
+  align-items: center;
+}
+
+.time-contrast {
+  display: grid;
+  gap: 18px;
+}
+
+.time-card {
+  border: 1px solid rgba(232, 238, 248, 0.1);
+  background: rgba(232, 238, 248, 0.028);
+  border-radius: 8px;
+  padding: 28px 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.time-card.fast {
+  border-color: rgba(255, 107, 129, 0.35);
+  background: linear-gradient(135deg, rgba(177, 18, 38, 0.18), rgba(177, 18, 38, 0.055));
+}
+
+.time-value {
+  font-family: "Instrument Serif", serif;
+  font-size: 118px;
+  line-height: 0.82;
+  color: var(--paper);
+}
+
+.time-value span {
+  font-size: 0.34em;
+  color: var(--blue2);
+}
+
+.time-label,
+.burden-label,
+.workflow-label,
+.tech-label {
+  font-family: "DM Mono", monospace;
+  font-size: 15px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--steel);
+  line-height: 1.35;
+  margin-top: 16px;
+}
+
+.vs-line {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 14px;
+  align-items: center;
+  font-family: "DM Mono", monospace;
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  color: var(--faint);
+  text-transform: uppercase;
+}
+
+.vs-line::before,
+.vs-line::after {
+  content: "";
+  height: 1px;
+  background: rgba(232, 238, 248, 0.12);
+}
+
+.delay-visual {
+  margin-top: 22px;
+  height: 132px;
+  border: 1px solid rgba(232, 238, 248, 0.09);
+  background: radial-gradient(circle at 72% 50%, rgba(255, 107, 129, 0.18), transparent 34%),
+              linear-gradient(90deg, rgba(232, 238, 248, 0.045), rgba(232, 238, 248, 0.015));
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.delay-visual::before {
+  content: "";
+  position: absolute;
+  left: 36px;
+  right: 36px;
+  top: 50%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--blue2), rgba(232, 238, 248, 0.18), var(--accent));
+}
+
+.delay-visual span {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  top: calc(50% - 8px);
+  background: var(--paper);
+  box-shadow: 0 0 28px rgba(255, 107, 129, 0.34);
+}
+
+.delay-visual span:nth-child(1) { left: 34px; }
+.delay-visual span:nth-child(2) { left: 52%; background: var(--blue2); }
+.delay-visual span:nth-child(3) { right: 34px; background: var(--accent); }
+
+.burden-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 34px;
+}
+
+.burden-card {
+  min-height: 430px;
+  border: 1px solid rgba(232, 238, 248, 0.1);
+  background: rgba(232, 238, 248, 0.028);
+  border-radius: 8px;
+  padding: 34px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.burden-stat {
+  font-family: "Instrument Serif", serif;
+  font-size: 124px;
+  line-height: 0.86;
+  color: var(--paper);
+}
+
+.burden-stat span {
+  color: var(--blue2);
+  font-size: 0.48em;
+}
+
+.burden-copy {
+  font-family: "Instrument Serif", serif;
+  font-style: italic;
+  font-size: 34px;
+  line-height: 1.24;
+  color: var(--muted);
+}
+
+.system-note {
+  margin-top: 26px;
+  border-left: 4px solid var(--blue2);
+  padding: 18px 22px;
+  font-family: "DM Mono", monospace;
+  font-size: 18px;
+  line-height: 1.5;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--steel);
+  background: rgba(177, 18, 38, 0.075);
+}
+
+.workflow-compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px;
+  margin-top: 28px;
+}
+
+.workflow-lane {
+  border: 1px solid rgba(232, 238, 248, 0.1);
+  background: rgba(232, 238, 248, 0.026);
+  border-radius: 8px;
+  padding: 26px;
+}
+
+.workflow-lane.fast {
+  border-color: rgba(255, 107, 129, 0.32);
+  background: rgba(177, 18, 38, 0.075);
+}
+
+.workflow-title {
+  font-size: 40px;
+  line-height: 1.02;
+  margin-bottom: 18px;
+  color: var(--paper);
+}
+
+.workflow-mini-step {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 14px;
+  align-items: center;
+  border-top: 1px solid rgba(232, 238, 248, 0.09);
+  padding: 16px 0;
+}
+
+.workflow-mini-step:first-of-type {
+  border-top: none;
+}
+
+.workflow-mini-step strong {
+  font-family: "DM Mono", monospace;
+  color: var(--blue2);
+  letter-spacing: 0.12em;
+  font-size: 15px;
+}
+
+.workflow-mini-step span {
+  font-family: "Instrument Serif", serif;
+  font-style: italic;
+  color: var(--muted);
+  font-size: 30px;
+  line-height: 1.2;
+}
+
+.role-band {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.role-chip {
+  border: 1px solid rgba(255, 107, 129, 0.2);
+  background: rgba(177, 18, 38, 0.08);
+  border-radius: 8px;
+  padding: 20px 22px;
+}
+
+.role-chip b {
+  display: block;
+  font-family: "DM Mono", monospace;
+  font-size: 14px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--blue2);
+  margin-bottom: 8px;
+}
+
+.role-chip span {
+  font-family: "Instrument Serif", serif;
+  font-style: italic;
+  font-size: 28px;
+  line-height: 1.22;
+  color: var(--muted);
+}
+
+.tech-pipeline {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.tech-stage {
+  border: 1px solid rgba(232, 238, 248, 0.1);
+  background: rgba(232, 238, 248, 0.026);
+  border-radius: 8px;
+  padding: 18px;
+  min-height: 488px;
+  position: relative;
+  overflow: hidden;
+}
+
+.tech-stage.hot {
+  border-color: rgba(255, 107, 129, 0.32);
+  background: linear-gradient(180deg, rgba(177, 18, 38, 0.12), rgba(232, 238, 248, 0.026));
+}
+
+.tech-stage img {
+  width: 100%;
+  height: 178px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid rgba(232, 238, 248, 0.12);
+  margin-bottom: 18px;
+}
+
+.tech-num {
+  font-family: "DM Mono", monospace;
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  color: var(--blue2);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.tech-title {
+  font-size: 34px;
+  line-height: 1.02;
+  color: var(--paper);
+  margin-bottom: 12px;
+}
+
+.tech-copy {
+  font-family: "Instrument Serif", serif;
+  font-style: italic;
+  font-size: 26px;
+  line-height: 1.24;
+  color: var(--muted);
+}
+
+.output-panel {
+  border: 1px solid rgba(255, 107, 129, 0.26);
+  border-radius: 8px;
+  background: rgba(8, 17, 31, 0.72);
+  padding: 18px;
+  height: 178px;
+  margin-bottom: 18px;
+  font-family: "DM Mono", monospace;
+}
+
+.output-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(232, 238, 248, 0.08);
+}
+
+.output-row strong {
+  color: var(--blue2);
+}
+
 /* Patent Badge */
 .patent-badge {
   display: inline-flex;
@@ -1005,107 +1328,123 @@ body.overview .node {
       <div class="logo-sub">virtual staining + margin intelligence</div>
     </div>
 
-    <!-- SLIDE 1: Title -->
+    <!-- SLIDE 1: Problem -->
   <section class="node" id="n1">
+    <div class="hook">Slide 1 | Problem</div>
     <div class="si">
-      <div class="kicker">AI-powered surgical pathology | Seed 2026</div>
-      <h1 class="hdl" style="font-size:114px;max-width:13ch">Reducing cancer resection costs by 95%.<br><em>In public healthcare systems.</em></h1>
-      <p class="sub" style="max-width:32ch;margin-top:28px">SwiftDx turns surgical tissue images into virtual stains and margin calls in minutes, keeping the pathologist as the final decision-maker.</p>
-      <div class="grid4" style="margin-top:34px">
-        <div><div class="stat">95<span>%</span></div><div class="mini">margin resection cost reduction</div></div>
-        <div><div class="stat">84<span>%</span></div><div class="mini">MVP F1 score</div></div>
-        <div><div class="stat">5<span>min</span></div><div class="mini">target turnaround</div></div>
-        <div><div class="stat">96<span>%</span></div><div class="mini">gross margin model</div></div>
+      <div class="early-layout">
+        <div>
+          <div class="kicker">The intraoperative timing gap</div>
+          <h1 class="hdl" style="font-size:118px;max-width:10ch">Surgery moves in minutes.<br><em>Pathology often moves in days.</em></h1>
+          <p class="sub" style="max-width:28ch;margin-top:30px">Critical margin information arrives outside the surgical decision window.</p>
+        </div>
+        <div class="time-contrast">
+          <div class="time-card">
+            <div class="time-value">24-72<span>hrs</span></div>
+            <div class="time-label">traditional fixation, processing, staining, and review</div>
+          </div>
+          <div class="vs-line">decision window</div>
+          <div class="time-card fast">
+            <div class="time-value">&lt;5<span>min</span></div>
+            <div class="time-label">intraoperative workflow target for AI-assisted margin support</div>
+          </div>
+          <div class="delay-visual"><span></span><span></span><span></span></div>
+        </div>
       </div>
-    </div>
-    <div class="micro-figure" style="position:absolute;right:52px;top:50%;transform:translateY(-50%);width:520px;height:380px;border-color:rgba(79,140,255,0.22);border-radius:12px">
-      <div class="micro-tag">Dataset sample</div>
-      <img src="fig4.jpg" alt="Bright-field input, fluorescent stain, and virtual stain output from the dataset">
-      <div class="micro-caption">bright-field input, fluorescent target, virtual stain output</div>
     </div>
   </section>
 
-    <!-- SLIDE 2: Problem (Improved) -->
+    <!-- SLIDE 2: Why It Matters -->
     <section class="node" id="n2">
-      <div class="hook">Slide 2 | Problem</div>
+      <div class="hook">Slide 2 | Why It Matters</div>
       <div class="si">
-        <div class="kicker">The surgical margin bottleneck</div>
-        <div class="grid2" style="gap:48px;align-items:center">
-          <div>
-            <div class="problem-stat">65-90%</div>
-            <div class="problem-label">of hospitals lack intraoperative frozen section analysis</div>
-            <p class="sub" style="font-size:32px;margin-top:28px;line-height:1.6">Shortage of histopathologists means most surgical centres cannot assess margins while the patient is still in theatre.</p>
+        <div class="kicker">System strain, specialist scarcity</div>
+        <h2 class="hdl" style="font-size:92px;max-width:14ch">Delayed pathology creates a system bottleneck.</h2>
+        <div class="burden-grid">
+          <div class="burden-card">
+            <div>
+              <div class="burden-stat">1<span>in</span>5</div>
+              <div class="burden-label">repeat procedure pressure</div>
+            </div>
+            <div class="burden-copy">Positive margins can pull patients back into the operating pathway.</div>
           </div>
-          <div>
-            <div class="card" style="border-left:4px solid var(--blue);margin-bottom:20px">
-              <h3>Second Surgery Reality</h3>
-              <p>1 in 5 lumpectomy patients in the UK require reoperation due to positive tumor margins.</p>
+          <div class="burden-card">
+            <div>
+              <div class="burden-stat">65-90<span>%</span></div>
+              <div class="burden-label">limited intraoperative pathology access</div>
             </div>
-            <div class="card">
-              <h3>Why SwiftDx Matters</h3>
-              <p>Clinical decision support that accelerates margin assessment without replacing the pathologist—keeping expertise where it belongs.</p>
-            </div>
+            <div class="burden-copy">Specialist pathology capacity is scarce and difficult to scale across public systems.</div>
           </div>
         </div>
+        <div class="system-note">SwiftDx expands pathology reach. Pathologists remain supervisors, reviewers, and clinical decision-makers.</div>
       </div>
     </section>
 
-    <!-- SLIDE 3: Status Quo -->
+    <!-- SLIDE 3: Solution -->
     <section class="node" id="n3">
-      <div class="hook">Slide 3 | Current Approaches</div>
+      <div class="hook">Slide 3 | Solution</div>
       <div class="si">
-        <div class="kicker">Why existing methods fail intraoperatively</div>
-        <h2 class="hdl" style="font-size:84px;margin-bottom:28px">The tissue is ready.<br><em>The pipeline is not.</em></h2>
-        <div class="grid4">
-          <div class="card">
-            <h3>H&E Staining</h3>
-            <p>Gold standard—but 24-72 hours for fixation, embedding, sectioning, and staining.</p>
+        <div class="kicker">Pathology workflow acceleration</div>
+        <h2 class="hdl" style="font-size:88px;max-width:15ch">SwiftDx compresses pathology support into supervised minutes.</h2>
+        <div class="workflow-compare">
+          <div class="workflow-lane">
+            <div class="workflow-label">Traditional workflow</div>
+            <div class="workflow-title">High friction. Slow turnaround.</div>
+            <div class="workflow-mini-step"><strong>01</strong><span>Tissue leaves the operating-room timeline</span></div>
+            <div class="workflow-mini-step"><strong>02</strong><span>Fixation, embedding, staining, queueing</span></div>
+            <div class="workflow-mini-step"><strong>03</strong><span>Specialist review after the surgical window</span></div>
           </div>
-          <div class="card">
-            <h3>IHC Add-on</h3>
-            <p>Used when H&E is ambiguous. Adds €3,000+ in reagent cost per case.</p>
+          <div class="workflow-lane fast">
+            <div class="workflow-label">SwiftDx workflow</div>
+            <div class="workflow-title">Rapid support. Pathologist led.</div>
+            <div class="workflow-mini-step"><strong>01</strong><span>Technician captures fresh tissue image</span></div>
+            <div class="workflow-mini-step"><strong>02</strong><span>AI creates stain + boundary assessment</span></div>
+            <div class="workflow-mini-step"><strong>03</strong><span>Pathologist reviews evidence and signs off</span></div>
           </div>
-          <div class="card">
-            <h3>Manual Review</h3>
-            <p>Expert but scarce. Every case competes for the same specialist attention.</p>
-          </div>
-          <div class="card">
-            <h3>Frozen Section</h3>
-            <p>Helpful in select centres, but requires on-site pathology and still needs confirmation.</p>
-          </div>
+        </div>
+        <div class="role-band">
+          <div class="role-chip"><b>Technicians</b><span>Operate the scanning and AI workflow at the surgical site.</span></div>
+          <div class="role-chip"><b>Pathologists</b><span>Supervise outputs, review evidence, and remain the final decision authority.</span></div>
         </div>
       </div>
     </section>
 
-    <!-- SLIDE 4: Solution -->
+    <!-- SLIDE 4: Technology -->
     <section class="node" id="n4">
-      <div class="hook">Slide 4 | Solution</div>
-      <div class="si">
-        <div class="kicker">End-to-end AI pipeline</div>
-        <h2 class="hdl" style="font-size:84px;margin-bottom:24px">Tissue in.<br><em>Margin call out.</em></h2>
-        <div class="step">
-          <div class="step-n">01</div>
-          <div class="step-name">Tissue image</div>
-          <div class="step-copy">Existing digital pathology scanners capture surgical tissue as whole-slide or patch images.</div>
-          <div class="step-tag">Input</div>
-        </div>
-        <div class="step hot">
-          <div class="step-n">02</div>
-          <div class="step-name">Virtual stain</div>
-          <div class="step-copy">Generative model produces H&E-equivalent visual contrast in minutes.</div>
-          <div class="step-tag">Core AI</div>
-        </div>
-        <div class="step hot">
-          <div class="step-n">03</div>
-          <div class="step-name">LVLM margin read</div>
-          <div class="step-copy">Vision-language model analyses tumour-healthy boundaries with clinical precision.</div>
-          <div class="step-tag">Inference</div>
-        </div>
-        <div class="step">
-          <div class="step-n">04</div>
-          <div class="step-name">Clinical report</div>
-          <div class="step-copy">Clear / close / involved label, confidence, heatmap, structured report.</div>
-          <div class="step-tag">Output</div>
+      <div class="hook">Slide 4 | Technology</div>
+      <div class="si" style="padding:54px 58px">
+        <div class="kicker">Elegant intraoperative AI pipeline</div>
+        <h2 class="hdl" style="font-size:70px;max-width:18ch">Fresh image.<br><em>Virtual stain.</em><br>Margin-ready review.</h2>
+        <div class="tech-pipeline">
+          <div class="tech-stage">
+            <img src="fig2.jpg" alt="Fresh tissue image input">
+            <div class="tech-num">01 input</div>
+            <div class="tech-title">Fresh Tissue Image</div>
+            <div class="tech-copy">A rapid digital image of surgical tissue enters the workflow.</div>
+          </div>
+          <div class="tech-stage hot">
+            <img src="fig4.jpg" alt="Virtual staining model output">
+            <div class="tech-num">02 RL model</div>
+            <div class="tech-title">Virtual Staining</div>
+            <div class="tech-copy">Reinforcement learning synthesizes stain-like contrast without waiting days.</div>
+          </div>
+          <div class="tech-stage hot">
+            <img src="boundary-he.jpg" alt="LVLM boundary interpretation">
+            <div class="tech-num">03 LVLM</div>
+            <div class="tech-title">Tissue Interpretation</div>
+            <div class="tech-copy">A large vision language model reads boundary cues and evidence patches.</div>
+          </div>
+          <div class="tech-stage">
+            <div class="output-panel">
+              <div class="output-row"><span>margin</span><strong>close</strong></div>
+              <div class="output-row"><span>confidence</span><strong>0.91</strong></div>
+              <div class="output-row"><span>evidence</span><strong>6 patches</strong></div>
+              <div class="output-row"><span>review</span><strong>pathologist</strong></div>
+            </div>
+            <div class="tech-num">04 output</div>
+            <div class="tech-title">Margin Assessment</div>
+            <div class="tech-copy">Confidence score, highlighted boundaries, and review-ready report.</div>
+          </div>
         </div>
       </div>
     </section>
@@ -1196,7 +1535,7 @@ body.overview .node {
           <div>
             <div class="stat" style="font-size:240px">84<span>%</span></div>
             <div class="mini" style="font-size:20px;color:var(--steel)">F1 score | MVP dataset</div>
-            <p class="sub" style="font-size:28px;margin-top:22px">Comparable to average surgeon performance on the same margin assessment task.</p>
+            <p class="sub" style="font-size:28px;margin-top:22px">Early benchmark showing potential to support faster, pathologist-supervised margin review.</p>
           </div>
           <div>
             <div class="table">
@@ -1211,7 +1550,7 @@ body.overview .node {
                 <div class="metric-c">Current MVP validation.</div>
               </div>
               <div class="metric-row">
-                <div class="metric-c">~7 surgeons (avg)</div>
+                <div class="metric-c">7-reader benchmark</div>
                 <div class="metric-c">~84%</div>
                 <div class="metric-c">Same task reference.</div>
               </div>
