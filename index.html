@@ -446,10 +446,14 @@ body.ready #stage, body.ready #nav, body.ready #hint {
   margin-top: 20px;
 }
 
+.market-card {
+  justify-content: flex-start;
+}
+
 .market-card .sub {
-  font-size: 29px;
+  font-size: 32px;
   line-height: 1.32;
-  margin-top: 18px;
+  margin-top: 26px;
 }
 
 .market-note {
@@ -484,6 +488,54 @@ body.ready #stage, body.ready #nav, body.ready #hint {
 .bom-list {
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
+}
+
+.setup-stack {
+  display: grid;
+  gap: 18px;
+  margin-top: 28px;
+}
+
+.setup-tile {
+  border: 1px solid rgba(232, 238, 248, 0.1);
+  background: rgba(232, 238, 248, 0.035);
+  border-radius: 6px;
+  padding: 38px 28px;
+}
+
+.setup-tile.compare {
+  border-color: rgba(177, 18, 38, 0.4);
+  background: rgba(177, 18, 38, 0.08);
+}
+
+.setup-tile span {
+  display: block;
+  font-family: "DM Mono", monospace;
+  font-size: 16px;
+  letter-spacing: 0.12em;
+  line-height: 1.35;
+  text-transform: uppercase;
+  color: var(--steel);
+}
+
+.setup-tile strong {
+  display: block;
+  font-family: "Instrument Serif", serif;
+  font-size: 84px;
+  line-height: 0.95;
+  font-weight: 400;
+  color: var(--paper);
+  margin-top: 16px;
+}
+
+.setup-tile small {
+  display: block;
+  font-family: "Instrument Serif", serif;
+  font-style: italic;
+  font-size: 26px;
+  line-height: 1.18;
+  color: var(--muted);
+  margin-top: 14px;
 }
 
 .bom-row {
@@ -1879,29 +1931,22 @@ body.overview .node {
               <div class="stat">$5.75<span>B</span></div>
               <p class="sub">A growing digital pathology market, but intraoperative support still depends on expensive, hard-to-scale frozen-section workflows.</p>
             </div>
-            <div class="market-note">TAM: $1.3B in 2025 to $5.75B in 2034. SAM: AI-assisted margin assessment $110M-$1.16B.</div>
           </div>
 
           <div class="biz-card">
             <div>
-              <div class="biz-label">Build cost today</div>
-              <div class="bom-total">~$200<span>bulk sourcing should reduce this further</span></div>
-              <div class="bom-list">
-                <div class="bom-row">
-                  <span>Camera</span>
-                  <strong>$152</strong>
+              <div class="biz-label">Setup cost comparison</div>
+              <div class="setup-stack">
+                <div class="setup-tile">
+                  <span>SwiftDx build cost</span>
+                  <strong>~$200</strong>
                 </div>
-                <div class="bom-row">
-                  <span>UV LED</span>
-                  <strong>$30</strong>
-                </div>
-                <div class="bom-row">
-                  <span>Apparatus</span>
-                  <strong>$15-20</strong>
+                <div class="setup-tile compare">
+                  <span>Frozen-section setup</span>
+                  <strong>$15K-$40K+</strong>
                 </div>
               </div>
             </div>
-            <p class="biz-note">Cheap enough for public healthcare adoption without a heavy scanner purchase.</p>
           </div>
 
           <div class="biz-card">
@@ -1922,7 +1967,6 @@ body.overview .node {
                 <strong>$150-$500 / case</strong>
               </div>
             </div>
-            <p class="biz-note">Low upfront cost plus usage-based AI review creates a clear affordability gap against conventional intraoperative pathology.</p>
           </div>
         </div>
         <div class="grid2 legacy-market-grid" style="gap:44px">
