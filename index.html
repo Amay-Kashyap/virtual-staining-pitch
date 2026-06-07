@@ -241,6 +241,106 @@ body.ready #stage, body.ready #nav, body.ready #hint {
   gap: 16px;
 }
 
+.validation-slide {
+  justify-content: flex-start;
+  padding: 72px 86px 104px;
+}
+
+.validation-title {
+  font-size: 86px;
+  margin-top: 18px;
+  margin-bottom: 24px;
+}
+
+.validation-message {
+  font-family: "Instrument Serif", serif;
+  font-style: italic;
+  font-size: 50px;
+  line-height: 1.08;
+  color: var(--blue2);
+  margin-bottom: 46px;
+}
+
+.mvp-panel {
+  border: 1px solid rgba(232, 238, 248, 0.12);
+  background: linear-gradient(180deg, rgba(76, 142, 255, 0.08), rgba(232, 238, 248, 0.025));
+  border-radius: 8px;
+  padding: 42px 48px 46px;
+  box-shadow: 0 32px 96px rgba(0, 0, 0, 0.22);
+}
+
+.mvp-label {
+  font-family: "DM Mono", monospace;
+  font-size: 19px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--steel);
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.mvp-metrics {
+  display: grid;
+  grid-template-columns: 1.24fr 1fr 0.72fr;
+  gap: 20px;
+  align-items: stretch;
+}
+
+.mvp-metric {
+  border: 1px solid rgba(232, 238, 248, 0.11);
+  background: rgba(4, 10, 20, 0.28);
+  border-radius: 8px;
+  padding: 34px 24px;
+  min-height: 190px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.mvp-metric strong {
+  display: block;
+  font-family: "Instrument Serif", serif;
+  font-size: 70px;
+  line-height: 0.95;
+  font-weight: 400;
+  color: var(--paper);
+}
+
+.mvp-metric.compact strong {
+  font-size: 86px;
+}
+
+.baseline-anchor {
+  margin-top: 42px;
+  border-top: 1px solid rgba(232, 238, 248, 0.18);
+  padding-top: 28px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 28px;
+  align-items: end;
+}
+
+.baseline-anchor p {
+  font-family: "Instrument Serif", serif;
+  font-style: italic;
+  font-size: 36px;
+  line-height: 1.24;
+  color: var(--muted);
+  max-width: 1140px;
+}
+
+.baseline-anchor span {
+  font-family: "DM Mono", monospace;
+  font-size: 16px;
+  letter-spacing: 0.13em;
+  line-height: 1.35;
+  text-transform: uppercase;
+  color: var(--faint);
+  text-align: right;
+  width: 300px;
+}
+
 .card {
   background: rgba(232, 238, 248, 0.028);
   border: 1px solid var(--line);
@@ -1804,38 +1904,29 @@ body.overview .node {
     <!-- SLIDE 6: Validation -->
     <section class="node" id="n6">
       <div class="hook">Slide 6 | Validation</div>
-      <div class="si">
-        <div class="kicker">Performance & competitive position</div>
-        <div class="grid2" style="gap:42px;align-items:start">
-          <div>
-            <div class="stat" style="font-size:240px">84<span>%</span></div>
-            <div class="mini" style="font-size:20px;color:var(--steel)">F1 score | MVP dataset</div>
-            <p class="sub" style="font-size:28px;margin-top:22px">Early benchmark showing potential to support faster, pathologist-supervised margin review.</p>
-          </div>
-          <div>
-            <div class="table">
-              <div class="metric-row">
-                <div class="metric-h">Platform</div>
-                <div class="metric-h">Metric</div>
-                <div class="metric-h">Context</div>
-              </div>
-              <div class="metric-row">
-                <div class="metric-c"><strong>SwiftDx</strong></div>
-                <div class="metric-c"><strong>F1 84%</strong></div>
-                <div class="metric-c">Current MVP validation.</div>
-              </div>
-              <div class="metric-row">
-                <div class="metric-c">7-reader benchmark</div>
-                <div class="metric-c">~84%</div>
-                <div class="metric-c">Same task reference.</div>
-              </div>
-              <div class="metric-row">
-                <div class="metric-c">PathAI</div>
-                <div class="metric-c">0.986 F1</div>
-                <div class="metric-c">Different public task.</div>
-              </div>
+      <div class="si validation-slide">
+        <div class="kicker">Validation</div>
+        <h2 class="hdl validation-title">MVP results. <em>Not projections.</em></h2>
+        <div class="validation-message">Our MVP already out-performs frozen section.</div>
+
+        <div class="mvp-panel">
+          <div class="mvp-label">SwiftDx MVP &middot; Current Dataset</div>
+          <div class="mvp-metrics">
+            <div class="mvp-metric">
+              <strong>94&ndash;97%<br>H&amp;E concordance</strong>
+            </div>
+            <div class="mvp-metric">
+              <strong>Sens 0.96<br>Spec 0.91</strong>
+            </div>
+            <div class="mvp-metric compact">
+              <strong>F1<br>84%</strong>
             </div>
           </div>
+        </div>
+
+        <div class="baseline-anchor">
+          <p>Frozen section &mdash; today's standard of care &mdash; achieves only 0.81 sensitivity with 20&ndash;40% re-operation rates.</p>
+          <span>PLOS ONE meta-analysis &middot; 6,769 cases</span>
         </div>
       </div>
     </section>
