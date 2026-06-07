@@ -404,6 +404,190 @@ body.ready #stage, body.ready #nav, body.ready #hint {
   overflow: hidden;
 }
 
+.business-slide {
+  justify-content: flex-start;
+  padding: 58px 70px 86px;
+}
+
+.business-headline {
+  font-size: 72px;
+  margin-bottom: 28px;
+  max-width: 1320px;
+}
+
+.business-layout {
+  display: grid;
+  grid-template-columns: 0.95fr 0.9fr 1.05fr;
+  gap: 26px;
+  min-height: 610px;
+}
+
+.biz-card {
+  border: 1px solid rgba(232, 238, 248, 0.1);
+  background: linear-gradient(180deg, rgba(232, 238, 248, 0.045), rgba(232, 238, 248, 0.018));
+  border-radius: 6px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 0;
+}
+
+.biz-label {
+  font-family: "DM Mono", monospace;
+  font-size: 18px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--steel);
+}
+
+.market-card .stat {
+  font-size: 150px;
+  margin-top: 20px;
+}
+
+.market-card .sub {
+  font-size: 29px;
+  line-height: 1.32;
+  margin-top: 18px;
+}
+
+.market-note {
+  font-family: "DM Mono", monospace;
+  font-size: 17px;
+  line-height: 1.45;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--faint);
+  border-top: 1px solid var(--line);
+  padding-top: 20px;
+}
+
+.bom-total {
+  font-family: "Instrument Serif", serif;
+  font-size: 132px;
+  line-height: 0.9;
+  color: var(--paper);
+  margin: 12px 0 20px;
+}
+
+.bom-total span {
+  display: block;
+  font-family: "DM Mono", monospace;
+  font-size: 17px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin-top: 16px;
+}
+
+.bom-list {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.bom-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 19px 0;
+  border-top: 1px solid rgba(232, 238, 248, 0.08);
+}
+
+.bom-row:first-child {
+  border-top: none;
+}
+
+.bom-row span {
+  font-family: "DM Mono", monospace;
+  font-size: 20px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.bom-row strong {
+  font-family: "Instrument Serif", serif;
+  font-size: 46px;
+  font-weight: 400;
+  color: var(--paper);
+}
+
+.biz-note {
+  font-family: "Instrument Serif", serif;
+  font-style: italic;
+  font-size: 25px;
+  line-height: 1.28;
+  color: var(--muted);
+  margin-top: 20px;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.price-tile {
+  border: 1px solid rgba(76, 142, 255, 0.28);
+  background: rgba(76, 142, 255, 0.055);
+  border-radius: 6px;
+  padding: 24px 20px;
+}
+
+.price-tile strong {
+  display: block;
+  font-family: "Instrument Serif", serif;
+  font-size: 72px;
+  line-height: 0.94;
+  font-weight: 400;
+  color: var(--paper);
+}
+
+.price-tile span {
+  display: block;
+  font-family: "DM Mono", monospace;
+  font-size: 15px;
+  line-height: 1.35;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--steel);
+  margin-top: 14px;
+}
+
+.frozen-compare {
+  border: 2px solid rgba(177, 18, 38, 0.42);
+  background: rgba(177, 18, 38, 0.09);
+  border-radius: 6px;
+  padding: 26px;
+  margin-top: 22px;
+}
+
+.frozen-compare span {
+  display: block;
+  font-family: "DM Mono", monospace;
+  font-size: 17px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--steel);
+}
+
+.frozen-compare strong {
+  display: block;
+  font-family: "Instrument Serif", serif;
+  font-size: 62px;
+  line-height: 1;
+  font-weight: 400;
+  color: var(--paper);
+  margin-top: 14px;
+}
+
+.legacy-market-grid {
+  display: none !important;
+}
+
 /* LOI Section Styles */
 .loi-grid {
   display: grid;
@@ -1685,9 +1869,63 @@ body.overview .node {
     <!-- SLIDE 8: Market -->
     <section class="node" id="n8">
       <div class="hook">Slide 8 | Market Opportunity</div>
-      <div class="si">
+      <div class="si business-slide">
         <div class="kicker">Market & business model</div>
-        <div class="grid2" style="gap:44px">
+        <h2 class="hdl business-headline">Digital pathology grows 3x. <em>SwiftDx enters with a low-cost hardware wedge.</em></h2>
+        <div class="business-layout">
+          <div class="biz-card market-card">
+            <div>
+              <div class="biz-label">Market pull</div>
+              <div class="stat">$5.75<span>B</span></div>
+              <p class="sub">A growing digital pathology market, but intraoperative support still depends on expensive, hard-to-scale frozen-section workflows.</p>
+            </div>
+            <div class="market-note">TAM: $1.3B in 2025 to $5.75B in 2034. SAM: AI-assisted margin assessment $110M-$1.16B.</div>
+          </div>
+
+          <div class="biz-card">
+            <div>
+              <div class="biz-label">Build cost today</div>
+              <div class="bom-total">~$200<span>bulk sourcing should reduce this further</span></div>
+              <div class="bom-list">
+                <div class="bom-row">
+                  <span>Camera</span>
+                  <strong>$152</strong>
+                </div>
+                <div class="bom-row">
+                  <span>UV LED</span>
+                  <strong>$30</strong>
+                </div>
+                <div class="bom-row">
+                  <span>Apparatus</span>
+                  <strong>$15-20</strong>
+                </div>
+              </div>
+            </div>
+            <p class="biz-note">Cheap enough for public healthcare adoption without a heavy scanner purchase.</p>
+          </div>
+
+          <div class="biz-card">
+            <div>
+              <div class="biz-label">Commercial model</div>
+              <div class="pricing-grid">
+                <div class="price-tile">
+                  <strong>~$400</strong>
+                  <span>initial product price</span>
+                </div>
+                <div class="price-tile">
+                  <strong>~$30</strong>
+                  <span>later per-case usage fee</span>
+                </div>
+              </div>
+              <div class="frozen-compare">
+                <span>Frozen-section comparison</span>
+                <strong>$150-$500 / case</strong>
+              </div>
+            </div>
+            <p class="biz-note">Low upfront cost plus usage-based AI review creates a clear affordability gap against conventional intraoperative pathology.</p>
+          </div>
+        </div>
+        <div class="grid2 legacy-market-grid" style="gap:44px">
           <div>
             <div class="stat" style="font-size:200px">$5.75<span>B</span></div>
             <h2 class="hdl" style="font-size:58px;margin-top:12px">The digital pathology market will grow 3x in the next decade.</h2>
