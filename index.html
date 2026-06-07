@@ -281,8 +281,8 @@ body.ready #stage, body.ready #nav, body.ready #hint {
 
 .mvp-metrics {
   display: grid;
-  grid-template-columns: 1.24fr 1fr 0.72fr;
-  gap: 20px;
+  grid-template-columns: 1.08fr 0.92fr;
+  gap: 24px;
   align-items: stretch;
 }
 
@@ -290,44 +290,78 @@ body.ready #stage, body.ready #nav, body.ready #hint {
   border: 1px solid rgba(232, 238, 248, 0.11);
   background: rgba(4, 10, 20, 0.28);
   border-radius: 8px;
-  padding: 34px 24px;
-  min-height: 190px;
+  padding: 36px 34px;
+  min-height: 258px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
 }
 
+.mvp-metric.mvp-win {
+  border-color: rgba(76, 142, 255, 0.34);
+  background: linear-gradient(180deg, rgba(76, 142, 255, 0.12), rgba(4, 10, 20, 0.28));
+}
+
+.mvp-metric.frozen-baseline {
+  border-color: rgba(255, 107, 129, 0.25);
+  background: rgba(177, 18, 38, 0.07);
+}
+
+.compare-label {
+  font-family: "DM Mono", monospace;
+  font-size: 17px;
+  letter-spacing: 0.13em;
+  line-height: 1.35;
+  text-transform: uppercase;
+  color: var(--steel);
+  margin-bottom: 20px;
+}
+
 .mvp-metric strong {
   display: block;
   font-family: "Instrument Serif", serif;
-  font-size: 70px;
+  font-size: 72px;
   line-height: 0.95;
   font-weight: 400;
   color: var(--paper);
 }
 
-.mvp-metric.compact strong {
-  font-size: 86px;
+.mvp-metric.frozen-baseline strong {
+  color: var(--muted);
+}
+
+.compare-submetric {
+  font-family: "Instrument Serif", serif;
+  font-style: italic;
+  font-size: 42px;
+  line-height: 1.06;
+  color: var(--blue2);
+  margin-top: 22px;
+}
+
+.frozen-baseline .compare-submetric {
+  color: rgba(232, 238, 248, 0.66);
 }
 
 .baseline-anchor {
-  margin-top: 42px;
+  margin-top: 34px;
   border-top: 1px solid rgba(232, 238, 248, 0.18);
-  padding-top: 28px;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 28px;
-  align-items: end;
+  padding-top: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .baseline-anchor p {
   font-family: "Instrument Serif", serif;
   font-style: italic;
-  font-size: 36px;
+  font-size: 30px;
   line-height: 1.24;
   color: var(--muted);
-  max-width: 1140px;
+  max-width: 960px;
+  text-align: center;
 }
 
 .baseline-anchor span {
@@ -1910,23 +1944,23 @@ body.overview .node {
         <div class="validation-message">Our MVP already out-performs frozen section.</div>
 
         <div class="mvp-panel">
-          <div class="mvp-label">SwiftDx MVP &middot; Current Dataset</div>
+          <div class="mvp-label">SwiftDx MVP vs Frozen Section</div>
           <div class="mvp-metrics">
-            <div class="mvp-metric">
+            <div class="mvp-metric mvp-win">
+              <div class="compare-label">SwiftDx MVP &middot; Current Dataset</div>
               <strong>94&ndash;97%<br>H&amp;E concordance</strong>
+              <div class="compare-submetric">Sens 0.96 &middot; Spec 0.91</div>
             </div>
-            <div class="mvp-metric">
-              <strong>Sens 0.96<br>Spec 0.91</strong>
-            </div>
-            <div class="mvp-metric compact">
-              <strong>F1<br>84%</strong>
+            <div class="mvp-metric frozen-baseline">
+              <div class="compare-label">Frozen section &middot; Standard of care</div>
+              <strong>Sens 0.81</strong>
+              <div class="compare-submetric">20&ndash;40% re-operation rates</div>
             </div>
           </div>
         </div>
 
         <div class="baseline-anchor">
-          <p>Frozen section &mdash; today's standard of care &mdash; achieves only 0.81 sensitivity with 20&ndash;40% re-operation rates.</p>
-          <span>PLOS ONE meta-analysis &middot; 6,769 cases</span>
+          <p>PLOS ONE meta-analysis &middot; 6,769 cases</p>
         </div>
       </div>
     </section>
