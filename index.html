@@ -1551,8 +1551,8 @@ body.overview .node {
 /* Enhanced Competitive Workspace */
 .comp-workspace {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 40px;
+  grid-template-columns: 0.82fr 1.18fr;
+  gap: 34px;
   margin-top: 24px;
 }
 
@@ -1614,23 +1614,102 @@ body.overview .node {
   white-space: nowrap;
 }
 
-.matrix-table { width: 100%; border-collapse: collapse; }
+.matrix-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid rgba(232, 238, 248, 0.12);
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(232, 238, 248, 0.022);
+}
 
 .matrix-table th {
-  text-align: left;
-  padding: 10px;
+  text-align: center;
+  padding: 12px 9px;
   font-family: 'DM Mono', monospace;
-  font-size: 22px;
-  color: var(--blue2);
-  border-bottom: 1px solid var(--line);
+  font-size: 15px;
+  line-height: 1.25;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: rgba(76, 142, 255, 0.08);
+  border-bottom: 1px solid rgba(232, 238, 248, 0.12);
+  border-left: 1px solid rgba(232, 238, 248, 0.08);
 }
 
 .matrix-table td {
-  padding: 14px 10px;
-  border-bottom: 1px solid var(--line);
+  padding: 10px 9px;
+  border-bottom: 1px solid rgba(232, 238, 248, 0.09);
+  border-left: 1px solid rgba(232, 238, 248, 0.07);
   font-family: 'Instrument Serif', serif;
   font-style: italic;
+  font-size: 24px;
+  line-height: 1.05;
+  color: var(--muted);
+  text-align: center;
+  vertical-align: middle;
+}
+
+.matrix-table th:first-child,
+.matrix-table td:first-child {
+  border-left: none;
+  text-align: left;
+}
+
+.matrix-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.matrix-table .company-cell {
+  font-family: 'DM Mono', monospace;
+  font-style: normal;
+  font-size: 16px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--paper);
+}
+
+.matrix-table .time-cell {
+  font-family: 'Instrument Serif', serif;
   font-size: 28px;
+  color: var(--paper);
+  background: rgba(232, 238, 248, 0.025);
+}
+
+.matrix-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 74px;
+  border-radius: 6px;
+  padding: 7px 10px;
+  font-family: 'DM Mono', monospace;
+  font-style: normal;
+  font-size: 16px;
+  letter-spacing: 0.12em;
+  color: var(--paper);
+  border: 1px solid rgba(232, 238, 248, 0.14);
+}
+
+.chip-low {
+  background: rgba(41, 195, 125, 0.22);
+  border-color: rgba(41, 195, 125, 0.48);
+}
+
+.chip-mid {
+  background: rgba(76, 142, 255, 0.22);
+  border-color: rgba(76, 142, 255, 0.48);
+}
+
+.chip-high {
+  background: rgba(245, 181, 65, 0.2);
+  border-color: rgba(245, 181, 65, 0.52);
+}
+
+.chip-vhigh {
+  background: rgba(255, 107, 129, 0.2);
+  border-color: rgba(255, 107, 129, 0.52);
 }
 
 .star { color: var(--accent); letter-spacing: 2px; }
@@ -2205,16 +2284,16 @@ body.overview .node {
               <div class="plot-name">Invenio</div>
             </div>
             <div class="plot-point" style="top: 35%; left: 30%;">
-              <div class="dot-icon">PER</div>
-              <div class="plot-name">Perimeter</div>
+              <div class="dot-icon">MAR</div>
+              <div class="plot-name">MarginScan</div>
             </div>
             <div class="plot-point" style="top: 60%; left: 10%;">
-              <div class="dot-icon">PAI</div>
-              <div class="plot-name">Paige</div>
+              <div class="dot-icon">CLA</div>
+              <div class="plot-name">Claire</div>
             </div>
             <div class="plot-point" style="top: 80%; right: 25%;">
-              <div class="dot-icon">ROC</div>
-              <div class="plot-name">Roche/PathAI</div>
+              <div class="dot-icon">HIS</div>
+              <div class="plot-name">Histolog Scanner</div>
             </div>
           </div>
 
@@ -2222,36 +2301,55 @@ body.overview .node {
             <table class="matrix-table">
               <thead>
                 <tr>
-                  <th>Company</th>
-                  <th>Intraoperative</th>
-                  <th>Validation</th>
-                  <th>Workflow</th>
+                  <th>Approach</th>
+                  <th>Duration<br>(min)</th>
+                  <th>Histology<br>Visibility</th>
+                  <th>Startup<br>Cost</th>
+                  <th>Individual<br>Test Cost</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td><span class="comp-brand" style="color:var(--blue2)">SwiftDx</span></td>
-                  <td><span class="star">★★★</span></td>
-                  <td><span class="star">★</span></td>
-                  <td><span class="star">★★★</span></td>
+                  <td class="company-cell">Frozen Section</td>
+                  <td class="time-cell">20-30</td>
+                  <td><span class="matrix-chip chip-mid">**</span></td>
+                  <td><span class="matrix-chip chip-vhigh">**/****</span></td>
+                  <td><span class="matrix-chip chip-low">*</span></td>
                 </tr>
                 <tr>
-                  <td><span class="comp-brand">Perimeter</span></td>
-                  <td><span class="star">★★★</span></td>
-                  <td><span class="star">★★★</span></td>
-                  <td><span class="star">★★</span></td>
+                  <td class="company-cell" style="color:var(--blue2)">SwiftDx</td>
+                  <td class="time-cell">&lt;2</td>
+                  <td><span class="matrix-chip chip-mid">**</span></td>
+                  <td><span class="matrix-chip chip-high">***</span></td>
+                  <td><span class="matrix-chip chip-mid">**</span></td>
                 </tr>
                 <tr>
-                  <td><span class="comp-brand">Paige/Tempus</span></td>
-                  <td><span class="star">★★</span></td>
-                  <td><span class="star">★★</span></td>
-                  <td><span class="star">★★★</span></td>
+                  <td class="company-cell">MarginScan</td>
+                  <td class="time-cell">&lt;3</td>
+                  <td><span class="matrix-chip chip-low">*</span></td>
+                  <td><span class="matrix-chip chip-vhigh">**/****</span></td>
+                  <td><span class="matrix-chip chip-high">***</span></td>
                 </tr>
                 <tr>
-                  <td><span class="comp-brand">Roche/PathAI</span></td>
-                  <td><span class="star">★</span></td>
-                  <td><span class="star">★★★</span></td>
-                  <td><span class="star">★★</span></td>
+                  <td class="company-cell">Claire</td>
+                  <td class="time-cell">10-15</td>
+                  <td><span class="matrix-chip chip-low">*</span></td>
+                  <td><span class="matrix-chip chip-vhigh">***/****</span></td>
+                  <td><span class="matrix-chip chip-mid">**</span></td>
+                </tr>
+                <tr>
+                  <td class="company-cell">Invenio</td>
+                  <td class="time-cell">&lt;3</td>
+                  <td><span class="matrix-chip chip-high">***</span></td>
+                  <td><span class="matrix-chip chip-vhigh">***/****</span></td>
+                  <td><span class="matrix-chip chip-mid">**</span></td>
+                </tr>
+                <tr>
+                  <td class="company-cell">Histolog Scanner</td>
+                  <td class="time-cell">&lt;2</td>
+                  <td><span class="matrix-chip chip-high">***</span></td>
+                  <td><span class="matrix-chip chip-vhigh">***/****</span></td>
+                  <td><span class="matrix-chip chip-high">***</span></td>
                 </tr>
               </tbody>
             </table>
