@@ -1548,6 +1548,8 @@ body.overview .node {
 #n5.active .phase-label { animation: fadeIn .5s ease both; }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
+
+
 /* Enhanced Competitive Workspace */
 .comp-workspace {
   display: block;
@@ -1914,153 +1916,355 @@ body.overview .node {
 
     <!-- SLIDE 4: Technology -->
 <!-- REPLACE CURRENT TECHNOLOGY SLIDE WITH THIS -->
+<!-- REPLACE ENTIRE SLIDE 4 WITH THIS -->
 
 <section class="node" id="n4">
-  <div class="hook">Slide 4 | AutofluoroSense Technology</div>
-  <div class="si">
-    <div class="kicker">AutofluoroSense Imaging Platform</div>
-    <h2 class="hdl" style="font-size:88px;margin-bottom:24px">
-      Virtual sectioning.<br><em>No physical section required.</em>
+  <div class="hook">Slide 4 | Workflow</div>
+
+  <div class="si" style="justify-content:flex-start;padding:70px 85px;">
+
+    <div class="kicker">How SwiftDx Works</div>
+
+    <h2 class="hdl" style="
+      font-size:100px;
+      text-align:center;
+      margin-bottom:24px;
+    ">
+      A <em>5 Minute Workflow</em><br>
+      From Tissue To Decision
     </h2>
 
-    <div class="tech-pipeline" style="grid-template-columns:repeat(5,1fr);">
+    <p class="sub" style="
+      text-align:center;
+      font-size:34px;
+      margin-bottom:50px;
+      max-width:1200px;
+      align-self:center;
+    ">
+      SwiftDx eliminates physical sectioning and staining by using
+      autofluorescence imaging, virtual staining and AI-assisted analysis.
+    </p>
 
-      <div class="tech-stage">
-        <img src="autofluorosense-chemistry.jpg" alt="AutofluoroSense Chemistry">
-        <div class="tech-num">STEP 01</div>
-        <div class="tech-title">AutofluoroSense Chemistry</div>
-        <div class="tech-copy">
-          Two selected chemicals fluoresce within the wavelength range detectable by the imaging system.
-          UV penetration is limited to approximately 2–3 μm, allowing visualization of only the surface layer of cells.
+    <div style="
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+      width:100%;
+    ">
+
+      <div class="step hot">
+        <div class="step-n">01</div>
+        <div class="step-name">Fresh Tissue Placement</div>
+        <div class="step-copy">
+          The surgeon provides a fresh tissue specimen immediately after excision.
         </div>
+        <div class="step-tag">Collection</div>
       </div>
 
-      <div class="tech-stage">
-        <img src="dark-imaging-chamber.jpg" alt="Dark Imaging Chamber">
-        <div class="tech-num">STEP 02</div>
-        <div class="tech-title">Dark Imaging Chamber</div>
-        <div class="tech-copy">
-          Tissue is placed inside a fully light-isolated enclosure.
-          280 nm UV LEDs excite fluorescence while eliminating ambient optical interference.
+      <div class="step">
+        <div class="step-n">02</div>
+        <div class="step-name">AutofluoroSense Imaging</div>
+        <div class="step-copy">
+          The tissue is illuminated inside a dark imaging chamber. Surface fluorescence creates a virtual optical section approximately 2–3 μm deep.
         </div>
+        <div class="step-tag">Imaging</div>
       </div>
 
-      <div class="tech-stage hot">
-        <img src="uv-excitation-280nm.jpg" alt="UV Excitation">
-        <div class="tech-num">STEP 03</div>
-        <div class="tech-title">3-Second Exposure Capture</div>
-        <div class="tech-copy">
-          The camera cannot detect the 280 nm excitation source.
-          Only emitted fluorescence from tissue is recorded during a 3-second exposure.
+      <div class="step">
+        <div class="step-n">03</div>
+        <div class="step-name">Virtual H&E Generation</div>
+        <div class="step-copy">
+          AI converts the fluorescence image into a pathologist-familiar H&E representation without chemical staining.
         </div>
+        <div class="step-tag">Virtual Staining</div>
       </div>
 
-      <div class="tech-stage">
-        <img src="surface-fluorescence-capture.jpg" alt="Virtual Section">
-        <div class="tech-num">STEP 04</div>
-        <div class="tech-title">Virtual Optical Section</div>
-        <div class="tech-copy">
-          Surface fluorescence creates a single-cell-layer image from tissue of any thickness,
-          effectively generating a virtual section without microtomy.
+      <div class="step">
+        <div class="step-n">04</div>
+        <div class="step-name">Margin Intelligence Analysis</div>
+        <div class="step-copy">
+          A vision-language model analyzes tissue morphology and identifies suspicious regions and margin status.
         </div>
+        <div class="step-tag">AI Analysis</div>
       </div>
 
-      <div class="tech-stage">
-        <img src="virtual-he-output.jpg" alt="Virtual H&E">
-        <div class="tech-num">STEP 05</div>
-        <div class="tech-title">Virtual H&E + AI</div>
-        <div class="tech-copy">
-          Since no fluorescent stains are used, AI converts the image into a virtual H&E slide.
-          Margin assessment is performed by an LVLM/LLM while maintaining the existing pathology review workflow.
+      <div class="step hot">
+        <div class="step-n">05</div>
+        <div class="step-name">Pathologist Review</div>
+        <div class="step-copy">
+          The generated slide and margin report are reviewed by a pathologist who remains the final clinical decision maker.
         </div>
+        <div class="step-tag">Clinical Output</div>
       </div>
 
     </div>
+
+    <div style="
+      margin-top:32px;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
+    ">
+
+      <div class="setup-tile">
+        <span>Physical Sectioning</span>
+        <strong>0</strong>
+        <small>No microtome required</small>
+      </div>
+
+      <div class="setup-tile">
+        <span>Chemical Staining</span>
+        <strong>0</strong>
+        <small>No H&E processing</small>
+      </div>
+
+      <div class="setup-tile">
+        <span>Turnaround Time</span>
+        <strong>&lt;5m</strong>
+        <small>Intraoperative workflow</small>
+      </div>
+
+      <div class="setup-tile compare">
+        <span>Output</span>
+        <strong>AI + MD</strong>
+        <small>Pathologist supervised</small>
+      </div>
+
+    </div>
+
   </div>
 </section>
 
     <!-- SLIDE 5: Technology -->
+<!-- REPLACE EXISTING SLIDE 5 WITH THIS -->
 
 <section class="node" id="n5">
-  <div class="hook">Slide 5 | Technical Workflow</div>
-  <div class="si">
+  <div class="hook">Slide 5 | Prototype Demonstration</div>
 
-    <div class="kicker">AutofluoroSense System Architecture</div>
+  <div class="si" style="justify-content:flex-start;padding:58px 70px;">
 
-    <h2 class="hdl" style="font-size:86px;text-align:center;margin-bottom:40px;">
-      Single-Layer Imaging Through <em>Controlled Fluorescence</em>
+    <div class="kicker">Current Prototype Workflow</div>
+
+    <h2 class="hdl" style="font-size:82px;text-align:center;margin-bottom:12px;">
+      From Tissue To <em>AI-Assisted Margin Report</em>
     </h2>
 
-    <div style="position:relative;height:650px;width:100%;">
+    <p class="sub" style="text-align:center;font-size:28px;margin-bottom:30px;">
+      Demonstration of the complete SwiftDx imaging and interpretation pipeline
+    </p>
 
-      <!-- CENTER -->
+    <div style="
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      gap:18px;
+      align-items:start;
+    ">
+
+      <!-- 1 -->
+      <div class="tech-stage hot" style="min-height:610px;">
+        <img
+          src="optical-sectioning-setup.jpg"
+          alt="Optical Sectioning Setup"
+          style="height:240px;"
+        >
+
+        <div class="tech-num">STEP 01</div>
+
+        <div class="tech-title">
+          Optical<br>Sectioning Setup
+        </div>
+
+        <div class="tech-copy">
+          Fresh tissue is placed inside the light-isolated chamber and illuminated using 280 nm UV excitation.
+        </div>
+
+        <div class="tag" style="margin-top:18px;">
+          Prototype Hardware
+        </div>
+      </div>
+
+      <!-- ARROW -->
       <div style="
         position:absolute;
-        left:50%;
+        left:20%;
         top:50%;
-        transform:translate(-50%,-50%);
-        width:340px;
-        height:340px;
-        border-radius:50%;
-        border:2px solid rgba(255,107,129,.35);
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        text-align:center;
-        padding:30px;
-        background:rgba(177,18,38,.08);
+        font-size:50px;
+        color:rgba(255,107,129,.5);
+      ">→</div>
+
+      <!-- 2 -->
+      <div class="tech-stage" style="min-height:610px;">
+        <img
+          src="autofluorescence-output.png"
+          alt="Autofluorescence Output"
+          style="height:240px;"
+        >
+
+        <div class="tech-num">STEP 02</div>
+
+        <div class="tech-title">
+          Autofluorescent<br>Output
+        </div>
+
+        <div class="tech-copy">
+          Surface fluorescence from approximately 2–3 μm depth creates a virtual optical section without microtomy.
+        </div>
+
+        <div class="tag" style="margin-top:18px;">
+          Raw Capture
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="tech-stage" style="min-height:610px;">
+        <img
+          src="virtual-hne-overlay.png"
+          alt="Virtual H&E Overlay"
+          style="height:240px;"
+        >
+
+        <div class="tech-num">STEP 03</div>
+
+        <div class="tech-title">
+          Virtual H&E<br>Overlay
+        </div>
+
+        <div class="tech-copy">
+          The LVLM converts fluorescence information into a pathologist-familiar H&E representation.
+        </div>
+
+        <div class="tag" style="margin-top:18px;">
+          AI Generated
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="tech-stage" style="min-height:610px;">
+        <img
+          src="actual-hne-slide.png"
+          alt="Actual H&E Output"
+          style="height:240px;"
+        >
+
+        <div class="tech-num">STEP 04</div>
+
+        <div class="tech-title">
+          Actual H&E<br>Output
+        </div>
+
+        <div class="tech-copy">
+          Ground-truth pathology slide used for validation and concordance comparison.
+        </div>
+
+        <div class="tag" style="margin-top:18px;">
+          Gold Standard
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="tech-stage hot" style="
+        min-height:610px;
+        background:linear-gradient(
+          180deg,
+          rgba(177,18,38,.18),
+          rgba(232,238,248,.03)
+        );
       ">
-        <div>
-          <div class="tech-title">SwiftDx</div>
-          <div class="tech-copy">
-            AutofluoroSense Platform
+
+        <div class="output-panel" style="
+          height:240px;
+          margin-bottom:18px;
+          overflow:hidden;
+        ">
+
+          <div class="terminal-head">
+            <span></span><span></span><span></span>
+            <div class="terminal-title">
+              LVLM Margin Assessment Report
+            </div>
           </div>
+
+          <div class="output-row">
+            <span>Case ID</span>
+            <strong>SDX-042</strong>
+          </div>
+
+          <div class="output-row">
+            <span>Tissue</span>
+            <strong>Breast Margin</strong>
+          </div>
+
+          <div class="output-row">
+            <span>Margin Status</span>
+            <strong style="color:#ff8fa3;">POSITIVE</strong>
+          </div>
+
+          <div class="output-row">
+            <span>Tumor Distance</span>
+            <strong>0.4 mm</strong>
+          </div>
+
+          <div class="output-row">
+            <span>Confidence</span>
+            <strong>96.2%</strong>
+          </div>
+
+          <div class="output-row" style="border:none;">
+            <span>Recommendation</span>
+            <strong>Re-excise</strong>
+          </div>
+
+        </div>
+
+        <div class="tech-num">STEP 05</div>
+
+        <div class="tech-title">
+          AI Margin<br>Report
+        </div>
+
+        <div class="tech-copy">
+          Structured pathology-style report highlighting suspicious margins for pathologist review.
+        </div>
+
+        <div class="tag" style="margin-top:18px;">
+          Clinical Output
         </div>
       </div>
 
-      <!-- TOP -->
-      <div style="position:absolute;left:50%;top:0;transform:translateX(-50%);width:260px;">
-        <img src="autofluorosense-chemistry.jpg" style="width:100%;height:140px;object-fit:cover;border-radius:8px;">
-        <div class="card">
-          <h3>Chemistry</h3>
-          <p>Selective fluorescence generation.</p>
-        </div>
+    </div>
+
+    <!-- Bottom Summary Bar -->
+
+    <div style="
+      margin-top:24px;
+      padding:18px 24px;
+      border:1px solid rgba(255,107,129,.25);
+      background:rgba(177,18,38,.08);
+      border-radius:8px;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:18px;
+      text-align:center;
+    ">
+
+      <div>
+        <div class="mini">OPTICAL DEPTH</div>
+        <div class="stat" style="font-size:60px;">2–3<span>μm</span></div>
       </div>
 
-      <!-- RIGHT -->
-      <div style="position:absolute;right:5%;top:50%;transform:translateY(-50%);width:260px;">
-        <img src="uv-excitation-280nm.jpg" style="width:100%;height:140px;object-fit:cover;border-radius:8px;">
-        <div class="card">
-          <h3>UV Excitation</h3>
-          <p>280 nm illumination.</p>
-        </div>
+      <div>
+        <div class="mini">EXPOSURE</div>
+        <div class="stat" style="font-size:60px;">3<span>s</span></div>
       </div>
 
-      <!-- BOTTOM RIGHT -->
-      <div style="position:absolute;right:18%;bottom:0;width:260px;">
-        <img src="surface-fluorescence-capture.jpg" style="width:100%;height:140px;object-fit:cover;border-radius:8px;">
-        <div class="card">
-          <h3>Surface Capture</h3>
-          <p>2–3 μm optical section.</p>
-        </div>
+      <div>
+        <div class="mini">SECTIONING</div>
+        <div class="stat" style="font-size:60px;">0<span>cuts</span></div>
       </div>
 
-      <!-- BOTTOM LEFT -->
-      <div style="position:absolute;left:18%;bottom:0;width:260px;">
-        <img src="virtual-he-output.jpg" style="width:100%;height:140px;object-fit:cover;border-radius:8px;">
-        <div class="card">
-          <h3>Virtual H&E</h3>
-          <p>AI histology generation.</p>
-        </div>
-      </div>
-
-      <!-- LEFT -->
-      <div style="position:absolute;left:5%;top:50%;transform:translateY(-50%);width:260px;">
-        <img src="ai-margin-assessment.jpg" style="width:100%;height:140px;object-fit:cover;border-radius:8px;">
-        <div class="card">
-          <h3>Margin Intelligence</h3>
-          <p>LVLM/LLM assessment.</p>
-        </div>
+      <div>
+        <div class="mini">OUTPUT</div>
+        <div class="stat" style="font-size:60px;">AI<span>Report</span></div>
       </div>
 
     </div>
