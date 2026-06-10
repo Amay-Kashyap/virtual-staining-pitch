@@ -40,6 +40,7 @@ html, body {
   position: fixed;
   inset: 0;
   overflow: hidden;
+  background: radial-gradient(circle at 52% 50%, #2a0a10 0%, #170308 42%, #080102 100%);
   opacity: 0;
   transition: opacity 0.35s ease;
 }
@@ -160,10 +161,6 @@ body.ready #stage, body.ready #nav, body.ready #hint {
 .node.active {
   border-color: rgba(177, 18, 38, 0.5);
   box-shadow: 0 0 180px rgba(177, 18, 38, 0.22);
-}
-
-#n4 {
-  display: none;
 }
 
 .si {
@@ -1472,21 +1469,151 @@ body.ready #stage, body.ready #nav, body.ready #hint {
   animation-delay: 0.75s;
 }
 
+.legacy-slide { display: none !important; }
+body:not(.overview) .node:not(.active) { opacity: 0; pointer-events: none; }
+
+.slide-summary-heading {
+  width: 100%;
+  flex: 0 0 auto;
+  text-align: center;
+  font-family: "DM Mono", monospace;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--blue2);
+  opacity: 0.55;
+  margin-bottom: 18px;
+}
+
+.node:not(#n1):not(#n2) h2,
+.node:not(#n1):not(#n2) h3,
+.node:not(#n1):not(#n2) p,
+.node .stat { text-align: center; }
+
+#n3 .si { padding: 38px 72px 68px !important; }
+#n3 .slide-summary-heading { margin-bottom: 8px; }
+#n3 .hdl { font-size: 70px !important; margin-bottom: 20px !important; }
+#n3 .sub { display: none; }
+#n3 .si > div:nth-of-type(1) { gap: 10px !important; }
+#n3 .step { grid-template-columns: 48px 280px 1fr; min-height: 116px; margin-bottom: 0; padding: 10px 16px; }
+#n3 .step-name { font-size: 27px; }
+#n3 .step-copy { font-size: 24px; line-height: 1.2; }
+#n3 .si > div:last-child { display: none !important; }
+
+.combined-slide { padding: 42px 50px; }
+.combined-problem-solution { display: grid; grid-template-columns: 1fr 2px 1fr; gap: 0; width: 100%; height: 100%; }
+.divider { background: rgba(255,255,255,.15); }
+.combined-column { padding: 14px 42px; min-width: 0; display: flex; flex-direction: column; }
+.combined-title { font-family: "Instrument Serif", serif; font-size: 64px; line-height: 1; text-align: center; margin-bottom: 24px; }
+.accent-title { color: var(--blue2); }
+.problem-stack { display: grid; grid-template-rows: repeat(3, 1fr); gap: 14px; flex: 1; }
+.combined-stat-card { width: 100%; height: 100%; padding: 20px 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; background: rgba(232,238,248,.04); border: 1px solid var(--line); border-radius: 8px; }
+.combined-stat-card strong { font-family: "Instrument Serif", serif; font-size: 62px; line-height: .95; color: var(--paper); }
+.combined-stat-card span { margin-top: 13px; font-family: "Instrument Serif", serif; font-size: 24px; line-height: 1.2; color: var(--muted); }
+.combined-subtitle { text-align: center; font-family: "Instrument Serif", serif; font-style: italic; color: var(--muted); font-size: 28px; margin-bottom: 22px; }
+.solution-steps { display: grid; gap: 16px; }
+.solution-step { min-height: 116px; border-left: 5px solid var(--blue2); background: rgba(177,18,38,.08); padding: 18px 22px; display: grid; grid-template-columns: 58px 1fr; align-items: center; gap: 14px; }
+.solution-step b { font-family: "DM Mono", monospace; font-size: 24px; color: var(--blue2); }
+.solution-step span { font-family: "Instrument Serif", serif; font-size: 31px; line-height: 1.12; text-align: left; }
+.role-pills { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 20px; }
+.role-pills > div { min-height: 150px; padding: 20px; background: rgba(255,107,129,.09); border: 1px solid rgba(255,107,129,.22); border-radius: 8px; text-align: center; display: flex; flex-direction: column; justify-content: center; }
+.role-pills b { font-size: 25px; color: var(--blue2); margin-bottom: 10px; }
+.role-pills span { font-family: "Instrument Serif", serif; font-size: 23px; line-height: 1.24; color: var(--muted); }
+
+.market-opportunity-slide { justify-content: flex-start; padding: 44px 68px 72px; }
+.market-opportunity-title, .cost-title, .competition-title { text-align: center; font-size: 68px; margin-bottom: 22px; }
+.market-opportunity-layout { display: grid; grid-template-columns: 40% 60%; gap: 34px; flex: 1; min-height: 0; }
+.market-growth-panel { height: 100%; padding: 32px; background: rgba(232,238,248,.035); border: 1px solid var(--line); display: flex; flex-direction: column; justify-content: center; text-align: center; }
+.market-growth-panel h3 { font-size: 34px; color: var(--blue2); margin-bottom: 30px; }
+.market-growth-stat { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 12px; }
+.market-growth-stat div { display: flex; flex-direction: column; }
+.market-growth-stat strong { font-family: "Instrument Serif", serif; font-size: 60px; line-height: .95; }
+.market-growth-stat span { margin-top: 12px; font: 20px "DM Mono", monospace; color: var(--faint); }
+.market-growth-stat b { font-size: 52px; color: var(--blue2); }
+.market-cagr { margin: 28px 0; font: 700 34px Syne, sans-serif; color: var(--blue2); }
+.market-growth-panel p { font-family: "Instrument Serif", serif; font-size: 28px; line-height: 1.3; color: var(--muted); }
+.market-circles { position: relative; width: 100%; height: 100%; min-height: 610px; }
+.market-circle { position: absolute; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; border: 2px solid rgba(255,255,255,.2); color: white; }
+.market-circle span { font-size: 20px; max-width: 75%; }
+.market-circle strong { font-family: "Instrument Serif", serif; font-size: 50px; margin: 8px 0; }
+.market-circle small { font: 18px "DM Mono", monospace; text-transform: uppercase; }
+.market-circle.tam { width: 500px; height: 500px; left: 70px; top: 60px; background: rgba(124,106,247,.25); }
+.market-circle.sam { width: 350px; height: 350px; left: 390px; top: 190px; background: rgba(99,202,183,.35); }
+.market-circle.som { width: 230px; height: 230px; left: 600px; top: 350px; background: rgba(255,183,77,.45); }
+.market-circle.som strong { font-size: 40px; }
+
+.cost-slide { justify-content: flex-start; padding: 42px 72px 70px; }
+.cost-title { margin-bottom: 12px; }
+.cost-section { margin-top: 14px; }
+.cost-section-label { text-align: center; font: 22px "DM Mono", monospace; letter-spacing: .14em; text-transform: uppercase; color: var(--blue2); margin-bottom: 10px; }
+.cost-row { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.cost-card { min-height: 285px; padding: 24px 32px; border: 2px solid var(--line); background: rgba(232,238,248,.025); text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+.cost-card.swiftdx-cost { border-color: var(--blue2); background: rgba(255,107,129,.08); }
+.cost-badge { font: 700 22px Syne, sans-serif; color: var(--blue2); margin-bottom: 7px; }
+.frozen-cost .cost-badge { color: var(--paper); }
+.cost-card h3 { font-size: 25px; color: var(--muted); }
+.cost-card strong { font-family: "Instrument Serif", serif; font-size: 64px; line-height: .95; margin: 15px 0; }
+.cost-card p { max-width: 520px; font-family: "Instrument Serif", serif; font-size: 24px; line-height: 1.2; color: var(--muted); }
+
+.competition-slide { justify-content: flex-start; padding: 42px 66px 62px; }
+.competition-title { margin-bottom: 12px; }
+.position-quadrant { width: 100%; height: 112px; border: 1px solid var(--line); position: relative; background: rgba(232,238,248,.02); }
+.position-quadrant::before, .position-quadrant::after { content: ""; position: absolute; background: rgba(232,238,248,.12); }
+.position-quadrant::before { width: 1px; top: 0; bottom: 0; left: 50%; }
+.position-quadrant::after { height: 1px; left: 0; right: 0; top: 50%; }
+.position-quadrant .q-label { position: absolute; font: 16px "DM Mono", monospace; color: var(--faint); text-transform: uppercase; }
+.position-quadrant .q-top { top: 8px; left: 14px; }.position-quadrant .q-right { right: 14px; bottom: 8px; }
+.position-quadrant i { position: absolute; width: 14px; height: 14px; border-radius: 50%; background: #6b7280; }
+.position-quadrant .q-frozen { left: 18%; top: 64%; }.position-quadrant .q-invenio { left: 56%; top: 30%; background: #f59e0b; }.position-quadrant .q-histolog { left: 67%; top: 52%; background: #06b6d4; }
+.position-quadrant .q-swift { right: 7%; top: 13%; width: 21px; height: 21px; background: var(--blue2); box-shadow: 0 0 20px var(--blue2); }
+.position-quadrant .q-swift-label { position: absolute; right: 10%; top: 11%; font-size: 17px; color: var(--paper); }
+.bubble-chart { width: 100%; height: 640px; margin-top: 8px; overflow: visible; }
+.chart-grid line { stroke: rgba(232,238,248,.11); stroke-width: 1; }
+.chart-axes text { fill: var(--muted); font: 11px "DM Mono", monospace; text-anchor: middle; }
+.bubbles text { fill: white; font: 600 11px Syne, sans-serif; text-anchor: middle; pointer-events: none; }
+.bubbles circle { stroke: rgba(255,255,255,.42); stroke-width: 2; opacity: .92; }
+.swift-annotation path { stroke: var(--blue2); stroke-width: 2; fill: none; }
+.swift-annotation text { fill: var(--blue2); font: 600 12px Syne, sans-serif; }
+.bubble-legend { min-height: 46px; display: flex; align-items: center; justify-content: center; gap: 10px; font: 16px "DM Mono", monospace; color: var(--muted); }
+.legend-bubble { display: inline-block; border-radius: 50%; background: rgba(232,238,248,.4); }
+.legend-bubble.sm { width: 14px; height: 14px; }.legend-bubble.md { width: 22px; height: 22px; }.legend-bubble.lg { width: 30px; height: 30px; }
+.legend-colors { margin-left: 24px; display: flex; align-items: center; gap: 8px; }
+.legend-colors b { width: 12px; height: 12px; border-radius: 50%; background: var(--c); display: inline-block; }
+
+.blank-slide, .ask-slide { align-items: center; text-align: center; }
+.blank-slide h2 { font-size: 64px; opacity: .4; }
+.blank-slide > p:last-child { margin-top: 22px; font-family: "Instrument Serif", serif; font-size: 30px; opacity: .36; }
+.ask-slide { justify-content: center; padding: 48px 90px 72px; }
+.ask-slide .slide-summary-heading { position: absolute; top: 42px; left: 0; }
+.ask-amount { font-family: "Instrument Serif", serif; font-size: 118px; line-height: .85; }
+.ask-subtitle { margin: 18px 0 30px; font: 24px "DM Mono", monospace; color: var(--steel); text-transform: uppercase; letter-spacing: .14em; }
+.ask-bars { width: 100%; max-width: 900px; display: grid; gap: 13px; }
+.ask-bar { height: 62px; border: 1px solid var(--line); background: rgba(232,238,248,.035); position: relative; overflow: hidden; }
+.ask-bar i { position: absolute; inset: 0 auto 0 0; background: linear-gradient(90deg,rgba(177,18,38,.85),rgba(255,107,129,.48)); }
+.ask-bar span { position: relative; z-index: 1; height: 100%; display: flex; align-items: center; justify-content: flex-start; gap: 18px; padding: 0 24px; font-size: 24px; }
+.ask-bar b { font-size: 29px; color: white; }
+.ask-roi { margin-top: 26px; display: flex; align-items: baseline; gap: 16px; }
+.ask-roi strong { font-family: "Instrument Serif", serif; font-size: 58px; color: var(--blue2); }
+.ask-roi span { font-size: 22px; text-transform: uppercase; color: var(--muted); }
+
 #n1 { left: 5320px; top: 430px; }
-#n2 { left: 7272px; top: 782px; }
-#n3 { left: 8887px; top: 1770px; }
-#n4 { left: 9885px; top: 3229px; }
-#n5 { left: 10094px; top: 4903px; }
-#n6 { left: 9477px; top: 6505px; }
-#n7 { left: 8142px; top: 7757px; }
-#n8 { left: 6318px; top: 8442px; }
-#n9 { left: 4322px; top: 8442px; }
-#n10 { left: 2498px; top: 7757px; }
-#n11 { left: 1163px; top: 6505px; }
-#n12 { left: 546px; top: 4903px; }
-#n13 { left: 755px; top: 3229px; }
-#n14 { left: 1753px; top: 1770px; }
-#n15 { left: 3368px; top: 782px; }
+#n2 { left: 6783px; top: 703px; }
+#n3 { left: 8048px; top: 1487px; }
+#n4 { left: 8945px; top: 2675px; }
+#n5 { left: 9353px; top: 4106px; }
+#n6 { left: 9215px; top: 5588px; }
+#n7 { left: 8552px; top: 6921px; }
+#n8 { left: 7452px; top: 7923px; }
+#n9 { left: 6064px; top: 8461px; }
+#n10 { left: 4576px; top: 8461px; }
+#n11 { left: 3188px; top: 7923px; }
+#n12 { left: 2088px; top: 6921px; }
+#n13 { left: 1425px; top: 5588px; }
+#n14 { left: 1287px; top: 4106px; }
+#n15 { left: 1695px; top: 2675px; }
+#n16 { left: 2592px; top: 1487px; }
+#n17 { left: 3857px; top: 703px; }
 
 #nav {
   position: fixed;
@@ -1875,6 +2002,8 @@ body.overview .node {
   margin-bottom: 0;
   line-height: 1.22;
 }
+#n9 .si.competition-slide { justify-content: flex-start; padding: 42px 66px 62px; }
+#n9 .hdl.competition-title { width: 100%; max-width: none; font-size: 68px; margin: 0 0 12px; text-align: center; }
 </style>
 </head>
 <body>
@@ -1924,54 +2053,33 @@ body.overview .node {
     </div>
   </section>
 
-    <!-- SLIDE 2: Why It Matters -->
+    <!-- SLIDE 2: Combined Problem + Solution -->
     <section class="node" id="n2">
-      <div class="hook">Slide 2 | Why It Matters</div>
-      <div class="si">
-        <h2 class="hdl" style="font-size:92px;max-width:14ch">Delayed pathology creates a system bottleneck.</h2>
-        <div class="burden-grid">
-          <div class="burden-card">
-            <div>
-              <div class="burden-stat">1<span>in</span>5</div>
-              <div class="burden-label">repeat procedure pressure</div>
+      <div class="hook">Slide 2 | Problem + Solution</div>
+      <div class="si combined-slide">
+        <div class="combined-problem-solution">
+          <div class="combined-column">
+            <h2 class="combined-title">The Problem</h2>
+            <div class="problem-stack">
+              <div class="combined-stat-card"><strong>1 in 5</strong><span>Patients face repeat surgery due to positive margins missed intraoperatively</span></div>
+              <div class="combined-stat-card"><strong>65-90%</strong><span>Hospitals lack specialized histopathologists and cryostats for frozen-section pathology</span></div>
+              <div class="combined-stat-card"><strong>24-72 hrs</strong><span>Typical turnaround for traditional fixation, processing, staining and review</span></div>
             </div>
-            <div class="burden-copy">Repeat surgery after positive margins.</div>
           </div>
-          <div class="burden-card">
-            <div>
-              <div class="burden-stat">65-90<span>%</span></div>
-              <div class="burden-label">limited intraoperative pathology access</div>
+          <div class="divider"></div>
+          <div class="combined-column solution-column">
+            <h2 class="combined-title accent-title">SwiftDx Workflow</h2>
+            <p class="combined-subtitle">Rapid support. Pathologist led.</p>
+            <div class="solution-steps">
+              <div class="solution-step"><b>01</b><span>Technician captures fresh tissue image</span></div>
+              <div class="solution-step"><b>02</b><span>AI creates virtual stain + boundary assessment</span></div>
+              <div class="solution-step"><b>03</b><span>Pathologist reviews evidence and signs off</span></div>
             </div>
-            <div class="burden-copy">Limited specialist access.</div>
+            <div class="role-pills">
+              <div><b>Technicians</b><span>Operate scanning and AI workflow at the surgical site</span></div>
+              <div><b>Pathologists</b><span>Supervise outputs, review evidence, and remain the final decision authority</span></div>
+            </div>
           </div>
-        </div>
-        <div class="system-note">Pathologists remain the final decision-makers.</div>
-      </div>
-    </section>
-
-    <!-- SLIDE 3: Solution -->
-    <section class="node" id="n3">
-      <div class="hook">Slide 3 | Solution</div>
-      <div class="si slide3-focus">
-        <div class="workflow-compare">
-          <div class="workflow-lane">
-            <div class="workflow-label">Traditional workflow</div>
-            <div class="workflow-title">High friction. Slow turnaround.</div>
-            <div class="workflow-mini-step"><strong>01</strong><span>Cryostat + trained staff</span></div>
-            <div class="workflow-mini-step"><strong>02</strong><span>20-30 minute turnaround</span></div>
-            <div class="workflow-mini-step"><strong>03</strong><span>Requires on-site pathology</span></div>
-          </div>
-          <div class="workflow-lane fast">
-            <div class="workflow-label">SwiftDx workflow</div>
-            <div class="workflow-title">Rapid support. Pathologist led.</div>
-            <div class="workflow-mini-step"><strong>01</strong><span>Capture fresh tissue</span></div>
-            <div class="workflow-mini-step"><strong>02</strong><span>Virtual stain + margin analysis</span></div>
-            <div class="workflow-mini-step"><strong>03</strong><span>Pathologist sign-off</span></div>
-          </div>
-        </div>
-        <div class="role-band">
-          <div class="role-chip"><b>Technicians</b><span>Capture and run workflow.</span></div>
-          <div class="role-chip"><b>Pathologists</b><span>Review and sign off.</span></div>
         </div>
       </div>
     </section>
@@ -1980,11 +2088,12 @@ body.overview .node {
 <!-- REPLACE CURRENT TECHNOLOGY SLIDE WITH THIS -->
 <!-- REPLACE ENTIRE SLIDE 4 WITH THIS -->
 
-<section class="node" id="n4">
-  <div class="hook">Slide 4 | Workflow</div>
+<section class="node" id="n3">
+  <div class="hook">Slide 3 | Workflow</div>
 
   <div class="si" style="justify-content:flex-start;padding:70px 85px;">
 
+    <p class="slide-summary-heading">[SLIDE SUMMARY - EDIT ME]</p>
     <div class="kicker">How SwiftDx Works</div>
 
     <h2 class="hdl" style="
@@ -2100,10 +2209,11 @@ body.overview .node {
     <!-- SLIDE 5: Technology -->
 <!-- REPLACE EXISTING SLIDE 5 WITH THIS -->
 
-<section class="node" id="n5">
+<section class="node" id="n4">
   <div class="hook">Slide 4 | Prototype Demonstration</div>
 
   <div class="si prototype-slide">
+    <p class="slide-summary-heading">[SLIDE SUMMARY - EDIT ME]</p>
 
     <div style="
       display:grid;
@@ -2309,9 +2419,10 @@ body.overview .node {
 </section>
 
     <!-- SLIDE 6: Validation -->
-    <section class="node" id="n6">
+    <section class="node" id="n5">
       <div class="hook">Slide 5 | Validation</div>
       <div class="si validation-slide">
+        <p class="slide-summary-heading">[SLIDE SUMMARY - EDIT ME]</p>
         <h2 class="hdl validation-title">MVP performance and validation</h2>
         <div class="validation-message">Our MVP already out-performs frozen section.</div>
 
@@ -2337,10 +2448,37 @@ body.overview .node {
       </div>
     </section>
 
+    <!-- SLIDE 6: Market Opportunity -->
+    <section class="node" id="n6">
+      <div class="hook">Slide 6 | Market Opportunity</div>
+      <div class="si market-opportunity-slide">
+        <p class="slide-summary-heading">[SLIDE SUMMARY - EDIT ME]</p>
+        <h2 class="hdl market-opportunity-title">Market Opportunity</h2>
+        <div class="market-opportunity-layout">
+          <div class="market-growth-panel">
+            <h3>Digital Pathology Market</h3>
+            <div class="market-growth-stat">
+              <div><strong>$1.3B</strong><span>2025</span></div>
+              <b>&rarr;</b>
+              <div><strong>$5.75B</strong><span>2034</span></div>
+            </div>
+            <div class="market-cagr">CAGR ~17%</div>
+            <p>The digital pathology market is growing 3&times; in a decade, driven by AI, cloud imaging, and rising cancer burden.</p>
+          </div>
+          <div class="market-circles" aria-label="TAM SAM SOM market opportunity">
+            <div class="market-circle tam"><span>Total Addressable Market</span><strong>$5.75B</strong><small>2034</small></div>
+            <div class="market-circle sam"><span>AI Margin Assessment</span><strong>~$580M</strong></div>
+            <div class="market-circle som"><span>SwiftDx Target</span><strong>~$58M</strong><small>5 year</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- SLIDE 7: Partnerships & LOIs -->
     <section class="node" id="n7">
-      <div class="hook">Slide 6 | Strategic Partnerships</div>
+      <div class="hook">Slide 7 | Strategic Partnerships</div>
       <div class="si" style="padding:42px 48px">
+        <p class="slide-summary-heading">[SLIDE SUMMARY - EDIT ME]</p>
         <h2 class="hdl" style="font-size:76px;margin-bottom:28px">Our collaboration and reach</h2>
         <div class="loi-grid">
           <div class="loi-card">
@@ -2414,243 +2552,97 @@ body.overview .node {
       </div>
     </section>
 
-    <!-- SLIDE 8: Market -->
+    <!-- SLIDE 8: Business Model -->
     <section class="node" id="n8">
-      <div class="hook">Slide 7 | Market Opportunity</div>
-      <div class="si business-slide">
-        <h2 class="hdl business-headline">Business model</h2>
-        <div class="business-layout">
-          <div class="biz-card market-card">
-            <div>
-              <div class="biz-label">2034 digital pathology market</div>
-              <div class="stat">$5.75<span>B</span></div>
-            </div>
-          </div>
-
-          <div class="biz-card">
-            <div>
-              <div class="biz-label">Setup cost comparison</div>
-              <div class="setup-stack">
-                <div class="setup-tile">
-                  <span>SwiftDx build cost</span>
-                  <strong>~$200</strong>
-                </div>
-                <div class="setup-tile compare">
-                  <span>Frozen-section setup</span>
-                  <strong>$15K-$40K+</strong>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="biz-card">
-            <div>
-              <div class="biz-label">Commercial model</div>
-              <div class="pricing-grid">
-                <div class="price-tile">
-                  <strong>~$400</strong>
-                  <span>initial product price</span>
-                </div>
-                <div class="price-tile">
-                  <strong>~$30</strong>
-                  <span>later per-case usage fee</span>
-                </div>
-              </div>
-              <div class="frozen-compare">
-                <span>Frozen-section comparison</span>
-                <strong>$150-$500 / case</strong>
-              </div>
-            </div>
+      <div class="hook">Slide 8 | Business Model</div>
+      <div class="si cost-slide">
+        <p class="slide-summary-heading">[SLIDE SUMMARY - EDIT ME]</p>
+        <h2 class="hdl cost-title">Business Model</h2>
+        <div class="cost-section">
+          <div class="cost-section-label">Setup Cost</div>
+          <div class="cost-row">
+            <div class="cost-card swiftdx-cost"><div class="cost-badge">SwiftDx</div><h3>Hardware Setup</h3><strong>~$400</strong><p>Ultra-low hardware cost. No cryostat required.</p></div>
+            <div class="cost-card frozen-cost"><div class="cost-badge">Frozen Section</div><h3>Lab Setup</h3><strong>$15,000-$40,000+</strong><p>Cryostat, lab infrastructure, and specialist staffing required.</p></div>
           </div>
         </div>
-        <div class="grid2 legacy-market-grid" style="gap:44px">
-          <div>
-            <div class="stat" style="font-size:200px">$5.75<span>B</span></div>
-            <h2 class="hdl" style="font-size:58px;margin-top:12px">The digital pathology market will grow 3x in the next decade.</h2>
-            <div class="card" style="margin-top:26px">
-              <p>TAM: $1.3B (2025) → $5.75B (2034). SAM: AI-assisted margin assessment $110M-$1.16B.</p>
-            </div>
-          </div>
-          <div>
-            <div class="table">
-              <div class="metric-row">
-                <div class="metric-h">Unit economics</div>
-                <div class="metric-h">Value</div>
-                <div class="metric-h">Impact</div>
-              </div>
-              <div class="metric-row">
-
-              <div class="metric-row">
-                <div class="metric-c">Per-case fee</div>
-                <div class="metric-c"><strong>$80-$150</strong></div>
-                <div class="metric-c">SwiftDx usage fee.</div>
-              </div>
-
-              <div class="metric-row">
-                <div class="metric-c">Frozen Section</div>
-                <div class="metric-c"><strong>$200-$800+</strong></div>
-                <div class="metric-c">Typical intraoperative pathology cost.</div>
-              </div>
-
-              <div class="metric-row">
-                <div class="metric-c">Infrastructure cost</div>
-                <div class="metric-c">$2-$5</div>
-                <div class="metric-c">High software margin.</div>
-              </div>
-
-              <div class="metric-row">
-                <div class="metric-c">Hospitals without frozen section</div>
-                <div class="metric-c"><strong>65-90%</strong></div>
-                <div class="metric-c">High setup and staffing barriers.</div>
-              </div>
-
-              <div class="metric-row">
-                <div class="metric-c">Gross margin target</div>
-                <div class="metric-c"><strong>~96%</strong></div>
-                <div class="metric-c">Software scaling.</div>
-              </div>
-
-              </div>
-            </div>
+        <div class="cost-section">
+          <div class="cost-section-label">Commercial Model</div>
+          <div class="cost-row">
+            <div class="cost-card swiftdx-cost"><div class="cost-badge">SwiftDx</div><h3>Per-Case Fee</h3><strong>~$30</strong><p>SaaS per-case model that scales with volume.</p></div>
+            <div class="cost-card frozen-cost"><div class="cost-badge">Frozen Section</div><h3>Per-Case Cost</h3><strong>$150-$500</strong><p>Pathologist time, operating-room time, and lab processing.</p></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SLIDE 9: Competitors (Simplified) -->
+    <!-- SLIDE 9: Competitive Landscape -->
     <section class="node" id="n9">
-      <div class="hook">Slide 8 | Competitive Landscape</div>
-      <div class="si">
-        <div class="kicker">Strategic Positioning</div>
-        <h2 class="hdl" style="font-size:86px;margin-bottom:10px">Superior in <em>Time and Cost.</em></h2>
-
-        <div class="comp-workspace">
-          <div class="graph-container">
-            <div class="axis-label y-axis">Timing → Intraoperative</div>
-            <div class="axis-label x-axis">AI Integration Complexity →</div>
-
-            <div class="plot-point swiftdx" style="top: 10%; right: 15%;">
-              <div class="dot-icon">SDx</div>
-              <div class="plot-name" style="color:var(--paper)">SwiftDx</div>
-            </div>
-
-            <div class="plot-point" style="top: 20%; left: 40%;">
-              <div class="dot-icon">INV</div>
-              <div class="plot-name">Invenio</div>
-            </div>
-            <div class="plot-point" style="top: 35%; left: 30%;">
-              <div class="dot-icon">MAR</div>
-              <div class="plot-name">MarginScan</div>
-            </div>
-            <div class="plot-point" style="top: 60%; left: 10%;">
-              <div class="dot-icon">CLA</div>
-              <div class="plot-name">Claire</div>
-            </div>
-            <div class="plot-point" style="top: 80%; right: 25%;">
-              <div class="dot-icon">HIS</div>
-              <div class="plot-name">Histolog Scanner</div>
-            </div>
-          </div>
-
-          <div class="table-container">
-            <table class="matrix-table">
-              <thead>
-                <tr>
-                  <th>Approach</th>
-                  <th>Duration<br>(min)</th>
-                  <th>Histology<br>Visibility</th>
-                  <th>Startup<br>Cost</th>
-                  <th>Individual<br>Test Cost</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="company-cell">Frozen Section</td>
-                  <td class="time-cell">20-30</td>
-                  <td><span class="matrix-chip chip-mid">**</span></td>
-                  <td><span class="matrix-chip chip-high">**/****</span></td>
-                  <td><span class="matrix-chip chip-low">*</span></td>
-                </tr>
-                <tr>
-                  <td class="company-cell" style="color:var(--blue2)">SwiftDx</td>
-                  <td class="time-cell">&lt;2</td>
-                  <td><span class="matrix-chip chip-mid">**</span></td>
-                  <td><span class="matrix-chip chip-low">***</span></td>
-                  <td><span class="matrix-chip chip-mid">**</span></td>
-                </tr>
-                <tr>
-                  <td class="company-cell">MarginScan</td>
-                  <td class="time-cell">&lt;3</td>
-                  <td><span class="matrix-chip chip-low">*</span></td>
-                  <td><span class="matrix-chip chip-high">**/****</span></td>
-                  <td><span class="matrix-chip chip-high">***</span></td>
-                </tr>
-                <tr>
-                  <td class="company-cell">Claire</td>
-                  <td class="time-cell">10-15</td>
-                  <td><span class="matrix-chip chip-low">*</span></td>
-                  <td><span class="matrix-chip chip-high">***/****</span></td>
-                  <td><span class="matrix-chip chip-mid">**</span></td>
-                </tr>
-                <tr>
-                  <td class="company-cell">Invenio</td>
-                  <td class="time-cell">&lt;3</td>
-                  <td><span class="matrix-chip chip-high">***</span></td>
-                  <td><span class="matrix-chip chip-high">***/****</span></td>
-                  <td><span class="matrix-chip chip-mid">**</span></td>
-                </tr>
-                <tr>
-                  <td class="company-cell">Histolog Scanner</td>
-                  <td class="time-cell">&lt;2</td>
-                  <td><span class="matrix-chip chip-high">***</span></td>
-                  <td><span class="matrix-chip chip-high">***/****</span></td>
-                  <td><span class="matrix-chip chip-high">***</span></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+      <div class="hook">Slide 9 | Competitive Landscape</div>
+      <div class="si competition-slide">
+        <h2 class="hdl competition-title">Competitive Landscape</h2>
+        <div class="position-quadrant" aria-label="Timing versus AI integration positioning">
+          <span class="q-label q-top">Timing: intraoperative</span><span class="q-label q-right">AI integration complexity</span>
+          <i class="q-frozen"></i><i class="q-invenio"></i><i class="q-histolog"></i><i class="q-swift"></i><b class="q-swift-label">SwiftDx</b>
         </div>
+        <svg class="bubble-chart" viewBox="0 0 700 380" role="img" aria-label="Competitor cost, turnaround and accuracy bubble chart">
+          <g class="chart-grid"><line x1="60" y1="20" x2="60" y2="320"/><line x1="160" y1="20" x2="160" y2="320"/><line x1="260" y1="20" x2="260" y2="320"/><line x1="360" y1="20" x2="360" y2="320"/><line x1="460" y1="20" x2="460" y2="320"/><line x1="560" y1="20" x2="560" y2="320"/><line x1="660" y1="20" x2="660" y2="320"/><line x1="60" y1="320" x2="660" y2="320"/><line x1="60" y1="234" x2="660" y2="234"/><line x1="60" y1="149" x2="660" y2="149"/><line x1="60" y1="63" x2="660" y2="63"/></g>
+          <g class="chart-axes"><text x="60" y="340">$0</text><text x="160" y="340">$100</text><text x="260" y="340">$200</text><text x="360" y="340">$300</text><text x="460" y="340">$400</text><text x="560" y="340">$500</text><text x="650" y="340">$600</text><text x="43" y="324">0</text><text x="36" y="238">10</text><text x="36" y="153">20</text><text x="36" y="67">30</text><text x="360" y="372">Per-Case Cost (USD)</text><text transform="translate(14 210) rotate(-90)">Turnaround Time (min)</text></g>
+          <g class="bubbles">
+            <circle cx="90" cy="303" r="38" fill="#7c6af7"/><text x="90" y="299">SwiftDx</text><text x="90" y="315">95.5%</text>
+            <circle cx="360" cy="106" r="18" fill="#6b7280"/><text x="360" y="102">Frozen</text><text x="360" y="118">84%</text>
+            <circle cx="210" cy="294" r="27" fill="#f59e0b"/><text x="210" y="290">Invenio</text><text x="210" y="306">91%</text>
+            <circle cx="260" cy="294" r="16" fill="#ef4444"/><text x="260" y="290">MarginScan</text><text x="260" y="306">82%</text>
+            <circle cx="240" cy="217" r="15" fill="#10b981"/><text x="240" y="213">Claire</text><text x="240" y="229">80%</text>
+            <circle cx="310" cy="251" r="25" fill="#06b6d4"/><text x="310" y="247">Histolog</text><text x="310" y="263">90%</text>
+          </g>
+          <g class="swift-annotation"><path d="M90 265 L90 232"/><text x="70" y="218">SwiftDx - fastest &amp; lowest cost</text></g>
+        </svg>
+        <div class="bubble-legend"><span>Accuracy:</span><i class="legend-bubble sm"></i><span>80%</span><i class="legend-bubble md"></i><span>88%</span><i class="legend-bubble lg"></i><span>96%</span><span class="legend-colors"><b style="--c:#7c6af7"></b>SwiftDx <b style="--c:#6b7280"></b>Frozen <b style="--c:#f59e0b"></b>Invenio <b style="--c:#ef4444"></b>MarginScan <b style="--c:#10b981"></b>Claire <b style="--c:#06b6d4"></b>Histolog</span></div>
       </div>
     </section>
 
-    <!-- SLIDE 10: Go-to-Market -->
+    <!-- SLIDE 10: Market Strategy -->
     <section class="node" id="n10">
-      <div class="hook">Slide 9 | GTM & Ask</div>
-      <div class="si">
-        <h2 class="hdl" style="font-size:78px;margin-bottom:34px">Go to market strategies</h2>
-        <div class="grid2" style="gap:44px;align-items:start">
-          <div>
-            <p class="sub" style="font-size:34px;margin-top:24px">Launch with Tier 1 oncology centres.</p>
-            <div style="margin-top:28px">
-              <span class="tag">Buyer: Hospital Admin</span>
-              <span class="tag" style="margin-left:12px">User: Pathologists</span>
-              <span class="tag" style="margin-left:12px">Champion: Surgeons</span>
-            </div>
-            <div class="roi-card">
-              <div class="roi-label">Hospital ROI</div>
-              <div class="roi-number">2 cases</div>
-            </div>
-          </div>
-          <div>
-            <div class="card" style="border-color:rgba(79,140,255,.3);background:rgba(79,140,255,.07);padding:32px">
-              <div class="stat" style="font-size:132px">$175<span>K</span></div>
-              <div class="mini" style="color:var(--steel);margin-top:8px">Seed round | 2026</div>
-            </div>
-            <div class="grid2" style="gap:14px;margin-top:18px">
-              <div class="card"><h3>40%</h3><p>Data, IRB, annotation</p></div>
-              <div class="card"><h3>25%</h3><p>Prospective validation</p></div>
-              <div class="card"><h3>20%</h3><p>Regulatory & MLOps</p></div>
-              <div class="card"><h3>15%</h3><p>Pilots & partnerships</p></div>
-            </div>
-          </div>
+      <div class="hook">Slide 10 | Market Strategy</div>
+      <div class="si blank-slide">
+        <p class="slide-summary-heading">[SLIDE SUMMARY - EDIT ME]</p>
+        <h2>[Market Strategy]</h2>
+        <p>Content coming soon</p>
+      </div>
+    </section>
+
+    <!-- SLIDE 11: Go-To-Market -->
+    <section class="node" id="n11">
+      <div class="hook">Slide 11 | Go-To-Market</div>
+      <div class="si blank-slide">
+        <p class="slide-summary-heading">[SLIDE SUMMARY - EDIT ME]</p>
+        <h2>[Go-To-Market]</h2>
+        <p>Content coming soon</p>
+      </div>
+    </section>
+
+    <!-- SLIDE 12: The Ask -->
+    <section class="node" id="n12">
+      <div class="hook">Slide 12 | The Ask</div>
+      <div class="si ask-slide">
+        <p class="slide-summary-heading">[SLIDE SUMMARY - EDIT ME]</p>
+        <h2 class="ask-amount">$175K</h2>
+        <div class="ask-subtitle">Seed Round &middot; 2026</div>
+        <div class="ask-bars">
+          <div class="ask-bar"><i style="width:40%"></i><span><b>40%</b> Data, IRB &amp; Annotation</span></div>
+          <div class="ask-bar"><i style="width:25%"></i><span><b>25%</b> Prospective Validation</span></div>
+          <div class="ask-bar"><i style="width:20%"></i><span><b>20%</b> Regulatory &amp; MLOps</span></div>
+          <div class="ask-bar"><i style="width:15%"></i><span><b>15%</b> Pilots &amp; Partnerships</span></div>
         </div>
+        <div class="ask-roi"><strong>2 cases</strong><span>hospital payback</span></div>
       </div>
     </section>
 
     <!-- SLIDE 11: Team -->
-    <section class="node" id="n11">
-      <div class="hook">Slide 10 | Team</div>
+    <section class="node" id="n13">
+      <div class="hook">Slide 13 | Team</div>
       <div class="si" style="padding:46px 58px">
+        <p class="slide-summary-heading">[SLIDE SUMMARY - EDIT ME]</p>
         <h2 class="hdl" style="font-size:66px;margin-bottom:22px">Team</h2>
         <div class="team-grid">
           <div class="team-card">
@@ -2700,9 +2692,10 @@ body.overview .node {
     </section>
 
     <!-- SLIDE 12: Data Plan -->
-    <section class="node" id="n12">
-      <div class="hook">Slide 11 | Data & Roadmap</div>
+    <section class="node" id="n14">
+      <div class="hook">Slide 14 | Data & Roadmap</div>
       <div class="si">
+        <p class="slide-summary-heading">[SLIDE SUMMARY - EDIT ME]</p>
         <div class="kicker">From MVP to clinical deployment</div>
         <h2 class="hdl" style="font-size:78px;margin-bottom:24px">Partner first.<br>Build data.<br><em>Scale responsibly.</em></h2>
         <div class="step">
@@ -2733,9 +2726,10 @@ body.overview .node {
     </section>
 
     <!-- SLIDE 13: Workflow & Regulatory -->
-    <section class="node" id="n13">
-      <div class="hook">Slide 12 | Workflow & Regulatory</div>
+    <section class="node" id="n15">
+      <div class="hook">Slide 15 | Workflow & Regulatory</div>
       <div class="si">
+        <p class="slide-summary-heading">[SLIDE SUMMARY - EDIT ME]</p>
         <div class="kicker">Clinical integration</div>
         <h2 class="hdl" style="font-size:78px;margin-bottom:26px">Decision support.<br><em>Not replacement.</em></h2>
         <div class="grid3">
@@ -2756,9 +2750,10 @@ body.overview .node {
     </section>
 
     <!-- SLIDE 14: Architecture -->
-    <section class="node" id="n14">
-      <div class="hook">Slide 13 | Technical Architecture</div>
+    <section class="node" id="n16">
+      <div class="hook">Slide 16 | Technical Architecture</div>
       <div class="si">
+        <p class="slide-summary-heading">[SLIDE SUMMARY - EDIT ME]</p>
         <div class="kicker">Engineered for clinical deployment</div>
         <h2 class="hdl" style="font-size:78px;margin-bottom:26px">Two models.<br><em>One report.</em></h2>
         <div class="grid3">
@@ -2779,9 +2774,10 @@ body.overview .node {
     </section>
 
     <!-- SLIDE 15: Deployment -->
-    <section class="node" id="n15">
-      <div class="hook">Slide 14 | Deployment & Scaling</div>
+    <section class="node" id="n17">
+      <div class="hook">Slide 17 | Deployment & Scaling</div>
       <div class="si">
+        <p class="slide-summary-heading">[SLIDE SUMMARY - EDIT ME]</p>
         <div class="kicker">Cloud-first, governance-aware</div>
         <h2 class="hdl" style="font-size:78px;margin-bottom:24px">Train in cloud.<br>Deploy anywhere.<br><em>Audit everything.</em></h2>
         <div class="grid4">
@@ -2811,7 +2807,7 @@ body.overview .node {
   <button class="nb" id="bp">prev</button>
   <div class="dots" id="dots"></div>
   <button class="nb" id="bn">next</button>
-  <span id="ctr">00 / 15</span>
+  <span id="ctr">00 / 17</span>
   <button class="nb" id="bo">overview</button>
   <button class="nb" onclick="toggleFS()">full</button>
 </nav>
@@ -2820,12 +2816,13 @@ body.overview .node {
 <script>
 let viewportW = window.innerWidth, viewportH = window.innerHeight;
 const canvas = document.getElementById("canvas");
-const NW = 1760, NH = 1040, TOTAL = 14, SAFE_TOP = 24, SAFE_BOTTOM = 128;
-const IDS = [null, "n1", "n2", "n3", "n5", "n6", "n7", "n8", "n9", "n10", "n11", "n12", "n13", "n14", "n15"];
+const NW = 1760, NH = 1040, TOTAL = 17, SAFE_TOP = 24, SAFE_BOTTOM = 128;
+const IDS = [null, "n1", "n2", "n3", "n4", "n5", "n6", "n7", "n8", "n9", "n10", "n11", "n12", "n13", "n14", "n15", "n16", "n17"];
 const CENTERS = [
-  {cx: 6200, cy: 5000}, {cx: 6200, cy: 950}, {cx: 8152, cy: 1302}, {cx: 9767, cy: 2290}, {cx: 10974, cy: 5423},
-  {cx: 10357, cy: 7025}, {cx: 9022, cy: 8277}, {cx: 7198, cy: 8962}, {cx: 5202, cy: 8962}, {cx: 3378, cy: 8277}, {cx: 2043, cy: 7025},
-  {cx: 1426, cy: 5423}, {cx: 1635, cy: 3749}, {cx: 2633, cy: 2290}, {cx: 4248, cy: 1302}
+  {cx: 6200, cy: 5000}, {cx: 6200, cy: 950}, {cx: 7663, cy: 1223}, {cx: 8928, cy: 2007}, {cx: 9825, cy: 3195},
+  {cx: 10233, cy: 4626}, {cx: 10095, cy: 6108}, {cx: 9432, cy: 7441}, {cx: 8332, cy: 8443}, {cx: 6944, cy: 8981},
+  {cx: 5456, cy: 8981}, {cx: 4068, cy: 8443}, {cx: 2968, cy: 7441}, {cx: 2305, cy: 6108}, {cx: 2167, cy: 4626},
+  {cx: 2575, cy: 3195}, {cx: 3472, cy: 2007}, {cx: 4737, cy: 1223}
 ];
 let VIEWS = [], cur = 0;
 
