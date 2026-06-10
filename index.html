@@ -1157,6 +1157,91 @@ body.ready #stage, body.ready #nav, body.ready #hint {
   margin-top: 28px;
 }
 
+.slide3-focus {
+  justify-content: flex-start;
+  padding: 72px 72px 96px;
+}
+
+.slide3-focus .workflow-compare {
+  margin-top: 0;
+  gap: 32px;
+}
+
+.slide3-focus .workflow-lane {
+  padding: 36px 34px;
+  min-height: 570px;
+}
+
+.slide3-focus .workflow-label {
+  font-size: 18px;
+}
+
+.slide3-focus .workflow-title {
+  font-size: 46px;
+  margin-bottom: 24px;
+}
+
+.slide3-focus .workflow-mini-step {
+  grid-template-columns: 62px 1fr;
+  padding: 25px 0;
+}
+
+.slide3-focus .workflow-mini-step strong {
+  font-size: 20px;
+}
+
+.slide3-focus .workflow-mini-step span {
+  font-size: 42px;
+  line-height: 1.08;
+}
+
+.slide3-focus .role-band {
+  margin-top: 28px;
+}
+
+.slide3-focus .role-chip {
+  padding: 24px 26px;
+}
+
+.slide3-focus .role-chip b {
+  font-size: 16px;
+}
+
+.slide3-focus .role-chip span {
+  font-size: 31px;
+}
+
+.prototype-slide {
+  justify-content: flex-start;
+  padding: 64px 54px 88px;
+}
+
+.prototype-slide > div[style*="grid-template-columns:repeat(5,1fr)"] {
+  gap: 22px !important;
+}
+
+.prototype-stage {
+  min-height: 700px !important;
+  padding: 24px;
+}
+
+.prototype-stage .tech-num {
+  font-size: 15px;
+}
+
+.prototype-stage .tech-title {
+  font-size: 38px;
+}
+
+.prototype-stage .tech-copy {
+  font-size: 25px;
+  line-height: 1.28;
+}
+
+.prototype-stage .tag {
+  font-size: 14px;
+}
+
 .workflow-lane {
   border: 1px solid rgba(232, 238, 248, 0.1);
   background: rgba(232, 238, 248, 0.026);
@@ -1892,9 +1977,7 @@ body.overview .node {
     <!-- SLIDE 3: Solution -->
     <section class="node" id="n3">
       <div class="hook">Slide 3 | Solution</div>
-      <div class="si">
-        <div class="kicker">Pathology workflow acceleration</div>
-        <h2 class="hdl" style="font-size:72px;max-width:17ch">SwiftDx compresses pathology support into supervised minutes.</h2>
+      <div class="si slide3-focus">
         <div class="workflow-compare">
           <div class="workflow-lane">
             <div class="workflow-label">Traditional workflow</div>
@@ -2045,17 +2128,7 @@ body.overview .node {
 <section class="node" id="n5">
   <div class="hook">Slide 4 | Prototype Demonstration</div>
 
-  <div class="si" style="justify-content:flex-start;padding:58px 70px;">
-
-    <div class="kicker">Current Prototype Workflow</div>
-
-    <h2 class="hdl" style="font-size:82px;text-align:center;margin-bottom:12px;">
-      From Tissue To <em>AI-Assisted Margin Report</em>
-    </h2>
-
-    <p class="sub" style="text-align:center;font-size:28px;margin-bottom:30px;">
-      Demonstration of the complete SwiftDx imaging and interpretation pipeline
-    </p>
+  <div class="si prototype-slide">
 
     <div style="
       display:grid;
@@ -2065,11 +2138,11 @@ body.overview .node {
     ">
 
       <!-- 1 -->
-      <div class="tech-stage hot" style="min-height:610px;">
+      <div class="tech-stage hot prototype-stage">
         <img
           src="optical-sectioning-setup.jpg"
           alt="Optical Sectioning Setup"
-          style="height:240px;"
+          style="height:270px;"
         >
 
         <div class="tech-num">STEP 01</div>
@@ -2097,11 +2170,11 @@ body.overview .node {
       ">→</div>
 
       <!-- 2 -->
-      <div class="tech-stage" style="min-height:610px;">
+      <div class="tech-stage prototype-stage">
         <img
           src="autofluorescence-output.png"
           alt="Autofluorescence Output"
-          style="height:240px;"
+          style="height:270px;"
         >
 
         <div class="tech-num">STEP 02</div>
@@ -2120,11 +2193,11 @@ body.overview .node {
       </div>
 
       <!-- 3 -->
-      <div class="tech-stage" style="min-height:610px;">
+      <div class="tech-stage prototype-stage">
         <img
           src="virtual-hne-overlay.png"
           alt="Virtual H&E Overlay"
-          style="height:240px;"
+          style="height:270px;"
         >
 
         <div class="tech-num">STEP 03</div>
@@ -2143,11 +2216,11 @@ body.overview .node {
       </div>
 
       <!-- 4 -->
-      <div class="tech-stage" style="min-height:610px;">
+      <div class="tech-stage prototype-stage">
         <img
           src="actual-hne-slide.png"
           alt="Actual H&E Output"
-          style="height:240px;"
+          style="height:270px;"
         >
 
         <div class="tech-num">STEP 04</div>
@@ -2166,8 +2239,7 @@ body.overview .node {
       </div>
 
       <!-- 5 -->
-      <div class="tech-stage hot" style="
-        min-height:610px;
+      <div class="tech-stage hot prototype-stage" style="
         background:linear-gradient(
           180deg,
           rgba(177,18,38,.18),
@@ -2176,7 +2248,7 @@ body.overview .node {
       ">
 
         <div class="output-panel" style="
-          height:240px;
+          height:270px;
           margin-bottom:18px;
           overflow:hidden;
         ">
@@ -2280,8 +2352,7 @@ body.overview .node {
     <section class="node" id="n6">
       <div class="hook">Slide 5 | Validation</div>
       <div class="si validation-slide">
-        <div class="kicker">Validation</div>
-        <h2 class="hdl validation-title">MVP results. <em>Not projections.</em></h2>
+        <h2 class="hdl validation-title">MVP performance and validation</h2>
         <div class="validation-message">Our MVP already out-performs frozen section.</div>
 
         <div class="mvp-panel">
@@ -2310,8 +2381,7 @@ body.overview .node {
     <section class="node" id="n7">
       <div class="hook">Slide 6 | Strategic Partnerships</div>
       <div class="si" style="padding:42px 48px">
-        <div class="kicker">Global collaborations in motion | India, Malaysia, Caribbean + Commonwealth</div>
-        <h2 class="hdl" style="font-size:64px;margin-bottom:28px">3 named hospitals.<br>CMA: 54 member nations.<br><em>Commonwealth reach.</em></h2>
+        <h2 class="hdl" style="font-size:76px;margin-bottom:28px">Our collaboration and reach</h2>
         <div class="loi-grid">
           <div class="loi-card">
             <div class="loi-title">Network & Public-Health Access</div>
@@ -2388,8 +2458,7 @@ body.overview .node {
     <section class="node" id="n8">
       <div class="hook">Slide 7 | Market Opportunity</div>
       <div class="si business-slide">
-        <div class="kicker">Market & business model</div>
-        <h2 class="hdl business-headline">Digital pathology grows 3x. <em>SwiftDx enters with a low-cost hardware wedge.</em></h2>
+        <h2 class="hdl business-headline">Business model</h2>
         <div class="business-layout">
           <div class="biz-card market-card">
             <div>
@@ -2589,10 +2658,9 @@ body.overview .node {
     <section class="node" id="n10">
       <div class="hook">Slide 9 | GTM & Ask</div>
       <div class="si">
-        <div class="kicker">Go-to-market strategy</div>
+        <h2 class="hdl" style="font-size:78px;margin-bottom:34px">Go to market strategies</h2>
         <div class="grid2" style="gap:44px;align-items:start">
           <div>
-            <h2 class="hdl" style="font-size:86px">Clinical proof.<br>Economic proof.<br><em>Then scale.</em></h2>
             <p class="sub" style="font-size:28px;margin-top:24px">Start with Tier 1 oncology centres where re-excision pressure, pathology delays, and IHC cost are acute.</p>
             <div style="margin-top:28px">
               <span class="tag">Buyer: Hospital Admin</span>
@@ -2607,7 +2675,7 @@ body.overview .node {
           </div>
           <div>
             <div class="card" style="border-color:rgba(79,140,255,.3);background:rgba(79,140,255,.07);padding:32px">
-              <div class="stat" style="font-size:132px">$500<span>K</span></div>
+              <div class="stat" style="font-size:132px">$175<span>K</span></div>
               <div class="mini" style="font-size:18px;color:var(--steel);margin-top:8px">Seed round | 2026</div>
               <p style="font-family:'Instrument Serif',serif;font-style:italic;font-size:26px;line-height:1.5;color:var(--muted);margin-top:18px">Move from technical MVP to clinically integrated product ready for validation.</p>
             </div>
