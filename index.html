@@ -1639,13 +1639,16 @@ body:not(.overview) .node:not(.active) { opacity: 0; pointer-events: none; }
 .blank-slide, .ask-slide { align-items: center; text-align: center; }
 .blank-slide h2 { font-size: 64px; opacity: .4; }
 .blank-slide > p:last-child { margin-top: 22px; font-family: "Instrument Serif", serif; font-size: 30px; opacity: .36; }
-.ask-slide { justify-content: center; padding: 48px 90px 72px; }
-.ask-amount { font-family: "Instrument Serif", serif; font-size: 118px; line-height: .85; }
-.ask-subtitle { margin: 18px 0 30px; font: 24px "DM Mono", monospace; color: var(--steel); text-transform: uppercase; letter-spacing: .14em; }
+.ask-slide { justify-content: center; padding: 48px 90px 72px; position: relative; isolation: isolate; overflow: hidden; }
+.ask-slide::before { content: ""; position: absolute; inset: 0; z-index: -2; background: url("assets/ask-operating-room.png") center center / cover no-repeat; filter: brightness(.42) saturate(.78) contrast(1.08); transform: scale(1.015); }
+.ask-slide::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(5,10,20,.88), rgba(8,17,31,.62) 52%, rgba(5,10,20,.78)), linear-gradient(180deg, rgba(7,14,26,.28), rgba(7,14,26,.7)); }
+.ask-slide .summary-title { color: #fff; text-shadow: 0 3px 18px rgba(0,0,0,.82); }
+.ask-amount { font-family: "Instrument Serif", serif; font-size: 118px; line-height: .85; color: #fff; text-shadow: 0 4px 24px rgba(0,0,0,.9); }
+.ask-subtitle { margin: 18px 0 30px; font: 24px "DM Mono", monospace; color: #dbe7f5; text-transform: uppercase; letter-spacing: .14em; text-shadow: 0 2px 12px rgba(0,0,0,.9); }
 .ask-bars { width: 100%; max-width: 560px; display: grid; gap: 12px; }
-.ask-bar { height: 62px; border: 1px solid var(--line); background: rgba(232,238,248,.035); position: relative; overflow: hidden; }
+.ask-bar { height: 62px; border: 1px solid rgba(255,255,255,.28); background: rgba(5,10,20,.7); position: relative; overflow: hidden; box-shadow: 0 8px 22px rgba(0,0,0,.28); backdrop-filter: blur(3px); }
 .ask-bar i { position: absolute; inset: 0 auto 0 0; background: linear-gradient(90deg,rgba(177,18,38,.85),rgba(255,107,129,.48)); }
-.ask-bar span { position: relative; z-index: 1; height: 100%; display: flex; align-items: center; justify-content: flex-start; gap: 14px; padding: 0 18px; font-size: 18px; text-align: left; }
+.ask-bar span { position: relative; z-index: 1; height: 100%; display: flex; align-items: center; justify-content: flex-start; gap: 14px; padding: 0 18px; font-size: 18px; font-weight: 700; color: white; text-align: left; text-shadow: 0 2px 8px rgba(0,0,0,.85); }
 .ask-bar b { font-size: 25px; color: white; }
 .ask-roi { margin-top: 26px; display: flex; align-items: baseline; gap: 16px; }
 .ask-roi strong { font-family: "Instrument Serif", serif; font-size: 58px; color: var(--blue2); }
