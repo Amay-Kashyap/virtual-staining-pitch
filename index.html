@@ -1484,7 +1484,20 @@ body:not(.overview) .node:not(.active) { opacity: 0; pointer-events: none; }
   color: var(--blue2);
   opacity: 0.55;
   margin-bottom: 18px;
+  min-height: 2.5rem;
+  display: block;
 }
+
+#n2 .combined-slide { justify-content: flex-start; padding: 54px 64px 72px; }
+#n2 .slide-summary-heading { width: 100%; font-size: 30px; opacity: .82; margin-bottom: 34px; }
+.problem-left-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; width: 100%; flex: 1; min-height: 0; }
+.problem-cards-row { display: grid; grid-template-rows: repeat(3, 1fr); gap: 18px; min-height: 0; }
+.problem-blank { min-width: 0; }
+#n2 .combined-stat-card { padding: 24px 32px; }
+#n2 .combined-stat-card strong { font-size: 58px; font-weight: 800; }
+#n2 .combined-stat-card .double-stat { font-family: Syne, sans-serif; font-size: 46px; line-height: 1.02; display: flex; flex-direction: column; }
+#n2 .combined-stat-card .double-stat small { font-size: 22px; line-height: .9; color: var(--blue2); }
+#n2 .combined-stat-card span { font-size: 25px; line-height: 1.22; }
 
 .node:not(#n1):not(#n2) h2,
 .node:not(#n1):not(#n2) h3,
@@ -1568,7 +1581,7 @@ body:not(.overview) .node:not(.active) { opacity: 0; pointer-events: none; }
 .position-quadrant .q-frozen { left: 18%; top: 64%; }.position-quadrant .q-invenio { left: 56%; top: 30%; background: #f59e0b; }.position-quadrant .q-histolog { left: 67%; top: 52%; background: #06b6d4; }
 .position-quadrant .q-swift { right: 7%; top: 13%; width: 21px; height: 21px; background: var(--blue2); box-shadow: 0 0 20px var(--blue2); }
 .position-quadrant .q-swift-label { position: absolute; right: 10%; top: 11%; font-size: 17px; color: var(--paper); }
-.bubble-chart { width: 100%; height: 640px; margin-top: 8px; overflow: visible; }
+.bubble-chart { width: 100%; height: 720px; margin-top: 0; overflow: visible; }
 .chart-grid line { stroke: rgba(232,238,248,.11); stroke-width: 1; }
 .chart-axes text { fill: var(--muted); font: 11px "DM Mono", monospace; text-anchor: middle; }
 .bubbles text { fill: white; font: 600 11px Syne, sans-serif; text-anchor: middle; pointer-events: none; }
@@ -1580,6 +1593,16 @@ body:not(.overview) .node:not(.active) { opacity: 0; pointer-events: none; }
 .legend-bubble.sm { width: 14px; height: 14px; }.legend-bubble.md { width: 22px; height: 22px; }.legend-bubble.lg { width: 30px; height: 30px; }
 .legend-colors { margin-left: 24px; display: flex; align-items: center; gap: 8px; }
 .legend-colors b { width: 12px; height: 12px; border-radius: 50%; background: var(--c); display: inline-block; }
+.inverted-chart .chart-grid line { stroke: rgba(232,238,248,.2); stroke-width: 1; }
+.inverted-chart .chart-axes text { fill: #b7b7bd; font: 11px "DM Mono", monospace; text-anchor: middle; }
+.inverted-chart .chart-axes .direction-hint { fill: #888; font-size: 10px; }
+.inverted-chart .competitor-bubbles circle:not(.swift-ring) { stroke: rgba(255,255,255,.42); stroke-width: 2; opacity: .94; }
+.inverted-chart .competitor-bubbles text { fill: #ccc; font: 500 11px Syne, sans-serif; dominant-baseline: middle; }
+.inverted-chart .competitor-bubbles .swift-label { fill: #fff; font-size: 13px; font-weight: 700; }
+.inverted-chart .swift-ring { fill: none; stroke: #7c6af7; stroke-width: 1.5; opacity: .45; }
+.inverted-chart .accuracy-legend circle { fill: none; stroke: #8f8f98; stroke-width: 1.5; }
+.inverted-chart .accuracy-legend .legend-filled { fill: #8f8f98; opacity: .7; }
+.inverted-chart .accuracy-legend text { fill: #999; font: 10px "DM Mono", monospace; dominant-baseline: middle; }
 
 .blank-slide, .ask-slide { align-items: center; text-align: center; }
 .blank-slide h2 { font-size: 64px; opacity: .4; }
@@ -1588,32 +1611,31 @@ body:not(.overview) .node:not(.active) { opacity: 0; pointer-events: none; }
 .ask-slide .slide-summary-heading { position: absolute; top: 42px; left: 0; }
 .ask-amount { font-family: "Instrument Serif", serif; font-size: 118px; line-height: .85; }
 .ask-subtitle { margin: 18px 0 30px; font: 24px "DM Mono", monospace; color: var(--steel); text-transform: uppercase; letter-spacing: .14em; }
-.ask-bars { width: 100%; max-width: 900px; display: grid; gap: 13px; }
+.ask-bars { width: 100%; max-width: 560px; display: grid; gap: 12px; }
 .ask-bar { height: 62px; border: 1px solid var(--line); background: rgba(232,238,248,.035); position: relative; overflow: hidden; }
 .ask-bar i { position: absolute; inset: 0 auto 0 0; background: linear-gradient(90deg,rgba(177,18,38,.85),rgba(255,107,129,.48)); }
-.ask-bar span { position: relative; z-index: 1; height: 100%; display: flex; align-items: center; justify-content: flex-start; gap: 18px; padding: 0 24px; font-size: 24px; }
-.ask-bar b { font-size: 29px; color: white; }
+.ask-bar span { position: relative; z-index: 1; height: 100%; display: flex; align-items: center; justify-content: flex-start; gap: 14px; padding: 0 18px; font-size: 18px; text-align: left; }
+.ask-bar b { font-size: 25px; color: white; }
 .ask-roi { margin-top: 26px; display: flex; align-items: baseline; gap: 16px; }
 .ask-roi strong { font-family: "Instrument Serif", serif; font-size: 58px; color: var(--blue2); }
 .ask-roi span { font-size: 22px; text-transform: uppercase; color: var(--muted); }
 
 #n1 { left: 5320px; top: 430px; }
-#n2 { left: 6783px; top: 703px; }
-#n3 { left: 8048px; top: 1487px; }
-#n4 { left: 8945px; top: 2675px; }
-#n5 { left: 9353px; top: 4106px; }
-#n6 { left: 9215px; top: 5588px; }
-#n7 { left: 8552px; top: 6921px; }
-#n8 { left: 7452px; top: 7923px; }
-#n9 { left: 6064px; top: 8461px; }
-#n10 { left: 4576px; top: 8461px; }
-#n11 { left: 3188px; top: 7923px; }
-#n12 { left: 2088px; top: 6921px; }
-#n13 { left: 1425px; top: 5588px; }
-#n14 { left: 1287px; top: 4106px; }
-#n15 { left: 1695px; top: 2675px; }
-#n16 { left: 2592px; top: 1487px; }
-#n17 { left: 3857px; top: 703px; }
+#n2 { left: 6870px; top: 738px; }
+#n3 { left: 8184px; top: 1616px; }
+#n4 { left: 9062px; top: 2930px; }
+#n5 { left: 9370px; top: 4480px; }
+#n6 { left: 9062px; top: 6030px; }
+#n7 { left: 8184px; top: 7344px; }
+#n8 { left: 6870px; top: 8222px; }
+#n9 { left: 5320px; top: 8530px; }
+#n10 { left: 3770px; top: 8222px; }
+#n11 { left: 2456px; top: 7344px; }
+#n12 { left: 1578px; top: 6030px; }
+#n13 { left: 1270px; top: 4480px; }
+#n14 { left: 1578px; top: 2930px; }
+#n15 { left: 2456px; top: 1616px; }
+#n16 { left: 3770px; top: 738px; }
 
 #nav {
   position: fixed;
@@ -1749,25 +1771,25 @@ body.overview .node {
   margin-top: 38px;
 }
 
-#n9 .si {
+#n8 .si {
   justify-content: flex-start;
   padding: 68px 78px 104px;
 }
 
-#n9 .kicker {
+#n8 .kicker {
   max-width: 620px;
 }
 
-#n9 .hdl {
+#n8 .hdl {
   max-width: 760px;
 }
 
-#n9 .table-container {
+#n8 .table-container {
   width: 100%;
   margin-top: 0;
 }
 
-#n9 .graph-container {
+#n8 .graph-container {
   display: none;
 }
 
@@ -2002,8 +2024,8 @@ body.overview .node {
   margin-bottom: 0;
   line-height: 1.22;
 }
-#n9 .si.competition-slide { justify-content: flex-start; padding: 42px 66px 62px; }
-#n9 .hdl.competition-title { width: 100%; max-width: none; font-size: 68px; margin: 0 0 12px; text-align: center; }
+#n8 .si.competition-slide { justify-content: flex-start; padding: 42px 66px 58px; }
+#n8 .slide-summary-heading { font-size: 30px; opacity: .82; margin-bottom: 4px; }
 </style>
 </head>
 <body>
@@ -2035,7 +2057,7 @@ body.overview .node {
       <div class="early-layout">
         <div>
           <div class="kicker">The timing gap</div>
-          <h1 class="hdl" style="font-size:118px;max-width:10ch">Surgery moves in minutes.<br><em>Pathology often moves in days.</em></h1>
+          <h1 class="hdl" style="font-size:108px;max-width:11ch">Surgeons are operating blind on <em>tumour margins</em></h1>
         </div>
         <div class="time-contrast">
           <div class="time-card">
@@ -2053,33 +2075,18 @@ body.overview .node {
     </div>
   </section>
 
-    <!-- SLIDE 2: Combined Problem + Solution -->
+    <!-- SLIDE 2: Problem -->
     <section class="node" id="n2">
-      <div class="hook">Slide 2 | Problem + Solution</div>
+      <div class="hook">Slide 2 | Problem</div>
       <div class="si combined-slide">
-        <div class="combined-problem-solution">
-          <div class="combined-column">
-            <h2 class="combined-title">The Problem</h2>
-            <div class="problem-stack">
-              <div class="combined-stat-card"><strong>1 in 5</strong><span>Patients face repeat surgery due to positive margins missed intraoperatively</span></div>
-              <div class="combined-stat-card"><strong>65-90%</strong><span>Hospitals lack specialized histopathologists and cryostats for frozen-section pathology</span></div>
-              <div class="combined-stat-card"><strong>24-72 hrs</strong><span>Typical turnaround for traditional fixation, processing, staining and review</span></div>
-            </div>
+        <p class="slide-summary-heading">Lack of pathologists and equipment lead to re-surgery</p>
+        <div class="problem-left-layout">
+          <div class="problem-cards-row">
+            <div class="combined-stat-card"><strong>1 in 5</strong><span>Patients require repeat surgery due to positive margins missed intraoperatively</span></div>
+            <div class="combined-stat-card"><strong>65-90%</strong><span>Hospitals have no intraoperative pathology access at all</span></div>
+            <div class="combined-stat-card"><strong class="double-stat">No Specialist<small>&middot;</small>No Cryostat</strong><span>Histopathologist expertise and cryostat equipment unavailable in most hospitals worldwide</span></div>
           </div>
-          <div class="divider"></div>
-          <div class="combined-column solution-column">
-            <h2 class="combined-title accent-title">SwiftDx Workflow</h2>
-            <p class="combined-subtitle">Rapid support. Pathologist led.</p>
-            <div class="solution-steps">
-              <div class="solution-step"><b>01</b><span>Technician captures fresh tissue image</span></div>
-              <div class="solution-step"><b>02</b><span>AI creates virtual stain + boundary assessment</span></div>
-              <div class="solution-step"><b>03</b><span>Pathologist reviews evidence and signs off</span></div>
-            </div>
-            <div class="role-pills">
-              <div><b>Technicians</b><span>Operate scanning and AI workflow at the surgical site</span></div>
-              <div><b>Pathologists</b><span>Supervise outputs, review evidence, and remain the final decision authority</span></div>
-            </div>
-          </div>
+          <div class="problem-blank" aria-hidden="true"></div>
         </div>
       </div>
     </section>
@@ -2093,7 +2100,7 @@ body.overview .node {
 
   <div class="si" style="justify-content:flex-start;padding:70px 85px;">
 
-    <p class="slide-summary-heading">[SLIDE SUMMARY - EDIT ME]</p>
+    <p class="slide-summary-heading">We turn a 3-day lab process into a 5-minute bedside workflow</p>
     <div class="kicker">How SwiftDx Works</div>
 
     <h2 class="hdl" style="
@@ -2125,7 +2132,7 @@ body.overview .node {
 
       <div class="step hot">
         <div class="step-n">01</div>
-        <div class="step-name">Fresh Tissue Placement</div>
+        <div class="step-name">Optical sectioning of fresh tissue</div>
         <div class="step-copy">
           The surgeon provides a fresh tissue specimen immediately after excision.
         </div>
@@ -2206,223 +2213,11 @@ body.overview .node {
   </div>
 </section>
 
-    <!-- SLIDE 5: Technology -->
-<!-- REPLACE EXISTING SLIDE 5 WITH THIS -->
-
-<section class="node" id="n4">
-  <div class="hook">Slide 4 | Prototype Demonstration</div>
-
-  <div class="si prototype-slide">
-    <p class="slide-summary-heading">[SLIDE SUMMARY - EDIT ME]</p>
-
-    <div style="
-      display:grid;
-      grid-template-columns:repeat(5,1fr);
-      gap:18px;
-      align-items:start;
-    ">
-
-      <!-- 1 -->
-      <div class="tech-stage hot prototype-stage">
-        <img
-          src="optical-sectioning-setup.jpg"
-          alt="Optical Sectioning Setup"
-          style="height:270px;"
-        >
-
-        <div class="tech-num">STEP 01</div>
-
-        <div class="tech-title">
-          Optical<br>Sectioning Setup
-        </div>
-
-        <div class="tech-copy">
-          Fresh tissue + 280 nm UV capture.
-        </div>
-
-        <div class="tag" style="margin-top:18px;">
-          Prototype Hardware
-        </div>
-      </div>
-
-      <!-- ARROW -->
-      <div style="
-        position:absolute;
-        left:20%;
-        top:50%;
-        font-size:50px;
-        color:rgba(255,107,129,.5);
-      ">→</div>
-
-      <!-- 2 -->
-      <div class="tech-stage prototype-stage">
-        <img
-          src="autofluorescence-output.png"
-          alt="Autofluorescence Output"
-          style="height:270px;"
-        >
-
-        <div class="tech-num">STEP 02</div>
-
-        <div class="tech-title">
-          Autofluorescent<br>Output
-        </div>
-
-        <div class="tech-copy">
-          2–3 μm optical section. No microtomy.
-        </div>
-
-        <div class="tag" style="margin-top:18px;">
-          Raw Capture
-        </div>
-      </div>
-
-      <!-- 3 -->
-      <div class="tech-stage prototype-stage">
-        <img
-          src="virtual-hne-overlay.png"
-          alt="Virtual H&E Overlay"
-          style="height:270px;"
-        >
-
-        <div class="tech-num">STEP 03</div>
-
-        <div class="tech-title">
-          Virtual H&E<br>Overlay
-        </div>
-
-        <div class="tech-copy">
-          AI-generated H&E representation.
-        </div>
-
-        <div class="tag" style="margin-top:18px;">
-          AI Generated
-        </div>
-      </div>
-
-      <!-- 4 -->
-      <div class="tech-stage prototype-stage">
-        <img
-          src="actual-hne-slide.png"
-          alt="Actual H&E Output"
-          style="height:270px;"
-        >
-
-        <div class="tech-num">STEP 04</div>
-
-        <div class="tech-title">
-          Actual H&E<br>Output
-        </div>
-
-        <div class="tech-copy">
-          Ground-truth validation slide.
-        </div>
-
-        <div class="tag" style="margin-top:18px;">
-          Gold Standard
-        </div>
-      </div>
-
-      <!-- 5 -->
-      <div class="tech-stage hot prototype-stage" style="
-        background:linear-gradient(
-          180deg,
-          rgba(177,18,38,.18),
-          rgba(232,238,248,.03)
-        );
-      ">
-
-        <div class="output-panel" style="
-          height:270px;
-          margin-bottom:18px;
-          overflow:hidden;
-        ">
-
-          <div class="terminal-head">
-            <span></span><span></span><span></span>
-            <div class="terminal-title">
-              LVLM Margin Assessment Report
-            </div>
-          </div>
-
-          <div class="output-row">
-            <span>Margin Status</span>
-            <strong style="color:#ff8fa3;">POSITIVE</strong>
-          </div>
-
-          <div class="output-row">
-            <span>Confidence</span>
-            <strong>96.2%</strong>
-          </div>
-
-          <div class="output-row" style="border:none;">
-            <span>Recommendation</span>
-            <strong>Re-excise</strong>
-          </div>
-
-        </div>
-
-        <div class="tech-num">STEP 05</div>
-
-        <div class="tech-title">
-          AI Margin<br>Report
-        </div>
-
-        <div class="tech-copy">
-          Margin status, confidence and review evidence.
-        </div>
-
-        <div class="tag" style="margin-top:18px;">
-          Clinical Output
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Bottom Summary Bar -->
-
-    <div style="
-      margin-top:24px;
-      padding:18px 24px;
-      border:1px solid rgba(255,107,129,.25);
-      background:rgba(177,18,38,.08);
-      border-radius:8px;
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:18px;
-      text-align:center;
-    ">
-
-      <div>
-        <div class="mini">OPTICAL DEPTH</div>
-        <div class="stat" style="font-size:60px;">2–3<span>μm</span></div>
-      </div>
-
-      <div>
-        <div class="mini">EXPOSURE</div>
-        <div class="stat" style="font-size:60px;">3<span>s</span></div>
-      </div>
-
-      <div>
-        <div class="mini">SECTIONING</div>
-        <div class="stat" style="font-size:60px;">0<span>cuts</span></div>
-      </div>
-
-      <div>
-        <div class="mini">OUTPUT</div>
-        <div class="stat" style="font-size:60px;">AI<span>Report</span></div>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-    <!-- SLIDE 6: Validation -->
-    <section class="node" id="n5">
-      <div class="hook">Slide 5 | Validation</div>
+    <!-- SLIDE 4: Validation -->
+    <section class="node" id="n4">
+      <div class="hook">Slide 4 | Validation</div>
       <div class="si validation-slide">
-        <p class="slide-summary-heading">[SLIDE SUMMARY - EDIT ME]</p>
+        <p class="slide-summary-heading">Our product already outperforms frozen section</p>
         <h2 class="hdl validation-title">MVP performance and validation</h2>
         <div class="validation-message">Our MVP already out-performs frozen section.</div>
 
@@ -2448,11 +2243,11 @@ body.overview .node {
       </div>
     </section>
 
-    <!-- SLIDE 6: Market Opportunity -->
-    <section class="node" id="n6">
-      <div class="hook">Slide 6 | Market Opportunity</div>
+    <!-- SLIDE 5: Market Opportunity -->
+    <section class="node" id="n5">
+      <div class="hook">Slide 5 | Market Opportunity</div>
       <div class="si market-opportunity-slide">
-        <p class="slide-summary-heading">[SLIDE SUMMARY - EDIT ME]</p>
+        <p class="slide-summary-heading">We are entering a $5.75B market with no adequate intraoperative solution</p>
         <h2 class="hdl market-opportunity-title">Market Opportunity</h2>
         <div class="market-opportunity-layout">
           <div class="market-growth-panel">
@@ -2474,11 +2269,11 @@ body.overview .node {
       </div>
     </section>
 
-    <!-- SLIDE 7: Partnerships & LOIs -->
-    <section class="node" id="n7">
-      <div class="hook">Slide 7 | Strategic Partnerships</div>
+    <!-- SLIDE 6: Partnerships & LOIs -->
+    <section class="node" id="n6">
+      <div class="hook">Slide 6 | Strategic Partnerships</div>
       <div class="si" style="padding:42px 48px">
-        <p class="slide-summary-heading">[SLIDE SUMMARY - EDIT ME]</p>
+        <p class="slide-summary-heading">Pan-continental partnerships from day one</p>
         <h2 class="hdl" style="font-size:76px;margin-bottom:28px">Our collaboration and reach</h2>
         <div class="loi-grid">
           <div class="loi-card">
@@ -2552,11 +2347,11 @@ body.overview .node {
       </div>
     </section>
 
-    <!-- SLIDE 8: Business Model -->
-    <section class="node" id="n8">
-      <div class="hook">Slide 8 | Business Model</div>
+    <!-- SLIDE 7: Business Model -->
+    <section class="node" id="n7">
+      <div class="hook">Slide 7 | Business Model</div>
       <div class="si cost-slide">
-        <p class="slide-summary-heading">[SLIDE SUMMARY - EDIT ME]</p>
+        <p class="slide-summary-heading">We cost 50&times; less to deploy and 10&times; less per case</p>
         <h2 class="hdl cost-title">Business Model</h2>
         <div class="cost-section">
           <div class="cost-section-label">Setup Cost</div>
@@ -2575,29 +2370,53 @@ body.overview .node {
       </div>
     </section>
 
-    <!-- SLIDE 9: Competitive Landscape -->
-    <section class="node" id="n9">
-      <div class="hook">Slide 9 | Competitive Landscape</div>
+    <!-- SLIDE 8: Competitive Landscape -->
+    <section class="node" id="n8">
+      <div class="hook">Slide 8 | Competitive Landscape</div>
       <div class="si competition-slide">
-        <h2 class="hdl competition-title">Competitive Landscape</h2>
-        <div class="position-quadrant" aria-label="Timing versus AI integration positioning">
-          <span class="q-label q-top">Timing: intraoperative</span><span class="q-label q-right">AI integration complexity</span>
-          <i class="q-frozen"></i><i class="q-invenio"></i><i class="q-histolog"></i><i class="q-swift"></i><b class="q-swift-label">SwiftDx</b>
-        </div>
-        <svg class="bubble-chart" viewBox="0 0 700 380" role="img" aria-label="Competitor cost, turnaround and accuracy bubble chart">
-          <g class="chart-grid"><line x1="60" y1="20" x2="60" y2="320"/><line x1="160" y1="20" x2="160" y2="320"/><line x1="260" y1="20" x2="260" y2="320"/><line x1="360" y1="20" x2="360" y2="320"/><line x1="460" y1="20" x2="460" y2="320"/><line x1="560" y1="20" x2="560" y2="320"/><line x1="660" y1="20" x2="660" y2="320"/><line x1="60" y1="320" x2="660" y2="320"/><line x1="60" y1="234" x2="660" y2="234"/><line x1="60" y1="149" x2="660" y2="149"/><line x1="60" y1="63" x2="660" y2="63"/></g>
-          <g class="chart-axes"><text x="60" y="340">$0</text><text x="160" y="340">$100</text><text x="260" y="340">$200</text><text x="360" y="340">$300</text><text x="460" y="340">$400</text><text x="560" y="340">$500</text><text x="650" y="340">$600</text><text x="43" y="324">0</text><text x="36" y="238">10</text><text x="36" y="153">20</text><text x="36" y="67">30</text><text x="360" y="372">Per-Case Cost (USD)</text><text transform="translate(14 210) rotate(-90)">Turnaround Time (min)</text></g>
-          <g class="bubbles">
-            <circle cx="90" cy="303" r="38" fill="#7c6af7"/><text x="90" y="299">SwiftDx</text><text x="90" y="315">95.5%</text>
-            <circle cx="360" cy="106" r="18" fill="#6b7280"/><text x="360" y="102">Frozen</text><text x="360" y="118">84%</text>
-            <circle cx="210" cy="294" r="27" fill="#f59e0b"/><text x="210" y="290">Invenio</text><text x="210" y="306">91%</text>
-            <circle cx="260" cy="294" r="16" fill="#ef4444"/><text x="260" y="290">MarginScan</text><text x="260" y="306">82%</text>
-            <circle cx="240" cy="217" r="15" fill="#10b981"/><text x="240" y="213">Claire</text><text x="240" y="229">80%</text>
-            <circle cx="310" cy="251" r="25" fill="#06b6d4"/><text x="310" y="247">Histolog</text><text x="310" y="263">90%</text>
+        <p class="slide-summary-heading">Superior in time and cost</p>
+        <svg class="bubble-chart inverted-chart" viewBox="0 0 780 440" role="img" aria-label="Competitor cost, turnaround and diagnostic accuracy bubble chart">
+          <g class="chart-grid">
+            <line x1="75" y1="40" x2="75" y2="370"/><line x1="192" y1="40" x2="192" y2="370"/><line x1="309" y1="40" x2="309" y2="370"/><line x1="426" y1="40" x2="426" y2="370"/><line x1="543" y1="40" x2="543" y2="370"/><line x1="660" y1="40" x2="660" y2="370"/>
+            <line x1="75" y1="40" x2="660" y2="40"/><line x1="75" y1="87" x2="660" y2="87"/><line x1="75" y1="134" x2="660" y2="134"/><line x1="75" y1="181" x2="660" y2="181"/><line x1="75" y1="229" x2="660" y2="229"/><line x1="75" y1="276" x2="660" y2="276"/><line x1="75" y1="323" x2="660" y2="323"/><line x1="75" y1="370" x2="660" y2="370"/>
           </g>
-          <g class="swift-annotation"><path d="M90 265 L90 232"/><text x="70" y="218">SwiftDx - fastest &amp; lowest cost</text></g>
+          <g class="chart-axes">
+            <text x="75" y="387">$500</text><text x="192" y="387">$400</text><text x="309" y="387">$300</text><text x="426" y="387">$200</text><text x="543" y="387">$100</text><text x="660" y="387">$0</text>
+            <text x="60" y="44">0</text><text x="60" y="91">5</text><text x="60" y="138">10</text><text x="60" y="185">15</text><text x="60" y="233">20</text><text x="60" y="280">25</text><text x="60" y="327">30</text><text x="60" y="374">35</text>
+            <text x="368" y="407">Per-Case Cost (USD)</text><text transform="translate(22 210) rotate(-90)">Turnaround Time (min)</text>
+            <text class="direction-hint" x="75" y="407" text-anchor="start">&larr; More expensive</text><text class="direction-hint" x="660" y="407" text-anchor="end">Less costly &rarr;</text>
+            <text class="direction-hint" x="35" y="47">&uarr; Faster</text><text class="direction-hint" x="35" y="368">&darr; Slower</text>
+          </g>
+          <g class="competitor-bubbles">
+            <circle class="swift-ring" cx="625" cy="59" r="41.25"/><circle cx="625" cy="59" r="33.25" fill="#7c6af7"/><text class="swift-label" x="625" y="108" text-anchor="middle">SwiftDx</text>
+            <circle cx="309" cy="276" r="20.6" fill="#6b7280"/><text x="338" y="280">Frozen Section</text>
+            <circle cx="485" cy="68" r="28.3" fill="#f59e0b"/><text x="448" y="55" text-anchor="end">Invenio (NIO)</text>
+            <circle cx="426" cy="87" r="18.4" fill="#ef4444"/><text x="400" y="111" text-anchor="end">MarginScan</text>
+            <circle cx="449" cy="153" r="16.2" fill="#10b981"/><text x="474" y="158">Claire</text>
+            <circle cx="368" cy="115" r="27.2" fill="#06b6d4"/><text x="330" y="160" text-anchor="end">Histolog Scanner</text>
+          </g>
+          <g class="accuracy-legend">
+            <circle cx="96" cy="424" r="14"/><text x="118" y="428">80% accuracy</text>
+            <circle cx="258" cy="424" r="25"/><text x="291" y="428">88% accuracy</text>
+            <circle class="legend-filled" cx="443" cy="424" r="36"/><text x="487" y="428">96% accuracy</text>
+            <text x="770" y="428" text-anchor="end">Bubble size = diagnostic accuracy</text>
+          </g>
         </svg>
-        <div class="bubble-legend"><span>Accuracy:</span><i class="legend-bubble sm"></i><span>80%</span><i class="legend-bubble md"></i><span>88%</span><i class="legend-bubble lg"></i><span>96%</span><span class="legend-colors"><b style="--c:#7c6af7"></b>SwiftDx <b style="--c:#6b7280"></b>Frozen <b style="--c:#f59e0b"></b>Invenio <b style="--c:#ef4444"></b>MarginScan <b style="--c:#10b981"></b>Claire <b style="--c:#06b6d4"></b>Histolog</span></div>
+      </div>
+    </section>
+    <!-- SLIDE 9: The Ask -->
+    <section class="node" id="n9">
+      <div class="hook">Slide 9 | The Ask</div>
+      <div class="si ask-slide">
+        <p class="slide-summary-heading">$225K to reach clinical validation and first customers</p>
+        <h2 class="ask-amount">$225K</h2>
+        <div class="ask-subtitle">Clinical Validation Round &middot; 2026</div>
+        <div class="ask-bars">
+          <div class="ask-bar"><i style="width:45%"></i><span><b>45%</b> Clinical Validation &amp; IRB Studies</span></div>
+          <div class="ask-bar"><i style="width:25%"></i><span><b>25%</b> Customer Acquisition &amp; Pilots</span></div>
+          <div class="ask-bar"><i style="width:20%"></i><span><b>20%</b> Regulatory &amp; MLOps Infrastructure</span></div>
+          <div class="ask-bar"><i style="width:10%"></i><span><b>10%</b> Data Annotation &amp; Model Improvement</span></div>
+        </div>
       </div>
     </section>
 
@@ -2605,7 +2424,7 @@ body.overview .node {
     <section class="node" id="n10">
       <div class="hook">Slide 10 | Market Strategy</div>
       <div class="si blank-slide">
-        <p class="slide-summary-heading">[SLIDE SUMMARY - EDIT ME]</p>
+        <p class="slide-summary-heading"></p>
         <h2>[Market Strategy]</h2>
         <p>Content coming soon</p>
       </div>
@@ -2615,34 +2434,17 @@ body.overview .node {
     <section class="node" id="n11">
       <div class="hook">Slide 11 | Go-To-Market</div>
       <div class="si blank-slide">
-        <p class="slide-summary-heading">[SLIDE SUMMARY - EDIT ME]</p>
+        <p class="slide-summary-heading"></p>
         <h2>[Go-To-Market]</h2>
         <p>Content coming soon</p>
       </div>
     </section>
 
-    <!-- SLIDE 12: The Ask -->
-    <section class="node" id="n12">
-      <div class="hook">Slide 12 | The Ask</div>
-      <div class="si ask-slide">
-        <p class="slide-summary-heading">[SLIDE SUMMARY - EDIT ME]</p>
-        <h2 class="ask-amount">$175K</h2>
-        <div class="ask-subtitle">Seed Round &middot; 2026</div>
-        <div class="ask-bars">
-          <div class="ask-bar"><i style="width:40%"></i><span><b>40%</b> Data, IRB &amp; Annotation</span></div>
-          <div class="ask-bar"><i style="width:25%"></i><span><b>25%</b> Prospective Validation</span></div>
-          <div class="ask-bar"><i style="width:20%"></i><span><b>20%</b> Regulatory &amp; MLOps</span></div>
-          <div class="ask-bar"><i style="width:15%"></i><span><b>15%</b> Pilots &amp; Partnerships</span></div>
-        </div>
-        <div class="ask-roi"><strong>2 cases</strong><span>hospital payback</span></div>
-      </div>
-    </section>
-
     <!-- SLIDE 11: Team -->
-    <section class="node" id="n13">
-      <div class="hook">Slide 13 | Team</div>
+    <section class="node" id="n12">
+      <div class="hook">Slide 12 | Team</div>
       <div class="si" style="padding:46px 58px">
-        <p class="slide-summary-heading">[SLIDE SUMMARY - EDIT ME]</p>
+        <p class="slide-summary-heading">We have the clinical, technical, and regulatory expertise to execute</p>
         <h2 class="hdl" style="font-size:66px;margin-bottom:22px">Team</h2>
         <div class="team-grid">
           <div class="team-card">
@@ -2692,10 +2494,10 @@ body.overview .node {
     </section>
 
     <!-- SLIDE 12: Data Plan -->
-    <section class="node" id="n14">
-      <div class="hook">Slide 14 | Data & Roadmap</div>
+    <section class="node" id="n13">
+      <div class="hook">Slide 13 | Data & Roadmap</div>
       <div class="si">
-        <p class="slide-summary-heading">[SLIDE SUMMARY - EDIT ME]</p>
+        <p class="slide-summary-heading">A four-step path from partnership to prospective deployment</p>
         <div class="kicker">From MVP to clinical deployment</div>
         <h2 class="hdl" style="font-size:78px;margin-bottom:24px">Partner first.<br>Build data.<br><em>Scale responsibly.</em></h2>
         <div class="step">
@@ -2726,10 +2528,10 @@ body.overview .node {
     </section>
 
     <!-- SLIDE 13: Workflow & Regulatory -->
-    <section class="node" id="n15">
-      <div class="hook">Slide 15 | Workflow & Regulatory</div>
+    <section class="node" id="n14">
+      <div class="hook">Slide 14 | Workflow & Regulatory</div>
       <div class="si">
-        <p class="slide-summary-heading">[SLIDE SUMMARY - EDIT ME]</p>
+        <p class="slide-summary-heading">Built for clinical integration and regulatory compliance from the start</p>
         <div class="kicker">Clinical integration</div>
         <h2 class="hdl" style="font-size:78px;margin-bottom:26px">Decision support.<br><em>Not replacement.</em></h2>
         <div class="grid3">
@@ -2750,10 +2552,10 @@ body.overview .node {
     </section>
 
     <!-- SLIDE 14: Architecture -->
-    <section class="node" id="n16">
-      <div class="hook">Slide 16 | Technical Architecture</div>
+    <section class="node" id="n15">
+      <div class="hook">Slide 15 | Technical Architecture</div>
       <div class="si">
-        <p class="slide-summary-heading">[SLIDE SUMMARY - EDIT ME]</p>
+        <p class="slide-summary-heading">Two purpose-built models producing one clinically actionable report</p>
         <div class="kicker">Engineered for clinical deployment</div>
         <h2 class="hdl" style="font-size:78px;margin-bottom:26px">Two models.<br><em>One report.</em></h2>
         <div class="grid3">
@@ -2774,10 +2576,10 @@ body.overview .node {
     </section>
 
     <!-- SLIDE 15: Deployment -->
-    <section class="node" id="n17">
-      <div class="hook">Slide 17 | Deployment & Scaling</div>
+    <section class="node" id="n16">
+      <div class="hook">Slide 16 | Deployment & Scaling</div>
       <div class="si">
-        <p class="slide-summary-heading">[SLIDE SUMMARY - EDIT ME]</p>
+        <p class="slide-summary-heading">Train in the cloud, deploy anywhere, audit everything</p>
         <div class="kicker">Cloud-first, governance-aware</div>
         <h2 class="hdl" style="font-size:78px;margin-bottom:24px">Train in cloud.<br>Deploy anywhere.<br><em>Audit everything.</em></h2>
         <div class="grid4">
@@ -2807,7 +2609,7 @@ body.overview .node {
   <button class="nb" id="bp">prev</button>
   <div class="dots" id="dots"></div>
   <button class="nb" id="bn">next</button>
-  <span id="ctr">00 / 17</span>
+  <span id="ctr">00 / 16</span>
   <button class="nb" id="bo">overview</button>
   <button class="nb" onclick="toggleFS()">full</button>
 </nav>
@@ -2816,13 +2618,13 @@ body.overview .node {
 <script>
 let viewportW = window.innerWidth, viewportH = window.innerHeight;
 const canvas = document.getElementById("canvas");
-const NW = 1760, NH = 1040, TOTAL = 17, SAFE_TOP = 24, SAFE_BOTTOM = 128;
-const IDS = [null, "n1", "n2", "n3", "n4", "n5", "n6", "n7", "n8", "n9", "n10", "n11", "n12", "n13", "n14", "n15", "n16", "n17"];
+const NW = 1760, NH = 1040, TOTAL = 16, SAFE_TOP = 24, SAFE_BOTTOM = 128;
+const IDS = [null, "n1", "n2", "n3", "n4", "n5", "n6", "n7", "n8", "n9", "n10", "n11", "n12", "n13", "n14", "n15", "n16"];
 const CENTERS = [
-  {cx: 6200, cy: 5000}, {cx: 6200, cy: 950}, {cx: 7663, cy: 1223}, {cx: 8928, cy: 2007}, {cx: 9825, cy: 3195},
-  {cx: 10233, cy: 4626}, {cx: 10095, cy: 6108}, {cx: 9432, cy: 7441}, {cx: 8332, cy: 8443}, {cx: 6944, cy: 8981},
-  {cx: 5456, cy: 8981}, {cx: 4068, cy: 8443}, {cx: 2968, cy: 7441}, {cx: 2305, cy: 6108}, {cx: 2167, cy: 4626},
-  {cx: 2575, cy: 3195}, {cx: 3472, cy: 2007}, {cx: 4737, cy: 1223}
+  {cx: 6200, cy: 5000}, {cx: 6200, cy: 950}, {cx: 7750, cy: 1258}, {cx: 9064, cy: 2136}, {cx: 9942, cy: 3450},
+  {cx: 10250, cy: 5000}, {cx: 9942, cy: 6550}, {cx: 9064, cy: 7864}, {cx: 7750, cy: 8742}, {cx: 6200, cy: 9050},
+  {cx: 4650, cy: 8742}, {cx: 3336, cy: 7864}, {cx: 2458, cy: 6550}, {cx: 2150, cy: 5000}, {cx: 2458, cy: 3450},
+  {cx: 3336, cy: 2136}, {cx: 4650, cy: 1258}
 ];
 let VIEWS = [], cur = 0;
 
