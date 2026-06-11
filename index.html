@@ -1488,8 +1488,20 @@ body:not(.overview) .node:not(.active) { opacity: 0; pointer-events: none; }
   display: block;
 }
 
+.summary-title {
+  width: 100%;
+  font-family: "Instrument Serif", serif;
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  text-align: center;
+  color: var(--paper);
+  margin-bottom: 24px;
+}
+
 #n2 .combined-slide { justify-content: flex-start; padding: 54px 64px 72px; }
-#n2 .slide-summary-heading { width: 100%; font-size: 30px; opacity: .82; margin-bottom: 34px; }
+#n2 .summary-title { font-size: 68px; margin-bottom: 34px; }
 .problem-left-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; width: 100%; flex: 1; min-height: 0; }
 .problem-cards-row { display: grid; grid-template-rows: repeat(3, 1fr); gap: 18px; min-height: 0; }
 .problem-blank { min-width: 0; }
@@ -1505,8 +1517,7 @@ body:not(.overview) .node:not(.active) { opacity: 0; pointer-events: none; }
 .node .stat { text-align: center; }
 
 #n3 .si { padding: 38px 72px 68px !important; }
-#n3 .slide-summary-heading { margin-bottom: 8px; }
-#n3 .hdl { font-size: 70px !important; margin-bottom: 20px !important; }
+#n3 .summary-title { font-size: 62px; margin-bottom: 20px; }
 #n3 .sub { display: none; }
 #n3 .si > div:nth-of-type(1) { gap: 10px !important; }
 #n3 .step { grid-template-columns: 48px 280px 1fr; min-height: 116px; margin-bottom: 0; padding: 10px 16px; }
@@ -1581,7 +1592,7 @@ body:not(.overview) .node:not(.active) { opacity: 0; pointer-events: none; }
 .position-quadrant .q-frozen { left: 18%; top: 64%; }.position-quadrant .q-invenio { left: 56%; top: 30%; background: #f59e0b; }.position-quadrant .q-histolog { left: 67%; top: 52%; background: #06b6d4; }
 .position-quadrant .q-swift { right: 7%; top: 13%; width: 21px; height: 21px; background: var(--blue2); box-shadow: 0 0 20px var(--blue2); }
 .position-quadrant .q-swift-label { position: absolute; right: 10%; top: 11%; font-size: 17px; color: var(--paper); }
-.bubble-chart { width: 100%; height: 720px; margin-top: 0; overflow: visible; }
+.bubble-chart { width: 100%; height: 790px; margin-top: 0; overflow: visible; }
 .chart-grid line { stroke: rgba(232,238,248,.11); stroke-width: 1; }
 .chart-axes text { fill: var(--muted); font: 11px "DM Mono", monospace; text-anchor: middle; }
 .bubbles text { fill: white; font: 600 11px Syne, sans-serif; text-anchor: middle; pointer-events: none; }
@@ -1597,18 +1608,14 @@ body:not(.overview) .node:not(.active) { opacity: 0; pointer-events: none; }
 .inverted-chart .chart-axes text { fill: #b7b7bd; font: 11px "DM Mono", monospace; text-anchor: middle; }
 .inverted-chart .chart-axes .direction-hint { fill: #888; font-size: 10px; }
 .inverted-chart .competitor-bubbles circle:not(.swift-ring) { stroke: rgba(255,255,255,.42); stroke-width: 2; opacity: .94; }
-.inverted-chart .competitor-bubbles text { fill: #ccc; font: 500 11px Syne, sans-serif; dominant-baseline: middle; }
-.inverted-chart .competitor-bubbles .swift-label { fill: #fff; font-size: 13px; font-weight: 700; }
+.inverted-chart .competitor-bubbles text { fill: #fff; font: 600 8px Syne, sans-serif; dominant-baseline: middle; text-anchor: middle; pointer-events: none; }
+.inverted-chart .competitor-bubbles .swift-label { fill: #fff; font-size: 10px; font-weight: 700; }
 .inverted-chart .swift-ring { fill: none; stroke: #7c6af7; stroke-width: 1.5; opacity: .45; }
-.inverted-chart .accuracy-legend circle { fill: none; stroke: #8f8f98; stroke-width: 1.5; }
-.inverted-chart .accuracy-legend .legend-filled { fill: #8f8f98; opacity: .7; }
-.inverted-chart .accuracy-legend text { fill: #999; font: 10px "DM Mono", monospace; dominant-baseline: middle; }
 
 .blank-slide, .ask-slide { align-items: center; text-align: center; }
 .blank-slide h2 { font-size: 64px; opacity: .4; }
 .blank-slide > p:last-child { margin-top: 22px; font-family: "Instrument Serif", serif; font-size: 30px; opacity: .36; }
 .ask-slide { justify-content: center; padding: 48px 90px 72px; }
-.ask-slide .slide-summary-heading { position: absolute; top: 42px; left: 0; }
 .ask-amount { font-family: "Instrument Serif", serif; font-size: 118px; line-height: .85; }
 .ask-subtitle { margin: 18px 0 30px; font: 24px "DM Mono", monospace; color: var(--steel); text-transform: uppercase; letter-spacing: .14em; }
 .ask-bars { width: 100%; max-width: 560px; display: grid; gap: 12px; }
@@ -2025,7 +2032,7 @@ body.overview .node {
   line-height: 1.22;
 }
 #n8 .si.competition-slide { justify-content: flex-start; padding: 42px 66px 58px; }
-#n8 .slide-summary-heading { font-size: 30px; opacity: .82; margin-bottom: 4px; }
+#n8 .summary-title { font-size: 68px; margin-bottom: 2px; }
 </style>
 </head>
 <body>
@@ -2079,7 +2086,7 @@ body.overview .node {
     <section class="node" id="n2">
       <div class="hook">Slide 2 | Problem</div>
       <div class="si combined-slide">
-        <p class="slide-summary-heading">Lack of pathologists and equipment lead to re-surgery</p>
+        <h2 class="summary-title">Lack of pathologists and equipment lead to re-surgery</h2>
         <div class="problem-left-layout">
           <div class="problem-cards-row">
             <div class="combined-stat-card"><strong>1 in 5</strong><span>Patients require repeat surgery due to positive margins missed intraoperatively</span></div>
@@ -2100,17 +2107,8 @@ body.overview .node {
 
   <div class="si" style="justify-content:flex-start;padding:70px 85px;">
 
-    <p class="slide-summary-heading">We turn a 3-day lab process into a 5-minute bedside workflow</p>
+    <h2 class="summary-title">We turn a 3-day lab process into a 5-minute bedside workflow</h2>
     <div class="kicker">How SwiftDx Works</div>
-
-    <h2 class="hdl" style="
-      font-size:100px;
-      text-align:center;
-      margin-bottom:24px;
-    ">
-      A <em>5 Minute Workflow</em><br>
-      From Tissue To Decision
-    </h2>
 
     <p class="sub" style="
       text-align:center;
@@ -2217,8 +2215,7 @@ body.overview .node {
     <section class="node" id="n4">
       <div class="hook">Slide 4 | Validation</div>
       <div class="si validation-slide">
-        <p class="slide-summary-heading">Our product already outperforms frozen section</p>
-        <h2 class="hdl validation-title">MVP performance and validation</h2>
+        <h2 class="summary-title">Our product already outperforms frozen section</h2>
         <div class="validation-message">Our MVP already out-performs frozen section.</div>
 
         <div class="mvp-panel">
@@ -2247,8 +2244,7 @@ body.overview .node {
     <section class="node" id="n5">
       <div class="hook">Slide 5 | Market Opportunity</div>
       <div class="si market-opportunity-slide">
-        <p class="slide-summary-heading">We are entering a $5.75B market with no adequate intraoperative solution</p>
-        <h2 class="hdl market-opportunity-title">Market Opportunity</h2>
+        <h2 class="summary-title">We are entering a $5.75B market with no adequate intraoperative solution</h2>
         <div class="market-opportunity-layout">
           <div class="market-growth-panel">
             <h3>Digital Pathology Market</h3>
@@ -2273,8 +2269,7 @@ body.overview .node {
     <section class="node" id="n6">
       <div class="hook">Slide 6 | Strategic Partnerships</div>
       <div class="si" style="padding:42px 48px">
-        <p class="slide-summary-heading">Pan-continental partnerships from day one</p>
-        <h2 class="hdl" style="font-size:76px;margin-bottom:28px">Our collaboration and reach</h2>
+        <h2 class="summary-title">Pan-continental partnerships from day one</h2>
         <div class="loi-grid">
           <div class="loi-card">
             <div class="loi-title">Network & Public-Health Access</div>
@@ -2351,8 +2346,7 @@ body.overview .node {
     <section class="node" id="n7">
       <div class="hook">Slide 7 | Business Model</div>
       <div class="si cost-slide">
-        <p class="slide-summary-heading">We cost 50&times; less to deploy and 10&times; less per case</p>
-        <h2 class="hdl cost-title">Business Model</h2>
+        <h2 class="summary-title">We cost 50&times; less to deploy and 10&times; less per case</h2>
         <div class="cost-section">
           <div class="cost-section-label">Setup Cost</div>
           <div class="cost-row">
@@ -2374,8 +2368,8 @@ body.overview .node {
     <section class="node" id="n8">
       <div class="hook">Slide 8 | Competitive Landscape</div>
       <div class="si competition-slide">
-        <p class="slide-summary-heading">Superior in time and cost</p>
-        <svg class="bubble-chart inverted-chart" viewBox="0 0 780 440" role="img" aria-label="Competitor cost, turnaround and diagnostic accuracy bubble chart">
+        <h2 class="summary-title">Superior in time and cost</h2>
+        <svg class="bubble-chart inverted-chart" viewBox="0 0 780 410" role="img" aria-label="Competitor cost, turnaround and diagnostic accuracy bubble chart">
           <g class="chart-grid">
             <line x1="75" y1="40" x2="75" y2="370"/><line x1="192" y1="40" x2="192" y2="370"/><line x1="309" y1="40" x2="309" y2="370"/><line x1="426" y1="40" x2="426" y2="370"/><line x1="543" y1="40" x2="543" y2="370"/><line x1="660" y1="40" x2="660" y2="370"/>
             <line x1="75" y1="40" x2="660" y2="40"/><line x1="75" y1="87" x2="660" y2="87"/><line x1="75" y1="134" x2="660" y2="134"/><line x1="75" y1="181" x2="660" y2="181"/><line x1="75" y1="229" x2="660" y2="229"/><line x1="75" y1="276" x2="660" y2="276"/><line x1="75" y1="323" x2="660" y2="323"/><line x1="75" y1="370" x2="660" y2="370"/>
@@ -2388,27 +2382,21 @@ body.overview .node {
             <text class="direction-hint" x="35" y="47">&uarr; Faster</text><text class="direction-hint" x="35" y="368">&darr; Slower</text>
           </g>
           <g class="competitor-bubbles">
-            <circle class="swift-ring" cx="625" cy="59" r="41.25"/><circle cx="625" cy="59" r="33.25" fill="#7c6af7"/><text class="swift-label" x="625" y="108" text-anchor="middle">SwiftDx</text>
-            <circle cx="309" cy="276" r="20.6" fill="#6b7280"/><text x="338" y="280">Frozen Section</text>
-            <circle cx="485" cy="68" r="28.3" fill="#f59e0b"/><text x="448" y="55" text-anchor="end">Invenio (NIO)</text>
-            <circle cx="426" cy="87" r="18.4" fill="#ef4444"/><text x="400" y="111" text-anchor="end">MarginScan</text>
-            <circle cx="449" cy="153" r="16.2" fill="#10b981"/><text x="474" y="158">Claire</text>
-            <circle cx="368" cy="115" r="27.2" fill="#06b6d4"/><text x="330" y="160" text-anchor="end">Histolog Scanner</text>
-          </g>
-          <g class="accuracy-legend">
-            <circle cx="96" cy="424" r="14"/><text x="118" y="428">80% accuracy</text>
-            <circle cx="258" cy="424" r="25"/><text x="291" y="428">88% accuracy</text>
-            <circle class="legend-filled" cx="443" cy="424" r="36"/><text x="487" y="428">96% accuracy</text>
-            <text x="770" y="428" text-anchor="end">Bubble size = diagnostic accuracy</text>
+            <circle class="swift-ring" cx="625" cy="59" r="41.25"/><circle cx="625" cy="59" r="33.25" fill="#7c6af7"/><text class="swift-label" x="625" y="59">SwiftDx</text>
+            <circle cx="309" cy="276" r="20.6" fill="#6b7280"/><text x="309" y="276"><tspan x="309" dy="-4">Frozen</tspan><tspan x="309" dy="9">Section</tspan></text>
+            <circle cx="485" cy="68" r="28.3" fill="#f59e0b"/><text x="485" y="68"><tspan x="485" dy="-4">Invenio</tspan><tspan x="485" dy="9">NIO</tspan></text>
+            <circle cx="426" cy="87" r="18.4" fill="#ef4444"/><text x="426" y="87">MarginScan</text>
+            <circle cx="449" cy="153" r="16.2" fill="#10b981"/><text x="449" y="153">Claire</text>
+            <circle cx="368" cy="115" r="27.2" fill="#06b6d4"/><text x="368" y="115"><tspan x="368" dy="-4">Histolog</tspan><tspan x="368" dy="9">Scanner</tspan></text>
           </g>
         </svg>
       </div>
     </section>
     <!-- SLIDE 9: The Ask -->
-    <section class="node" id="n9">
-      <div class="hook">Slide 9 | The Ask</div>
+    <section class="node" id="n11">
+      <div class="hook">Slide 11 | The Ask</div>
       <div class="si ask-slide">
-        <p class="slide-summary-heading">$225K to reach clinical validation and first customers</p>
+        <div class="summary-title">$225K to reach clinical validation and first customers</div>
         <h2 class="ask-amount">$225K</h2>
         <div class="ask-subtitle">Clinical Validation Round &middot; 2026</div>
         <div class="ask-bars">
@@ -2421,20 +2409,18 @@ body.overview .node {
     </section>
 
     <!-- SLIDE 10: Market Strategy -->
-    <section class="node" id="n10">
-      <div class="hook">Slide 10 | Market Strategy</div>
+    <section class="node" id="n9">
+      <div class="hook">Slide 9 | Market Strategy</div>
       <div class="si blank-slide">
-        <p class="slide-summary-heading"></p>
         <h2>[Market Strategy]</h2>
         <p>Content coming soon</p>
       </div>
     </section>
 
     <!-- SLIDE 11: Go-To-Market -->
-    <section class="node" id="n11">
-      <div class="hook">Slide 11 | Go-To-Market</div>
+    <section class="node" id="n10">
+      <div class="hook">Slide 10 | Go-To-Market</div>
       <div class="si blank-slide">
-        <p class="slide-summary-heading"></p>
         <h2>[Go-To-Market]</h2>
         <p>Content coming soon</p>
       </div>
@@ -2444,8 +2430,7 @@ body.overview .node {
     <section class="node" id="n12">
       <div class="hook">Slide 12 | Team</div>
       <div class="si" style="padding:46px 58px">
-        <p class="slide-summary-heading">We have the clinical, technical, and regulatory expertise to execute</p>
-        <h2 class="hdl" style="font-size:66px;margin-bottom:22px">Team</h2>
+        <h2 class="summary-title">We have the clinical, technical, and regulatory expertise to execute</h2>
         <div class="team-grid">
           <div class="team-card">
             <div class="team-photo"><img src="Amay.jpg" alt="Amay Kashyap"></div>
@@ -2497,9 +2482,7 @@ body.overview .node {
     <section class="node" id="n13">
       <div class="hook">Slide 13 | Data & Roadmap</div>
       <div class="si">
-        <p class="slide-summary-heading">A four-step path from partnership to prospective deployment</p>
-        <div class="kicker">From MVP to clinical deployment</div>
-        <h2 class="hdl" style="font-size:78px;margin-bottom:24px">Partner first.<br>Build data.<br><em>Scale responsibly.</em></h2>
+        <h2 class="summary-title">A four-step path from partnership to prospective deployment</h2>
         <div class="step">
           <div class="step-n">01</div>
           <div class="step-name">Hospital Partnership</div>
@@ -2531,9 +2514,7 @@ body.overview .node {
     <section class="node" id="n14">
       <div class="hook">Slide 14 | Workflow & Regulatory</div>
       <div class="si">
-        <p class="slide-summary-heading">Built for clinical integration and regulatory compliance from the start</p>
-        <div class="kicker">Clinical integration</div>
-        <h2 class="hdl" style="font-size:78px;margin-bottom:26px">Decision support.<br><em>Not replacement.</em></h2>
+        <h2 class="summary-title">Built for clinical integration and regulatory compliance from the start</h2>
         <div class="grid3">
           <div class="card">
             <h3>Workflow</h3>
@@ -2555,9 +2536,7 @@ body.overview .node {
     <section class="node" id="n15">
       <div class="hook">Slide 15 | Technical Architecture</div>
       <div class="si">
-        <p class="slide-summary-heading">Two purpose-built models producing one clinically actionable report</p>
-        <div class="kicker">Engineered for clinical deployment</div>
-        <h2 class="hdl" style="font-size:78px;margin-bottom:26px">Two models.<br><em>One report.</em></h2>
+        <h2 class="summary-title">Two purpose-built models producing one clinically actionable report</h2>
         <div class="grid3">
           <div class="card">
             <h3>Virtual Staining</h3>
@@ -2579,9 +2558,7 @@ body.overview .node {
     <section class="node" id="n16">
       <div class="hook">Slide 16 | Deployment & Scaling</div>
       <div class="si">
-        <p class="slide-summary-heading">Train in the cloud, deploy anywhere, audit everything</p>
-        <div class="kicker">Cloud-first, governance-aware</div>
-        <h2 class="hdl" style="font-size:78px;margin-bottom:24px">Train in cloud.<br>Deploy anywhere.<br><em>Audit everything.</em></h2>
+        <h2 class="summary-title">Train in the cloud, deploy anywhere, audit everything</h2>
         <div class="grid4">
           <div class="card">
             <h3>S3 Storage</h3>
