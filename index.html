@@ -1651,6 +1651,23 @@ body:not(.overview) .node:not(.active) { opacity: 0; pointer-events: none; }
 .ask-amount { font-family: "Instrument Serif", serif; font-size: 118px; line-height: .85; color: #fff; text-shadow: 0 4px 24px rgba(0,0,0,.9); }
 .ask-subtitle { margin: 18px 0 30px; font: 24px "DM Mono", monospace; color: #dbe7f5; text-transform: uppercase; letter-spacing: .14em; text-shadow: 0 2px 12px rgba(0,0,0,.9); }
 .ask-bars { width: 100%; max-width: 560px; display: grid; gap: 12px; }
+.gtm-slide { justify-content: center; padding: 56px 72px 64px; }
+.gtm-slide .summary-title { margin-bottom: 56px; }
+.ask-roi { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; width: 100%; max-width: 980px; margin-top: 38px; }
+.ask-roi-item { background: rgba(8,17,31,.5); border: 1px solid rgba(255,255,255,.18); border-radius: 12px; padding: 24px 26px; text-align: center; backdrop-filter: blur(4px); }
+.ask-roi-item b { display: block; font-family: "Instrument Serif", serif; font-size: 56px; line-height: 1; color: #fff; text-shadow: 0 3px 16px rgba(0,0,0,.85); margin-bottom: 12px; }
+.ask-roi-item span { font-family: "Instrument Serif", serif; font-style: italic; font-size: 23px; line-height: 1.32; color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,.8); }
+.gtm-flow { display: flex; align-items: stretch; justify-content: center; gap: 12px; width: 100%; margin-bottom: 52px; }
+.gtm-step { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 38px 20px; border: 2px solid var(--line); background: rgba(232,238,248,.03); border-radius: 14px; }
+.gtm-step.hot { border-color: var(--blue2); background: rgba(177,18,38,.14); }
+.gtm-n { font: 500 22px "DM Mono", monospace; letter-spacing: .12em; color: var(--blue2); margin-bottom: 18px; }
+.gtm-name { font-family: "Syne", sans-serif; font-weight: 800; font-size: 46px; line-height: 1; color: var(--paper); margin-bottom: 16px; }
+.gtm-sub { font-family: "Instrument Serif", serif; font-style: italic; font-size: 26px; line-height: 1.25; color: var(--muted); }
+.gtm-arrow { display: flex; align-items: center; font-size: 46px; color: rgba(255,107,129,.6); }
+.gtm-pillars { display: grid; grid-template-columns: repeat(3,1fr); gap: 26px; }
+.gtm-pillar { border: 1px solid rgba(255,107,129,.22); background: rgba(177,18,38,.07); border-radius: 12px; padding: 32px 30px; text-align: center; }
+.gtm-pillar strong { display: block; font-family: "Instrument Serif", serif; font-size: 58px; line-height: 1; color: var(--paper); margin-bottom: 16px; }
+.gtm-pillar span { font-family: "Instrument Serif", serif; font-style: italic; font-size: 26px; line-height: 1.3; color: var(--muted); }
 .ask-bar { height: 62px; border: 1px solid rgba(255,255,255,.28); background: rgba(5,10,20,.7); position: relative; overflow: hidden; box-shadow: 0 8px 22px rgba(0,0,0,.28); backdrop-filter: blur(3px); }
 .ask-bar i { position: absolute; inset: 0 auto 0 0; background: linear-gradient(90deg,rgba(177,18,38,.85),rgba(255,107,129,.48)); }
 .ask-bar span { position: relative; z-index: 1; height: 100%; display: flex; align-items: center; justify-content: flex-start; gap: 14px; padding: 0 18px; font-size: 18px; font-weight: 700; color: white; text-align: left; text-shadow: 0 2px 8px rgba(0,0,0,.85); }
@@ -2660,7 +2677,7 @@ body.overview .node {
     <section class="node" id="n11">
       <div class="hook">Slide 11 | The Ask</div>
       <div class="si ask-slide">
-        <div class="summary-title">$225K to reach clinical validation and increase our customer base</div>
+        <div class="summary-title">$225K to reach clinical validation and first customers</div>
         <h2 class="ask-amount">$225K</h2>
         <div class="ask-subtitle">Clinical Validation Round &middot; 2026</div>
         <div class="ask-bars">
@@ -2668,6 +2685,20 @@ body.overview .node {
           <div class="ask-bar"><i style="width:28%;background:rgba(124,106,247,.82)"></i><span><b>28%</b> Clinical Pilots</span></div>
           <div class="ask-bar"><i style="width:21%;background:rgba(124,106,247,.66)"></i><span><b>21%</b> Hardware &amp; Ops</span></div>
           <div class="ask-bar"><i style="width:10%;background:rgba(124,106,247,.5)"></i><span><b>10%</b> Data Annotation &amp; Model Improvement</span></div>
+        </div>
+        <div class="ask-roi">
+          <div class="ask-roi-item">
+            <b>~$3,000</b>
+            <span>Saved per case vs. frozen section &mdash; hospital ROI from day one</span>
+          </div>
+          <div class="ask-roi-item">
+            <b>~96%</b>
+            <span>Gross margin at scale &mdash; software economics for investors</span>
+          </div>
+          <div class="ask-roi-item">
+            <b>$5.75B</b>
+            <span>Market by 2034 &mdash; the long-term return opportunity</span>
+          </div>
         </div>
       </div>
     </section>
@@ -2702,9 +2733,24 @@ body.overview .node {
     <!-- SLIDE 11: Go-To-Market -->
     <section class="node" id="n10">
       <div class="hook">Slide 10 | Go-To-Market</div>
-      <div class="si blank-slide">
-        <h2>[Go-To-Market]</h2>
-        <p>Content coming soon</p>
+      <div class="si gtm-slide">
+        <h2 class="summary-title">Land with pilots. Expand into recurring revenue.</h2>
+
+        <div class="gtm-flow">
+          <div class="gtm-step"><div class="gtm-n">01</div><div class="gtm-name">Pilot</div><div class="gtm-sub">Free / low-cost at partner hospitals</div></div>
+          <div class="gtm-arrow">&rarr;</div>
+          <div class="gtm-step"><div class="gtm-n">02</div><div class="gtm-name">Prove</div><div class="gtm-sub">Faster margins, fewer re-excisions</div></div>
+          <div class="gtm-arrow">&rarr;</div>
+          <div class="gtm-step"><div class="gtm-n">03</div><div class="gtm-name">Convert</div><div class="gtm-sub">Setup fee + per-case pricing</div></div>
+          <div class="gtm-arrow">&rarr;</div>
+          <div class="gtm-step hot"><div class="gtm-n">04</div><div class="gtm-name">Expand</div><div class="gtm-sub">Across the hospital network</div></div>
+        </div>
+
+        <div class="gtm-pillars">
+          <div class="gtm-pillar"><strong>B2B</strong><span>Direct to hospitals &amp; pathology labs</span></div>
+          <div class="gtm-pillar"><strong>6</strong><span>Partner organisations already on board</span></div>
+          <div class="gtm-pillar"><strong>Pilot&rarr;Paid</strong><span>Validated sites become customers</span></div>
+        </div>
       </div>
     </section>
 
