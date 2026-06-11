@@ -1517,13 +1517,10 @@ body:not(.overview) .node:not(.active) { opacity: 0; pointer-events: none; }
 .node .stat { text-align: center; }
 
 #n3 .si { padding: 38px 72px 68px !important; }
-#n3 .summary-title { font-size: 62px; margin-bottom: 20px; }
-#n3 .sub { display: none; }
-#n3 .si > div:nth-of-type(1) { gap: 10px !important; }
-#n3 .step { grid-template-columns: 48px 280px 1fr; min-height: 116px; margin-bottom: 0; padding: 10px 16px; }
-#n3 .step-name { font-size: 27px; }
-#n3 .step-copy { font-size: 24px; line-height: 1.2; }
-#n3 .si > div:last-child { display: none !important; }
+#n3 .slide3-focus { padding: 52px 72px 76px; justify-content: flex-start; }
+#n3 .summary-title { font-size: 62px; margin-bottom: 26px; }
+#n3 .workflow-compare { flex: 1; min-height: 0; }
+#n3 .kicker, #n3 .sub, #n3 .si > div:nth-of-type(4), #n3 .si > div:nth-of-type(5) { display: none !important; }
 
 .combined-slide { padding: 42px 50px; }
 .combined-problem-solution { display: grid; grid-template-columns: 1fr 2px 1fr; gap: 0; width: 100%; height: 100%; }
@@ -2105,9 +2102,29 @@ body.overview .node {
 <section class="node" id="n3">
   <div class="hook">Slide 3 | Workflow</div>
 
-  <div class="si" style="justify-content:flex-start;padding:70px 85px;">
+  <div class="si slide3-focus">
 
     <h2 class="summary-title">We turn a 3-day lab process into a 5-minute bedside workflow</h2>
+    <div class="workflow-compare">
+      <div class="workflow-lane">
+        <div class="workflow-label">Traditional workflow</div>
+        <div class="workflow-title">High friction. Slow turnaround.</div>
+        <div class="workflow-mini-step"><strong>01</strong><span>Cryostat + trained staff</span></div>
+        <div class="workflow-mini-step"><strong>02</strong><span>20-30 minute turnaround</span></div>
+        <div class="workflow-mini-step"><strong>03</strong><span>Requires on-site pathology</span></div>
+      </div>
+      <div class="workflow-lane fast">
+        <div class="workflow-label">SwiftDx workflow</div>
+        <div class="workflow-title">Rapid support. Pathologist led.</div>
+        <div class="workflow-mini-step"><strong>01</strong><span>Capture fresh tissue</span></div>
+        <div class="workflow-mini-step"><strong>02</strong><span>Virtual stain + margin analysis</span></div>
+        <div class="workflow-mini-step"><strong>03</strong><span>Pathologist sign-off</span></div>
+      </div>
+    </div>
+    <div class="role-band">
+      <div class="role-chip"><b>Technicians</b><span>Capture and run workflow.</span></div>
+      <div class="role-chip"><b>Pathologists</b><span>Review and sign off.</span></div>
+    </div>
     <div class="kicker">How SwiftDx Works</div>
 
     <p class="sub" style="
