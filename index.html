@@ -1502,10 +1502,10 @@ body:not(.overview) .node:not(.active) { opacity: 0; pointer-events: none; }
 
 #n2 .combined-slide { justify-content: flex-start; padding: 54px 64px 72px; }
 #n2 .summary-title { font-size: 68px; margin-bottom: 34px; }
-.problem-left-layout { display: grid; grid-template-columns: minmax(0, 70%) minmax(200px, 30%); gap: 34px; width: 100%; flex: 1; min-height: 0; }
+.problem-left-layout { display: grid; grid-template-columns: minmax(0, 64%) minmax(280px, 36%); gap: 30px; width: 100%; flex: 1; min-height: 0; }
 .problem-cards-row { display: grid; grid-template-rows: repeat(3, 1fr); gap: 18px; min-height: 0; }
 .problem-visual { min-width: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 8px 16px; }
-.problem-visual img { width: 100%; max-width: 220px; height: 142px; border-radius: 8px; object-fit: cover; border: 1px solid rgba(255,255,255,.16); box-shadow: 0 16px 34px rgba(0,0,0,.28); }
+.problem-visual img { width: 100%; max-width: 300px; height: 190px; border-radius: 8px; object-fit: cover; border: 1px solid rgba(255,255,255,.16); box-shadow: 0 16px 34px rgba(0,0,0,.28); }
 .problem-visual .visual-caption { font-size: 16px; color: #aaa; text-align: center; }
 #n2 .combined-stat-card { padding: 24px 32px; }
 #n2 .combined-stat-card strong { font-size: 58px; font-weight: 800; }
@@ -1586,6 +1586,16 @@ body:not(.overview) .node:not(.active) { opacity: 0; pointer-events: none; }
 .business-label { font-size: 16px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #7c6af7; margin-bottom: 7px; }
 .business-value { font-size: 48px; line-height: 1.05; font-weight: 800; color: #fff; }
 .business-detail { font-size: 21px; color: #aaa; margin-top: 7px; }
+.removed-slide { display: none !important; }
+.commercial-slide { justify-content: flex-start; padding: 46px 68px 72px; }
+.commercial-tables { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; width: 100%; flex: 1; align-items: stretch; }
+.commercial-table { border: 1px solid var(--line); background: rgba(232,238,248,.035); display: flex; flex-direction: column; }
+.commercial-table h3 { padding: 22px 24px; font-size: 27px; color: #7c6af7; border-bottom: 1px solid var(--line); }
+.commercial-row { padding: 20px 24px; border-bottom: 1px solid rgba(255,255,255,.09); }
+.commercial-row:last-child { border-bottom: 0; }
+.commercial-row span { display: block; margin-bottom: 8px; font: 700 15px "DM Mono", monospace; letter-spacing: .1em; text-transform: uppercase; color: var(--faint); }
+.commercial-row strong { display: block; font-size: 31px; line-height: 1.08; }
+.commercial-row small { display: block; margin-top: 8px; font-size: 18px; line-height: 1.25; color: #aaa; }
 
 .competition-slide { justify-content: flex-start; padding: 42px 66px 62px; }
 .competition-title { margin-bottom: 12px; }
@@ -2117,7 +2127,7 @@ body.overview .node {
 <!-- REPLACE CURRENT TECHNOLOGY SLIDE WITH THIS -->
 <!-- REPLACE ENTIRE SLIDE 4 WITH THIS -->
 
-<section class="node" id="n3">
+<section class="removed-slide" id="n3" aria-hidden="true">
   <div class="hook">Slide 3 | Workflow</div>
 
   <div class="si slide3-focus">
@@ -2475,22 +2485,22 @@ body.overview .node {
     <section class="node" id="n5">
       <div class="hook">Slide 5 | Market Opportunity</div>
       <div class="si market-opportunity-slide">
-        <h2 class="summary-title">We are entering a $36.7B market with no adequate intraoperative solution</h2>
+        <h2 class="summary-title">We are entering a $5.75B market with no adequate intraoperative solution</h2>
         <div class="market-opportunity-layout">
           <div class="market-growth-panel">
             <h3>Digital Pathology Market</h3>
             <div class="market-growth-stat">
               <div><strong>$1.3B</strong><span>2025</span></div>
               <b>&rarr;</b>
-              <div><strong>$36.7B</strong><span>2034</span></div>
+              <div><strong>$5.75B</strong><span>2034</span></div>
             </div>
             <div class="market-cagr">CAGR ~17%</div>
             <p>The digital pathology market is growing 3&times; in a decade, driven by AI, cloud imaging, and rising cancer burden.</p>
           </div>
           <div class="market-circles" aria-label="TAM SAM SOM market opportunity">
-            <div class="market-circle tam"><span>Total Addressable Market</span><strong>$36.7B</strong><small>2034</small></div>
+            <div class="market-circle tam"><span>Total Addressable Market</span><strong>$5.75B</strong><small>2034</small></div>
             <div class="market-circle sam"><span>AI Margin Assessment</span><strong>$1.3B</strong></div>
-            <div class="market-circle som"><span>SwiftDx 5-Year Target</span><strong>$130M</strong></div>
+            <div class="market-circle som"><span>SwiftDx 5-Year Target</span><strong>$390M</strong></div>
           </div>
         </div>
       </div>
@@ -2578,16 +2588,18 @@ body.overview .node {
       <div class="hook">Slide 7 | Business Model</div>
       <div class="si cost-slide">
         <h2 class="summary-title">We cost 50&times; less to deploy and 10&times; less per case</h2>
-        <div class="business-model-grid">
-          <div class="business-model-column">
-            <div class="business-block"><div class="business-label">Primary Customers</div><div class="business-value">Hospitals</div></div>
-            <div class="business-block"><div class="business-label">Business Type</div><div class="business-value">B2B MedTech</div></div>
-            <div class="business-block"><div class="business-label">Workflow</div><div class="business-value">Intraoperative integration</div><div class="business-detail">Adaptations provided on-site</div></div>
+        <div class="cost-section">
+          <div class="cost-section-label">Setup Cost</div>
+          <div class="cost-row">
+            <div class="cost-card swiftdx-cost"><div class="cost-badge">SwiftDx</div><h3>Hardware Setup</h3><strong>~$400</strong><p>Ultra-low hardware cost. No cryostat required.</p></div>
+            <div class="cost-card frozen-cost"><div class="cost-badge">Frozen Section</div><h3>Lab Setup</h3><strong>$15,000-$40,000+</strong><p>Cryostat, lab infrastructure, and specialist staffing required.</p></div>
           </div>
-          <div class="business-model-column">
-            <div class="business-block"><div class="business-label">Setup Fee</div><div class="business-value">$400</div><div class="business-detail">per deployment</div></div>
-            <div class="business-block"><div class="business-label">Per-Case Fee</div><div class="business-value">$30 / case</div><div class="business-detail">Small hospitals &middot; usage based</div></div>
-            <div class="business-block"><div class="business-label">Subscription</div><div class="business-value">Custom pricing</div><div class="business-detail">Larger hospitals &middot; volume tiers</div></div>
+        </div>
+        <div class="cost-section">
+          <div class="cost-section-label">Commercial Model</div>
+          <div class="cost-row">
+            <div class="cost-card swiftdx-cost"><div class="cost-badge">SwiftDx</div><h3>Per-Case Fee</h3><strong>~$30</strong><p>SaaS per-case model that scales with volume.</p></div>
+            <div class="cost-card frozen-cost"><div class="cost-badge">Frozen Section</div><h3>Per-Case Cost</h3><strong>$150-$500</strong><p>Pathologist time, operating-room time, and lab processing.</p></div>
           </div>
         </div>
       </div>
@@ -2640,9 +2652,25 @@ body.overview .node {
     <!-- SLIDE 10: Market Strategy -->
     <section class="node" id="n9">
       <div class="hook">Slide 9 | Market Strategy</div>
-      <div class="si blank-slide">
-        <h2>[Market Strategy]</h2>
-        <p>Content coming soon</p>
+      <div class="si commercial-slide">
+        <h2 class="summary-title">A flexible model built for hospitals of every size</h2>
+        <div class="commercial-tables">
+          <div class="commercial-table">
+            <h3>Customer</h3>
+            <div class="commercial-row"><span>Primary Customers</span><strong>Hospitals</strong></div>
+            <div class="commercial-row"><span>Business Type</span><strong>B2B MedTech</strong></div>
+          </div>
+          <div class="commercial-table">
+            <h3>Deployment</h3>
+            <div class="commercial-row"><span>Workflow</span><strong>Intraoperative integration</strong><small>Adaptations provided on-site</small></div>
+            <div class="commercial-row"><span>Setup Fee</span><strong>$400</strong><small>per deployment</small></div>
+          </div>
+          <div class="commercial-table">
+            <h3>Pricing</h3>
+            <div class="commercial-row"><span>Per-Case Fee</span><strong>$30 / case</strong><small>Small hospitals &middot; usage based</small></div>
+            <div class="commercial-row"><span>Subscription</span><strong>Custom pricing</strong><small>Larger hospitals &middot; volume tiers</small></div>
+          </div>
+        </div>
       </div>
     </section>
 
