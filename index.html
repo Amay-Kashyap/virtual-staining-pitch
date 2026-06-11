@@ -1502,11 +1502,16 @@ body:not(.overview) .node:not(.active) { opacity: 0; pointer-events: none; }
 
 #n2 .combined-slide { justify-content: flex-start; padding: 54px 64px 72px; }
 #n2 .summary-title { font-size: 68px; margin-bottom: 34px; }
-.problem-left-layout { display: grid; grid-template-columns: minmax(0, 64%) minmax(280px, 36%); gap: 30px; width: 100%; flex: 1; min-height: 0; }
+.problem-left-layout { display: grid; grid-template-columns: minmax(0, 55%) minmax(380px, 45%); gap: 26px; width: 100%; flex: 1; min-height: 0; }
 .problem-cards-row { display: grid; grid-template-rows: repeat(3, 1fr); gap: 18px; min-height: 0; }
-.problem-visual { min-width: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 8px 16px; }
-.problem-visual img { width: 100%; max-width: 300px; height: 190px; border-radius: 8px; object-fit: cover; border: 1px solid rgba(255,255,255,.16); box-shadow: 0 16px 34px rgba(0,0,0,.28); }
-.problem-visual .visual-caption { font-size: 16px; color: #aaa; text-align: center; }
+.problem-visual { min-width: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 0 10px; }
+.problem-visual > img { width: 100%; max-width: 410px; height: 238px; border-radius: 8px; object-fit: cover; border: 1px solid rgba(255,255,255,.16); box-shadow: 0 16px 34px rgba(0,0,0,.28); }
+.problem-visual .visual-caption { font-size: 17px; color: #aaa; text-align: center; }
+.problem-ai-report { width: 100%; max-width: 410px; padding: 14px 18px; border: 1px solid rgba(124,106,247,.52); border-radius: 8px; background: rgba(8,17,31,.9); box-shadow: 0 16px 34px rgba(0,0,0,.28); font-family: "DM Mono", monospace; }
+.problem-ai-report .terminal-head { margin-bottom: 7px; }
+.problem-ai-report .terminal-title { font-size: 13px; }
+.problem-ai-report .output-row { padding: 6px 0; font-size: 14px; letter-spacing: .03em; }
+.problem-ai-report .output-row strong { color: white; }
 #n2 .combined-stat-card { padding: 24px 32px; }
 #n2 .combined-stat-card strong { font-size: 58px; font-weight: 800; }
 #n2 .combined-stat-card .double-stat { font-family: Syne, sans-serif; font-size: 46px; line-height: 1.02; display: flex; flex-direction: column; }
@@ -1587,15 +1592,17 @@ body:not(.overview) .node:not(.active) { opacity: 0; pointer-events: none; }
 .business-value { font-size: 48px; line-height: 1.05; font-weight: 800; color: #fff; }
 .business-detail { font-size: 21px; color: #aaa; margin-top: 7px; }
 .removed-slide { display: none !important; }
-.commercial-slide { justify-content: flex-start; padding: 46px 68px 72px; }
-.commercial-tables { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; width: 100%; flex: 1; align-items: stretch; }
+.commercial-slide { justify-content: flex-start; padding: 42px 58px 68px; }
+.commercial-slide .summary-title { font-size: 65px; margin-bottom: 24px; }
+.commercial-tables { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; width: 100%; flex: 1; align-items: stretch; }
 .commercial-table { border: 1px solid var(--line); background: rgba(232,238,248,.035); display: flex; flex-direction: column; }
-.commercial-table h3 { padding: 22px 24px; font-size: 27px; color: #7c6af7; border-bottom: 1px solid var(--line); }
-.commercial-row { padding: 20px 24px; border-bottom: 1px solid rgba(255,255,255,.09); }
+.commercial-table h3 { padding: 25px 28px; font-size: 36px; color: #7c6af7; border-bottom: 1px solid var(--line); }
+.commercial-row { padding: 25px 28px; border-bottom: 1px solid rgba(255,255,255,.09); flex: 1; display: flex; flex-direction: column; justify-content: center; }
 .commercial-row:last-child { border-bottom: 0; }
-.commercial-row span { display: block; margin-bottom: 8px; font: 700 15px "DM Mono", monospace; letter-spacing: .1em; text-transform: uppercase; color: var(--faint); }
-.commercial-row strong { display: block; font-size: 31px; line-height: 1.08; }
-.commercial-row small { display: block; margin-top: 8px; font-size: 18px; line-height: 1.25; color: #aaa; }
+.commercial-row span { display: block; margin-bottom: 11px; font: 700 18px "DM Mono", monospace; letter-spacing: .1em; text-transform: uppercase; color: var(--faint); }
+.commercial-row strong { display: block; font-size: 39px; line-height: 1.08; }
+.commercial-row small { display: block; margin-top: 11px; font-size: 22px; line-height: 1.25; color: #aaa; }
+.commercial-notes { margin: 12px 0 0; padding-left: 24px; color: #aaa; font-size: 21px; line-height: 1.35; }
 
 .competition-slide { justify-content: flex-start; padding: 42px 66px 62px; }
 .competition-title { margin-bottom: 12px; }
@@ -2116,8 +2123,16 @@ body.overview .node {
               <line x1="12" y1="0" x2="12" y2="30" stroke="#7c6af7" stroke-width="2"/>
               <polygon points="4,26 20,26 12,38" fill="#7c6af7"/>
             </svg>
-            <img src="virtual-hne-overlay.png" alt="LVLM virtual stain and margin output" onerror="this.style.border='2px dashed #7c6af7'; this.alt='[LVLM output]'">
-            <div class="visual-caption">Virtual stain + margin risk output</div>
+            <div class="problem-ai-report" role="img" aria-label="AI margin assessment report">
+              <div class="terminal-head"><span></span><span></span><span></span><div class="terminal-title">AI Margin Assessment Report</div></div>
+              <div class="output-row"><span>Case ID</span><strong>SDX-042</strong></div>
+              <div class="output-row"><span>Tissue</span><strong>Breast Margin</strong></div>
+              <div class="output-row"><span>Margin Status</span><strong style="color:#ff8fa3">POSITIVE</strong></div>
+              <div class="output-row"><span>Tumor Distance</span><strong>0.4 mm</strong></div>
+              <div class="output-row"><span>Confidence</span><strong>96.2%</strong></div>
+              <div class="output-row" style="border:none"><span>Recommendation</span><strong>Re-excise</strong></div>
+            </div>
+            <div class="visual-caption">AI-assisted margin report for pathologist review</div>
           </div>
         </div>
       </div>
@@ -2662,7 +2677,7 @@ body.overview .node {
           </div>
           <div class="commercial-table">
             <h3>Deployment</h3>
-            <div class="commercial-row"><span>Workflow</span><strong>Intraoperative integration</strong><small>Adaptations provided on-site</small></div>
+            <div class="commercial-row"><span>Workflow</span><strong>Intraoperative integration</strong><ul class="commercial-notes"><li>Limited customization</li><li>Intraoperative workflow adaptations when required</li></ul></div>
             <div class="commercial-row"><span>Setup Fee</span><strong>$400</strong><small>per deployment</small></div>
           </div>
           <div class="commercial-table">
