@@ -1677,21 +1677,22 @@ body:not(.overview) .node:not(.active) { opacity: 0; pointer-events: none; }
 .ask-roi span { font-size: 22px; text-transform: uppercase; color: var(--muted); }
 
 #n1 { left: 5320px; top: 430px; }
-#n2 { left: 6870px; top: 738px; }
-#n3 { left: 8184px; top: 1616px; }
-#n4 { left: 9062px; top: 2930px; }
-#n5 { left: 9370px; top: 4480px; }
-#n6 { left: 9062px; top: 6030px; }
-#n7 { left: 8184px; top: 7344px; }
-#n8 { left: 6870px; top: 8222px; }
-#n9 { left: 5320px; top: 8530px; }
-#n10 { left: 3770px; top: 8222px; }
-#n11 { left: 2456px; top: 7344px; }
-#n12 { left: 1578px; top: 6030px; }
-#n13 { left: 1270px; top: 4480px; }
-#n14 { left: 1578px; top: 2930px; }
-#n15 { left: 2456px; top: 1616px; }
-#n16 { left: 3770px; top: 738px; }
+#n2 { left: 6783px; top: 703px; }
+#n3 { left: 8048px; top: 1487px; }
+#n4 { left: 8945px; top: 2675px; }
+#n5 { left: 9353px; top: 4106px; }
+#n6 { left: 9215px; top: 5588px; }
+#n7 { left: 8552px; top: 6921px; }
+#n8 { left: 7452px; top: 7923px; }
+#n9 { left: 6064px; top: 8461px; }
+#n10 { left: 4576px; top: 8461px; }
+#n11 { left: 3188px; top: 7923px; }
+#n17 { left: 2088px; top: 6921px; }
+#n12 { left: 1425px; top: 5588px; }
+#n13 { left: 1287px; top: 4106px; }
+#n14 { left: 1695px; top: 2675px; }
+#n15 { left: 2592px; top: 1487px; }
+#n16 { left: 3857px; top: 703px; }
 
 #nav {
   position: fixed;
@@ -2028,6 +2029,39 @@ body.overview .node {
 .advantage-chip span {
   color: var(--blue2);
 }
+
+
+/* Advisors Slide */
+.advisors-slide {
+  position: relative;
+  justify-content: flex-start;
+  padding: 54px 72px 76px;
+  overflow: hidden;
+  isolation: isolate;
+}
+.advisors-slide::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background: url("assets/advisors-backdrop.jpeg") center center / cover no-repeat;
+  filter: brightness(.68) saturate(.82) contrast(1.05);
+  transform: scale(1.02);
+}
+.advisors-slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg, rgba(5,10,20,.84), rgba(8,17,31,.58) 48%, rgba(5,10,20,.78)), linear-gradient(180deg, rgba(5,10,20,.18), rgba(5,10,20,.72));
+}
+.advisors-slide .summary-title { margin-bottom: 38px; text-shadow: 0 3px 18px rgba(0,0,0,.86); }
+.advisors-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 34px; width: 100%; flex: 1; align-items: stretch; }
+.advisor-card { display: grid; grid-template-columns: 230px 1fr; gap: 28px; align-items: center; padding: 34px; border: 1px solid rgba(255,255,255,.22); border-radius: 8px; background: rgba(5,10,20,.72); box-shadow: 0 28px 90px rgba(0,0,0,.32); backdrop-filter: blur(5px); }
+.advisor-photo { width: 230px; height: 300px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,.24); background: rgba(232,238,248,.06); }
+.advisor-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.advisor-name { font-size: 52px; line-height: 1.02; color: #fff; margin-bottom: 18px; }
+.advisor-desc { font-family: "Instrument Serif", serif; font-size: 34px; line-height: 1.18; color: rgba(255,255,255,.9); text-align: left; }
 
 /* Team Slide */
 .team-grid {
@@ -2784,9 +2818,34 @@ body.overview .node {
       </div>
     </section>
 
-    <!-- SLIDE 11: Team -->
+
+    <!-- SLIDE 12: Advisors -->
+    <section class="node" id="n17">
+      <div class="hook">Slide 12 | Advisors</div>
+      <div class="si advisors-slide">
+        <h2 class="summary-title">Advisors</h2>
+        <div class="advisors-grid">
+          <div class="advisor-card">
+            <div class="advisor-photo"><img src="assets/advisor-noor-hisham.jpeg" alt="Tan Sri Dr. Noor Hisham Abdullah"></div>
+            <div>
+              <h3 class="advisor-name">Tan Sri Dr. Noor Hisham Abdullah</h3>
+              <p class="advisor-desc">DG of health who led Malaysia through the pandemic.</p>
+            </div>
+          </div>
+          <div class="advisor-card">
+            <div class="advisor-photo"><img src="assets/advisor-peter-ng.jpeg" alt="Dato Peter Ng"></div>
+            <div>
+              <h3 class="advisor-name">Dato Peter Ng</h3>
+              <p class="advisor-desc">Founder and Chairperson of UCSI Group.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 13: Team -->
     <section class="node" id="n12">
-      <div class="hook">Slide 12 | Team</div>
+      <div class="hook">Slide 13 | Team</div>
       <div class="si" style="padding:46px 58px">
         <h2 class="summary-title">We have the clinical, technical, and regulatory expertise to execute</h2>
         <div class="team-grid">
@@ -2836,9 +2895,9 @@ body.overview .node {
       </div>
     </section>
 
-    <!-- SLIDE 12: Data Plan -->
+    <!-- SLIDE 14: Data Plan -->
     <section class="node" id="n13">
-      <div class="hook">Slide 13 | Data & Roadmap</div>
+      <div class="hook">Slide 14 | Data & Roadmap</div>
       <div class="si">
         <h2 class="summary-title">A four-step path from partnership to prospective deployment</h2>
         <div class="step">
@@ -2868,9 +2927,9 @@ body.overview .node {
       </div>
     </section>
 
-    <!-- SLIDE 13: Workflow & Regulatory -->
+    <!-- SLIDE 15: Workflow & Regulatory -->
     <section class="node" id="n14">
-      <div class="hook">Slide 14 | Workflow & Regulatory</div>
+      <div class="hook">Slide 15 | Workflow & Regulatory</div>
       <div class="si">
         <h2 class="summary-title">Built for clinical integration and regulatory compliance from the start</h2>
         <div class="grid3">
@@ -2890,9 +2949,9 @@ body.overview .node {
       </div>
     </section>
 
-    <!-- SLIDE 14: Architecture -->
+    <!-- SLIDE 16: Architecture -->
     <section class="node" id="n15">
-      <div class="hook">Slide 15 | Technical Architecture</div>
+      <div class="hook">Slide 16 | Technical Architecture</div>
       <div class="si">
         <h2 class="summary-title">Two purpose-built models producing one clinically actionable report</h2>
         <div class="grid3">
@@ -2912,9 +2971,9 @@ body.overview .node {
       </div>
     </section>
 
-    <!-- SLIDE 15: Deployment -->
+    <!-- SLIDE 17: Deployment -->
     <section class="node" id="n16">
-      <div class="hook">Slide 16 | Deployment & Scaling</div>
+      <div class="hook">Slide 17 | Deployment & Scaling</div>
       <div class="si">
         <h2 class="summary-title">Train in the cloud, deploy anywhere, audit everything</h2>
         <div class="grid4">
@@ -2953,13 +3012,27 @@ body.overview .node {
 <script>
 let viewportW = window.innerWidth, viewportH = window.innerHeight;
 const canvas = document.getElementById("canvas");
-const NW = 1760, NH = 1040, TOTAL = 16, SAFE_TOP = 24, SAFE_BOTTOM = 128;
-const IDS = [null, "n1", "n2", "n3", "n4", "n5", "n6", "n7", "n8", "n9", "n10", "n11", "n12", "n13", "n14", "n15", "n16"];
+const NW = 1760, NH = 1040, TOTAL = 17, SAFE_TOP = 24, SAFE_BOTTOM = 128;
+const IDS = [null, "n1", "n2", "n3", "n4", "n5", "n6", "n7", "n8", "n9", "n10", "n11", "n17", "n12", "n13", "n14", "n15", "n16"];
 const CENTERS = [
-  {cx: 6200, cy: 5000}, {cx: 6200, cy: 950}, {cx: 7750, cy: 1258}, {cx: 9064, cy: 2136}, {cx: 9942, cy: 3450},
-  {cx: 10250, cy: 5000}, {cx: 9942, cy: 6550}, {cx: 9064, cy: 7864}, {cx: 7750, cy: 8742}, {cx: 6200, cy: 9050},
-  {cx: 4650, cy: 8742}, {cx: 3336, cy: 7864}, {cx: 2458, cy: 6550}, {cx: 2150, cy: 5000}, {cx: 2458, cy: 3450},
-  {cx: 3336, cy: 2136}, {cx: 4650, cy: 1258}
+  {cx: 6200, cy: 5000},
+  {cx: 6200, cy: 950},
+  {cx: 7663, cy: 1223},
+  {cx: 8928, cy: 2007},
+  {cx: 9825, cy: 3195},
+  {cx: 10233, cy: 4626},
+  {cx: 10095, cy: 6108},
+  {cx: 9432, cy: 7441},
+  {cx: 8332, cy: 8443},
+  {cx: 6944, cy: 8981},
+  {cx: 5456, cy: 8981},
+  {cx: 4068, cy: 8443},
+  {cx: 2968, cy: 7441},
+  {cx: 2305, cy: 6108},
+  {cx: 2167, cy: 4626},
+  {cx: 2575, cy: 3195},
+  {cx: 3472, cy: 2007},
+  {cx: 4737, cy: 1223}
 ];
 let VIEWS = [], cur = 0;
 
